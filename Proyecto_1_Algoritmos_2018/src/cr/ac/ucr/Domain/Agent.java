@@ -1,7 +1,7 @@
 /*
  * Equipo de trabajo para el proyecto 1 de Algoritmos 2018
  */
-package ac.cr.ucr.Domain;
+package cr.ac.ucr.Domain;
 
 /**
  * Objeto que contiene todos los Datos de los clientes de nuestra aplicacion

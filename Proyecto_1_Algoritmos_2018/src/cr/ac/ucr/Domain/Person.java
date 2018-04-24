@@ -1,7 +1,7 @@
 /*
  * Equipo de trabajo para el proyecto 1 de Algoritmos 2018
  */
-package ac.cr.ucr.Domain;
+package cr.ac.ucr.Domain;
 
 /**
  * Clase abstracta que hereda a Agente, Cliente, y Administrador
