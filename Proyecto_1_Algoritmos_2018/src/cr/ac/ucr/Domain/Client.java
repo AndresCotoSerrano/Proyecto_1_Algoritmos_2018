@@ -14,25 +14,10 @@ import java.io.Serializable;
  */
 public class Client extends Person implements Serializable {
 
-    String province;
-
-    public Client(String provincia, String name, String email, String phone) {
-        super(name, email, phone);
-        this.province = provincia;
+    public Client(String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address) {
+        super(ID, name, lastName1, lastName2, email, phone, province, address);
     }
 
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString()+ "Client{" + "province=" + province + '}';
-    }
-    
+   
 
 }

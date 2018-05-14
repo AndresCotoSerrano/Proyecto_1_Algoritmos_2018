@@ -22,17 +22,24 @@ public abstract class Person implements Serializable {
     String province;
     String address;
 
-    public Person(String name, String email, String phone) {
+    public Person(String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address) {
+        this.ID = ID;
         this.name = name;
+        this.lastName1 = lastName1;
+        this.lastName2 = lastName2;
         this.email = email;
         this.phone = phone;
+        this.province = province;
+        this.address = address;
     }
 
-    public Person(String name, String email) {
-        this.name = name;
-        this.email = email;
+    public String getID() {
+        return ID;
     }
 
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 
     public String getName() {
         return name;
@@ -40,6 +47,22 @@ public abstract class Person implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLastName1() {
+        return lastName1;
+    }
+
+    public void setLastName1(String lastName1) {
+        this.lastName1 = lastName1;
+    }
+
+    public String getLastName2() {
+        return lastName2;
+    }
+
+    public void setLastName2(String lastName2) {
+        this.lastName2 = lastName2;
     }
 
     public String getEmail() {
@@ -58,9 +81,27 @@ public abstract class Person implements Serializable {
         this.phone = phone;
     }
 
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "Person{" + "name=" + name + ", email=" + email + ", phone=" + phone + '}';
+        return "Person{" + "ID=" + ID + ", name=" + name + ", lastName1=" + lastName1 + ", lastName2=" + lastName2 + ", email=" + email + ", phone=" + phone + ", province=" + province + ", address=" + address + '}';
     }
+
+   
 
 }
