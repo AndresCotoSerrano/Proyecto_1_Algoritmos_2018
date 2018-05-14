@@ -6,12 +6,14 @@
 package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Client;
+import cr.ac.ucr.Files.ClientFile;
 
 /**
  *
  * @author Melvin
  */
 public class Insert_Client extends javax.swing.JFrame {
+    ClientFile clietfile;
      /**
      * Creates new form Insert_Client
      */
@@ -28,6 +30,7 @@ public class Insert_Client extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         lbl_InsertClient = new javax.swing.JLabel();
         lbl_Name = new javax.swing.JLabel();
         lbl_Email = new javax.swing.JLabel();
@@ -46,6 +49,8 @@ public class Insert_Client extends javax.swing.JFrame {
         tft_LastName2 = new javax.swing.JTextField();
         lbl_Address = new javax.swing.JLabel();
         tft_Address = new javax.swing.JTextField();
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,7 +171,7 @@ public class Insert_Client extends javax.swing.JFrame {
 
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
      Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
-   
+   clietfile =new ClientFile();
 
 
 
@@ -210,6 +215,7 @@ public class Insert_Client extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Insert;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_Address;
     private javax.swing.JLabel lbl_Email;
     private javax.swing.JLabel lbl_ID;
