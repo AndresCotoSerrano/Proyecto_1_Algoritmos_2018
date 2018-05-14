@@ -51,18 +51,16 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tft_Email" pref="214" max="32767" attributes="0"/>
-                                      <Component id="tft_Phone" pref="214" max="32767" attributes="0"/>
-                                      <Component id="tft_Province" alignment="0" pref="214" max="32767" attributes="0"/>
+                                      <Component id="tft_Email" max="32767" attributes="0"/>
+                                      <Component id="tft_Phone" max="32767" attributes="0"/>
+                                      <Component id="tft_Province" alignment="0" max="32767" attributes="0"/>
                                       <Component id="tft_Address" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btn_Insert" alignment="1" min="-2" pref="214" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="btn_Insert" pref="214" max="32767" attributes="0"/>
-                                      <Component id="lbl_InsertClient" pref="214" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="lbl_InsertClient" min="-2" pref="214" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -81,7 +79,12 @@
                       <Component id="tft_LastName2" alignment="1" min="-2" pref="222" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="187" max="32767" attributes="0"/>
+              <EmptySpace pref="222" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lbl_Message" min="-2" pref="360" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,9 +133,11 @@
                   <Component id="lbl_Address" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tft_Address" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="155" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lbl_Message" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="btn_Insert" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+              <EmptySpace pref="212" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -209,6 +214,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tft_Address">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_Message">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel2"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

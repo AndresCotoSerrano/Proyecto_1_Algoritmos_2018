@@ -49,6 +49,7 @@ public class Insert_Client extends javax.swing.JFrame {
         tft_LastName2 = new javax.swing.JTextField();
         lbl_Address = new javax.swing.JLabel();
         tft_Address = new javax.swing.JTextField();
+        lbl_Message = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -80,6 +81,8 @@ public class Insert_Client extends javax.swing.JFrame {
 
         lbl_Address.setText("Exactly Address");
 
+        lbl_Message.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,15 +106,14 @@ public class Insert_Client extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(42, 42, 42)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(tft_Email, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                        .addComponent(tft_Phone, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                        .addComponent(tft_Province, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                        .addComponent(tft_Address)))
+                                        .addComponent(tft_Email)
+                                        .addComponent(tft_Phone)
+                                        .addComponent(tft_Province)
+                                        .addComponent(tft_Address)
+                                        .addComponent(btn_Insert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(50, 50, 50)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btn_Insert, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                        .addComponent(lbl_InsertClient, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)))
+                                    .addComponent(lbl_InsertClient, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(42, 42, 42)
                                     .addComponent(tft_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -122,7 +124,11 @@ public class Insert_Client extends javax.swing.JFrame {
                                         .addComponent(tft_LastName1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addComponent(lbl_Name)
                         .addComponent(tft_LastName2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_Message, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,9 +167,11 @@ public class Insert_Client extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_Address)
                     .addComponent(tft_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_Message)
+                .addGap(22, 22, 22)
                 .addComponent(btn_Insert)
-                .addGap(111, 111, 111))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         pack();
@@ -172,6 +180,7 @@ public class Insert_Client extends javax.swing.JFrame {
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
      Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
    clietfile =new ClientFile();
+   lbl_Message.setText(clietfile.writeClients(client,true));
 
 
 
@@ -222,6 +231,7 @@ public class Insert_Client extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_InsertClient;
     private javax.swing.JLabel lbl_LastName1;
     private javax.swing.JLabel lbl_LastName2;
+    private javax.swing.JLabel lbl_Message;
     private javax.swing.JLabel lbl_Name;
     private javax.swing.JLabel lbl_Phone;
     private javax.swing.JLabel lbl_Province;
