@@ -3,13 +3,15 @@
  */
 package cr.ac.ucr.Domain;
 
+import java.io.Serializable;
+
 /**
  * Clase abstracta que hereda a Agente, Cliente, y Administrador
  *
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin
  * @version 1.0
  */
-public abstract class Person {
+public abstract class Person implements Serializable {
 
     String name;
     String email;

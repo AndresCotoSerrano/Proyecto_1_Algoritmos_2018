@@ -3,13 +3,15 @@
  */
 package cr.ac.ucr.Domain;
 
+import java.io.Serializable;
+
 /**
  * Objeto que contiene todos los Datos de los clientes de nuestra aplicacion
  *
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin
  * @version 1.0
  */
-public class Agent extends Person {
+public class Agent extends Person implements Serializable {
 
     String user;
     String code;

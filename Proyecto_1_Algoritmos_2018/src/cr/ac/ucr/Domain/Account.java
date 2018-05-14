@@ -5,13 +5,15 @@
  */
 package cr.ac.ucr.Domain;
 
+import java.io.Serializable;
+
 /**
  * Informacion necesaria de la cuenta
  *
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin
  * @version 1.0
  */
-public class Account {
+public class Account implements Serializable {
 
     String user;
     String pass;

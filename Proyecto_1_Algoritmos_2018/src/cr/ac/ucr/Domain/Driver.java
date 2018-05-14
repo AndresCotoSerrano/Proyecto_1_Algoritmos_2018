@@ -3,6 +3,8 @@
  */
 package cr.ac.ucr.Domain;
 
+import java.io.Serializable;
+
 /**
  * Objeto que contiene todos los Datos de los conductores encargados de
  * transportar los pedidos
@@ -10,7 +12,7 @@ package cr.ac.ucr.Domain;
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin
  * @version 1.0
  */
-public class Driver extends Person {
+public class Driver extends Person implements Serializable {
 
     String typeVehicule;
     String age;

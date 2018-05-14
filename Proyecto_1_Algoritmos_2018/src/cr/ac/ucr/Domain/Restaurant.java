@@ -4,13 +4,14 @@
 package cr.ac.ucr.Domain;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 /**
  *Objeto que contiene todos los Datos de los restaurante afiliados a nuestra aplicacion
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin
  * @version 1.0
  */
-public class Restaurant {
+public class Restaurant implements Serializable {
     
     BufferedImage logo;
     String name;

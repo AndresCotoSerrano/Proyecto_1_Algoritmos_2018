@@ -3,6 +3,8 @@
  */
 package cr.ac.ucr.Domain;
 
+import java.io.Serializable;
+
 /**
  * Objeto que contiene todos los Datos del Agente de ordenes, que se encarga de
  * recibir las ordenes de los clientes y ejecutar el pedido
@@ -10,7 +12,7 @@ package cr.ac.ucr.Domain;
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin
  * @version 1.0
  */
-public class Client extends Person {
+public class Client extends Person implements Serializable {
 
     String province;
 
