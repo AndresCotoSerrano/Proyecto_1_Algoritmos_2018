@@ -13,9 +13,14 @@ import java.io.Serializable;
  */
 public abstract class Person implements Serializable {
 
+    String ID;
     String name;
+    String lastName1;
+    String lastName2;
     String email;
     String phone;
+    String province;
+    String address;
 
     public Person(String name, String email, String phone) {
         this.name = name;
