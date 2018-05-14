@@ -178,6 +178,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Insert"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_InsertActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_LastName1">
       <Properties>

@@ -5,13 +5,14 @@
  */
 package cr.ac.ucr.GUI;
 
+import cr.ac.ucr.Domain.Client;
+
 /**
  *
  * @author Melvin
  */
 public class Insert_Client extends javax.swing.JFrame {
-
-    /**
+     /**
      * Creates new form Insert_Client
      */
     public Insert_Client() {
@@ -62,6 +63,11 @@ public class Insert_Client extends javax.swing.JFrame {
         lbl_ID.setText("ID");
 
         btn_Insert.setText("Insert");
+        btn_Insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_InsertActionPerformed(evt);
+            }
+        });
 
         lbl_LastName1.setText("LastName1");
 
@@ -157,6 +163,15 @@ public class Insert_Client extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
+     Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
+   
+
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_InsertActionPerformed
 
     /**
      * @param args the command line arguments
