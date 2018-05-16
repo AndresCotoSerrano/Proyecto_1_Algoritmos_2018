@@ -101,7 +101,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(JL_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
 
         JL_Img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/login1.jpg"))); // NOI18N
-        getContentPane().add(JL_Img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 420));
+        getContentPane().add(JL_Img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 700, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
