@@ -21,11 +21,13 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+
     @Override
-    public Image getIconImage(){
+    public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("cr/ac/ucr/Img/icono.png"));
         return retValue;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -107,7 +109,11 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JB_EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_EnterActionPerformed
-        // TODO add your handling code here:
+        if (this.JT_User.getText().equals("admin") && this.JT_Password.getText().equals("admin")) {
+            Administrator admin = new Administrator();
+            admin.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_JB_EnterActionPerformed
 
     private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
@@ -119,7 +125,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_JT_UserActionPerformed
 
     private void JT_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_PasswordActionPerformed
-        // TODO add your handling code here:
+        if (this.JT_User.getText().equals("admin") && this.JT_Password.getText().equals("admin")) {
+            Administrator admin = new Administrator();
+            admin.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_JT_PasswordActionPerformed
 
     /**
