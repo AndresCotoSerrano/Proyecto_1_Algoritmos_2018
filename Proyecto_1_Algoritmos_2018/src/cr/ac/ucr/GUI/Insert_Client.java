@@ -7,6 +7,7 @@ package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Client;
 import cr.ac.ucr.Files.ClientFile;
+import java.util.LinkedList;
 
 /**
  *
@@ -14,6 +15,7 @@ import cr.ac.ucr.Files.ClientFile;
  */
 public class Insert_Client extends javax.swing.JFrame {
     ClientFile clietfile;
+    LinkedList<Client> linkedListClient = new LinkedList<>();
      /**
      * Creates new form Insert_Client
      */
@@ -178,9 +180,14 @@ public class Insert_Client extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
-     Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
-   clietfile =new ClientFile();
-   lbl_Message.setText(clietfile.writeClients(client,true));
+
+ Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
+        linkedListClient.add(client);
+
+   // Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
+//   clietfile =new ClientFile();
+//   lbl_Message.setText(clietfile.writeClients(client,true));
+
 
 
 
