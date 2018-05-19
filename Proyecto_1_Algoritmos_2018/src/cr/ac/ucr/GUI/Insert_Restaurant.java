@@ -7,7 +7,7 @@ package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Clase_Prueba;
 import cr.ac.ucr.Domain.Image_Panel;
-import cr.ac.ucr.Files.Loan_Logo;
+import cr.ac.ucr.Files.LoanLogo;
 import java.awt.image.BufferedImage;
 import javax.swing.JLabel;
 
@@ -180,7 +180,7 @@ public class Insert_Restaurant extends javax.swing.JFrame {
 
     private void btn_Load_LogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Load_LogoActionPerformed
         // TODO add your handling code here:
-        Loan_Logo loan = new Loan_Logo();
+        LoanLogo loan = new LoanLogo();
         Clase_Prueba prueba = new Clase_Prueba();
         JLabel newLabel = new JLabel();
         

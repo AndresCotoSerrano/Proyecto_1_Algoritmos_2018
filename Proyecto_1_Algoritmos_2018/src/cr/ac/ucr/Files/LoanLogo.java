@@ -11,7 +11,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-public class Loan_Logo {
+public class LoanLogo {
 
     
     public BufferedImage ImageChooser() throws IOException {
