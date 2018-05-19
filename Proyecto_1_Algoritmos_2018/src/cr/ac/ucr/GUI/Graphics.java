@@ -276,7 +276,27 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      
+      DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
+      line_chart_dataset.addValue( 15 , "McDonnald" , "Enero" );
+      line_chart_dataset.addValue( 30 , "McDonnald" , "Febrero" );
+      line_chart_dataset.addValue( 60 , "McDonnald" , "Marzo" );
+      line_chart_dataset.addValue( 120 , "KFC" , "Enero" );
+      line_chart_dataset.addValue( 240 , "KFC" , "Febrero" ); 
+      line_chart_dataset.addValue( 300 , "KFC" , "Marzo" );
+      line_chart_dataset.addValue( 90 , "Burguer King" , "Enero" );
+      line_chart_dataset.addValue( 59 , "Burguer King" , "Febrero" ); 
+      line_chart_dataset.addValue( 30 , "Burguer King" , "Marzo" );
+
+      JFreeChart lineChartObject = ChartFactory.createLineChart(
+         "Ventas por Restaurante","Meses",
+         "ventas",
+         line_chart_dataset,PlotOrientation.VERTICAL,
+         true,true,false);
+       ChartPanel panel = new ChartPanel(lineChartObject);        
+        jPanel_graphics.setLayout(new java.awt.BorderLayout());
+        jPanel_graphics.add(panel);   
+        jPanel_graphics.validate();
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
