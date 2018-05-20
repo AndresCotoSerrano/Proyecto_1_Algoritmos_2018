@@ -13,6 +13,8 @@ import java.awt.Toolkit;
  * @author deltadragon
  */
 public class Login extends javax.swing.JFrame {
+    
+    static ThreadWriteFile threadFile = new ThreadWriteFile();;
 
     /**
      * Creates new form Login1
@@ -136,6 +138,10 @@ public class Login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        //Inicia el hilo que guarda en los archivos los datos de las TDA a cada 20 Segundos
+        threadFile.start();
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
