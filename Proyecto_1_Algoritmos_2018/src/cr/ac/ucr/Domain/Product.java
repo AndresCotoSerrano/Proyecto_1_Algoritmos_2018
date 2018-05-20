@@ -10,6 +10,6 @@ import java.io.Serializable;
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin
  * @version 1.0
  */
-public class Product implements Serializable {
+public class Product {
     
 }

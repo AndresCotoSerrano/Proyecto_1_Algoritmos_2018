@@ -5,17 +5,26 @@
  */
 package cr.ac.ucr.GUI;
 
+import cr.ac.ucr.Domain.Agent;
+import java.util.LinkedList;
+
 /**
  *
  * @author Melvin
  */
 public class Insert_Agent extends javax.swing.JFrame {
+    
+    LinkedList<Agent> linkedAgent = new LinkedList<>();
 
+    int IDAgent = 0;
+    
+    
     /**
      * Creates new form Insert_Agent
      */
     public Insert_Agent() {
         initComponents();
+        lbl_ID2.setText(IDAgent()+"");
     }
 
     /**
@@ -27,95 +36,193 @@ public class Insert_Agent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        lbl_Insert_Agent = new javax.swing.JLabel();
+        lbl_Name = new javax.swing.JLabel();
+        lbl_User = new javax.swing.JLabel();
+        lbl_Email = new javax.swing.JLabel();
+        lbl_Code = new javax.swing.JLabel();
+        tft_Name = new javax.swing.JTextField();
+        tft_User = new javax.swing.JTextField();
+        tft_Email = new javax.swing.JTextField();
+        tft_Code = new javax.swing.JTextField();
+        btn_Insert_Agemt = new javax.swing.JButton();
+        lbl_ID = new javax.swing.JLabel();
+        lbl_ID2 = new javax.swing.JLabel();
+        lbl_LastName1 = new javax.swing.JLabel();
+        lbl_LastName2 = new javax.swing.JLabel();
+        tft_LastName2 = new javax.swing.JTextField();
+        tft_LastName1 = new javax.swing.JTextField();
+        lbl_Phone = new javax.swing.JLabel();
+        tft_Phone = new javax.swing.JTextField();
+        lbl_Province = new javax.swing.JLabel();
+        lbl_Location = new javax.swing.JLabel();
+        tft_Province = new javax.swing.JTextField();
+        tft_Location = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
-        jLabel1.setText("Insert Agent");
+        lbl_Insert_Agent.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_Insert_Agent.setText("Insert Agent");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("Name");
+        lbl_Name.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Name.setText("Name");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("User");
+        lbl_User.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_User.setText("User");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("E-mail");
+        lbl_Email.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Email.setText("E-mail");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("Code");
+        lbl_Code.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Code.setText("Code");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setText("Insert");
+        btn_Insert_Agemt.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btn_Insert_Agemt.setText("Insert");
+        btn_Insert_Agemt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Insert_AgemtActionPerformed(evt);
+            }
+        });
+
+        lbl_ID.setText("ID");
+
+        lbl_LastName1.setText("LastName1");
+
+        lbl_LastName2.setText("LastName2");
+
+        lbl_Phone.setText("Phone");
+
+        lbl_Province.setText("Province");
+
+        lbl_Location.setText("Location");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(lbl_Email)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_Code)
+                                    .addComponent(lbl_User))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(96, 96, 96)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(79, 79, 79)
+                                .addComponent(lbl_ID2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)))))
+                                .addGap(106, 106, 106)
+                                .addComponent(lbl_Insert_Agent, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(tft_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(171, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_Name)
+                                    .addComponent(lbl_LastName1)
+                                    .addComponent(lbl_LastName2)
+                                    .addComponent(lbl_Phone)
+                                    .addComponent(lbl_Province)
+                                    .addComponent(lbl_Location))
+                                .addGap(60, 60, 60)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(tft_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tft_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tft_Province, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(tft_LastName1)
+                                            .addComponent(tft_LastName2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                                            .addComponent(tft_Name, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(tft_Location, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tft_User, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lbl_ID))
+                        .addGap(198, 198, 198))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(btn_Insert_Agemt, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(143, 143, 143))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
+                .addComponent(lbl_Insert_Agent, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
+                    .addComponent(lbl_ID)
+                    .addComponent(lbl_ID2))
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(89, 89, 89)
+                    .addComponent(lbl_Name)
+                    .addComponent(tft_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(85, 85, 85)
+                    .addComponent(lbl_LastName1)
+                    .addComponent(tft_LastName2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lbl_LastName2)
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(tft_LastName1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(99, 99, 99)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(171, Short.MAX_VALUE))
+                    .addComponent(lbl_Email)
+                    .addComponent(tft_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(lbl_Phone))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(tft_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_Province)
+                    .addComponent(tft_Province, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_Location)
+                    .addComponent(tft_Location, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_User)
+                    .addComponent(tft_User, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_Code)
+                    .addComponent(tft_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
+                .addComponent(btn_Insert_Agemt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_Insert_AgemtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Insert_AgemtActionPerformed
+        
+        Agent agent = new Agent(tft_User.getText(), tft_Code.getText(), "123", lbl_ID2.getText(), tft_Name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Location.getText());
+        
+        linkedAgent.add(agent);
+    }//GEN-LAST:event_btn_Insert_AgemtActionPerformed
+
+    
+    public int IDAgent(){
+        IDAgent++;
+        return IDAgent;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -152,15 +259,27 @@ public class Insert_Agent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JButton btn_Insert_Agemt;
+    private javax.swing.JLabel lbl_Code;
+    private javax.swing.JLabel lbl_Email;
+    private javax.swing.JLabel lbl_ID;
+    private javax.swing.JLabel lbl_ID2;
+    private javax.swing.JLabel lbl_Insert_Agent;
+    private javax.swing.JLabel lbl_LastName1;
+    private javax.swing.JLabel lbl_LastName2;
+    private javax.swing.JLabel lbl_Location;
+    private javax.swing.JLabel lbl_Name;
+    private javax.swing.JLabel lbl_Phone;
+    private javax.swing.JLabel lbl_Province;
+    private javax.swing.JLabel lbl_User;
+    private javax.swing.JTextField tft_Code;
+    private javax.swing.JTextField tft_Email;
+    private javax.swing.JTextField tft_LastName1;
+    private javax.swing.JTextField tft_LastName2;
+    private javax.swing.JTextField tft_Location;
+    private javax.swing.JTextField tft_Name;
+    private javax.swing.JTextField tft_Phone;
+    private javax.swing.JTextField tft_Province;
+    private javax.swing.JTextField tft_User;
     // End of variables declaration//GEN-END:variables
 }
