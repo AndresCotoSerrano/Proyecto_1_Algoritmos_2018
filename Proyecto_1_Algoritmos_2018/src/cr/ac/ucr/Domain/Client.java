@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin
  * @version 1.0
  */
-public class Client extends Person implements Serializable {
+public class Client extends Person {
 
     public Client(String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address) {
         super(ID, name, lastName1, lastName2, email, phone, province, address);

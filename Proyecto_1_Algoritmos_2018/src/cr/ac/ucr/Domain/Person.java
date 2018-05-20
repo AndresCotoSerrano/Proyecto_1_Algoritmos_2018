@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin
  * @version 1.0
  */
-public abstract class Person implements Serializable {
+public abstract class Person {
 
     String ID;
     String name;

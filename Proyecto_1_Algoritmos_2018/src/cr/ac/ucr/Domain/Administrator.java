@@ -1,48 +1,23 @@
-/*
- * Equipo de trabajo para el proyecto 1 de Algoritmos 2018
- */
+
 package cr.ac.ucr.Domain;
 
-import java.io.Serializable;
 
-/**
- * Objeto que contiene todos los Datos de los clientes de nuestra aplicacion
- *
- * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin
- * @version 1.0
- */
-public class Agent extends Person {
-
-    String user;
-    String code;
+public class Administrator extends Person{
+    
     String password;
-
-    public Agent(String user, String code,String password, String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address) {
+    int countID = 0;
+    
+    public Administrator(String password,String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address) {
         super(ID, name, lastName1, lastName2, email, phone, province, address);
-        this.user = user;
-        this.code = code;
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Agent{" + "user=" + user + ", code=" + code + '}';
+    public String getPassword() {
+        return password;
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getID() {
@@ -109,15 +84,11 @@ public class Agent extends Person {
         this.address = address;
     }
 
-    public String getPassword() {
-        return password;
+    @Override
+    public String toString() {
+        return "Administrator{" + "password=" + password + '}';
     }
+    
+    
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-   
-
-  
 }
