@@ -115,6 +115,11 @@ public class Order implements Serializable {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" + "Cliente=" + Cliente + ", NumOrder=" + NumOrder + ", agente=" + agente + ", date=" + date + ", provincia=" + provincia + ", conductor=" + conductor + ", restauran=" + restauran + ", product=" + product + ", quantity=" + quantity + ", amount=" + amount + '}';
+    }
     
     
 

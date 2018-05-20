@@ -6,7 +6,14 @@
 package cr.ac.ucr.GUI;
 
 import com.toedter.calendar.JCalendar;
+import cr.ac.ucr.Domain.Order;
+import cr.ac.ucr.Logic.LinkedStack;
+import cr.ac.ucr.Logic.StackException.PilaException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -17,9 +24,10 @@ public class Administrator extends javax.swing.JFrame {
     /**
      * Creates new form Adminitrator
      */
-    public Administrator() {
+    public Administrator() throws PilaException {
         initComponents();
         this.setLocationRelativeTo(null);
+        llenaTabla();
 
     }
 
@@ -176,12 +184,52 @@ public class Administrator extends javax.swing.JFrame {
     private void JT_DriverSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_DriverSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JT_DriverSearchActionPerformed
-    private ArrayList ordenesEnPilas(){
-        return null;
+    /**
+     * Metodo en el cual se llena una pila con los objetos order
+     *
+     * @return LinkedStack
+     * @throws PilaException
+     */
+    private LinkedStack saveOrders() throws PilaException {
+        LinkedStack stack = new LinkedStack();
+        Order order1 = null;
+
+        for (int i = 0; i < 30; i++) {
+            order1 = new Order("Cliente" + i, i, "Agente" + i, "Date" + i, "Province" + i, "Driver" + i, "restautarant" + i, "product" + i,
+                    +i, i);
+            stack.push(order1);
+        }
+
+        return stack;
     }
-    private void llenaTabla(){
-    
-     }
+
+    /**
+     * llena la tabla con las ordenes desde una pila
+     *
+     * @throws PilaException
+     */
+    private void llenaTabla() throws PilaException {
+        LinkedStack stack = saveOrders();
+        ArrayList<Order> list = new ArrayList<>();
+        DefaultTableModel model = (DefaultTableModel) this.JT_Reporte.getModel();
+        model.setRowCount(0);
+        while (!stack.isEmpty()) {
+            list.add((Order) stack.pop());
+        }
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+            model.addRow(O);
+            Order getP = (Order) list.get(i);
+            model.setValueAt(getP.getCliente(), i, 0);
+            model.setValueAt(getP.getNumOrder(), i, 1);
+            model.setValueAt(getP.getAgente(), i, 2);
+            model.setValueAt(getP.getDate(), i, 3);
+            model.setValueAt(getP.getAmount(), i, 4);
+            model.setValueAt(getP.getProvincia(), i, 5);
+            model.setValueAt(getP.getConductor(), i, 6);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -213,7 +261,11 @@ public class Administrator extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Administrator().setVisible(true);
+                try {
+                    new Administrator().setVisible(true);
+                } catch (PilaException ex) {
+                    System.out.println("algo fallo");
+                }
             }
         });
     }

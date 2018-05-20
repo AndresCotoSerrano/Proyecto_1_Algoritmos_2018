@@ -8,12 +8,12 @@ package cr.ac.ucr.GUI;
 
 
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfTemplate;
-import com.itextpdf.text.pdf.PdfWriter;
-import cr.ac.ucr.Logic.creatorPdf;
+//import com.itextpdf.text.Document;
+//import com.itextpdf.text.DocumentException;
+//import com.itextpdf.text.pdf.PdfContentByte;
+//import com.itextpdf.text.pdf.PdfTemplate;
+//import com.itextpdf.text.pdf.PdfWriter;
+//import cr.ac.ucr.Logic.creatorPdf;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
@@ -315,8 +315,8 @@ public class Graphics extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    creatorPdf creatorpdf=new creatorPdf();
-     creatorpdf.pdfCreator(jPanel_graphics);
+//    creatorPdf creatorpdf=new creatorPdf();
+//     creatorpdf.pdfCreator(jPanel_graphics);
     }//GEN-LAST:event_jButton3ActionPerformed
     
     /**

@@ -80,7 +80,7 @@ public class LinkedStack implements Stack {
         if (isEmpty()) {
             throw new PilaException("Esta vacia");
         } else {
-            Object temp = this.top;
+            Object temp = this.top.element;
             this.top = this.top.next;
             this.cont--;
             return temp;

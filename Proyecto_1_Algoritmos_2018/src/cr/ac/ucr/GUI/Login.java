@@ -5,8 +5,11 @@
  */
 package cr.ac.ucr.GUI;
 
+import cr.ac.ucr.Logic.StackException.PilaException;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -112,9 +115,13 @@ public class Login extends javax.swing.JFrame {
 
     private void JB_EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_EnterActionPerformed
         if (this.JT_User.getText().equals("admin") && this.JT_Password.getText().equals("admin")) {
-            Administrator admin = new Administrator();
-            admin.setVisible(true);
-            this.dispose();
+            try {
+                Administrator admin = new Administrator();
+                admin.setVisible(true);
+                this.dispose();
+            } catch (PilaException ex) {
+                System.out.println("Algo fallo en el login");
+            }
         }
     }//GEN-LAST:event_JB_EnterActionPerformed
 
@@ -128,9 +135,13 @@ public class Login extends javax.swing.JFrame {
 
     private void JT_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_PasswordActionPerformed
         if (this.JT_User.getText().equals("admin") && this.JT_Password.getText().equals("admin")) {
-            Administrator admin = new Administrator();
-            admin.setVisible(true);
-            this.dispose();
+            try {
+                Administrator admin = new Administrator();
+                admin.setVisible(true);
+                this.dispose();
+            } catch (PilaException ex) {
+                System.out.println("Algo fallo en el login");;
+            }
         }
     }//GEN-LAST:event_JT_PasswordActionPerformed
 
