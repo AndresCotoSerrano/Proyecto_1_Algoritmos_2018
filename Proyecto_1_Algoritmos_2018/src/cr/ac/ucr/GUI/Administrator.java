@@ -5,15 +5,16 @@
  */
 package cr.ac.ucr.GUI;
 
-import com.toedter.calendar.JCalendar;
+
 import cr.ac.ucr.Domain.Order;
 import cr.ac.ucr.Logic.LinkedStack;
 import cr.ac.ucr.Logic.StackException.PilaException;
+import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import javax.swing.JScrollBar;
+
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
@@ -21,14 +22,15 @@ import javax.swing.table.TableModel;
  */
 public class Administrator extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Adminitrator
-     */
+    Dimension dimension;
+    int alto;
+    JScrollBar barra;
+    final int filas = 21;
+
     public Administrator() throws PilaException {
         initComponents();
         this.setLocationRelativeTo(null);
         llenaTabla();
-
     }
 
     /**
@@ -59,6 +61,8 @@ public class Administrator extends javax.swing.JFrame {
         JT_DriverSearch = new javax.swing.JTextField();
         JT_DateSearch = new calendario.DateTextField();
         JB_Search = new javax.swing.JButton();
+        JB_next = new javax.swing.JButton();
+        JB_Previous = new javax.swing.JButton();
         JL_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,6 +111,7 @@ public class Administrator extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        JT_Reporte.setAutoscrolls(false);
         JT_Table.setViewportView(JT_Reporte);
         if (JT_Reporte.getColumnModel().getColumnCount() > 0) {
             JT_Reporte.getColumnModel().getColumn(0).setResizable(false);
@@ -118,7 +123,7 @@ public class Administrator extends javax.swing.JFrame {
             JT_Reporte.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        getContentPane().add(JT_Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 1220, 370));
+        getContentPane().add(JT_Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 1220, 350));
 
         JB_LogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/favicon.png"))); // NOI18N
         JB_LogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -161,8 +166,24 @@ public class Administrator extends javax.swing.JFrame {
         JB_Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/lupa1.png"))); // NOI18N
         getContentPane().add(JB_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 10, 40, 40));
 
+        JB_next.setText("Next");
+        JB_next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_nextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_next, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 620, 90, -1));
+
+        JB_Previous.setText("Previous");
+        JB_Previous.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_PreviousActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_Previous, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 620, 90, -1));
+
         JL_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
-        getContentPane().add(JL_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 640));
+        getContentPane().add(JL_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,6 +192,7 @@ public class Administrator extends javax.swing.JFrame {
         Login login = new Login();
         login.setVisible(true);
         this.dispose();
+
     }//GEN-LAST:event_JB_LogOutActionPerformed
 
     private void JT_ClientSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_ClientSearchActionPerformed
@@ -184,6 +206,18 @@ public class Administrator extends javax.swing.JFrame {
     private void JT_DriverSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_DriverSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JT_DriverSearchActionPerformed
+
+    private void JB_PreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_PreviousActionPerformed
+        alto = this.JT_Reporte.getRowHeight() * (filas - 1);
+        barra = this.JT_Table.getVerticalScrollBar();
+        barra.setValue(barra.getValue() - alto);
+    }//GEN-LAST:event_JB_PreviousActionPerformed
+
+    private void JB_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_nextActionPerformed
+        alto = this.JT_Reporte.getRowHeight() * (filas - 1);
+        barra = this.JT_Table.getVerticalScrollBar();
+        barra.setValue(barra.getValue() + alto);
+    }//GEN-LAST:event_JB_nextActionPerformed
     /**
      * Metodo en el cual se llena una pila con los objetos order
      *
@@ -194,7 +228,7 @@ public class Administrator extends javax.swing.JFrame {
         LinkedStack stack = new LinkedStack();
         Order order1 = null;
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 45; i++) {
             order1 = new Order("Cliente" + i, i, "Agente" + i, "Date" + i, "Province" + i, "Driver" + i, "restautarant" + i, "product" + i,
                     +i, i);
             stack.push(order1);
@@ -226,7 +260,7 @@ public class Administrator extends javax.swing.JFrame {
             model.setValueAt(getP.getDate(), i, 3);
             model.setValueAt(getP.getAmount(), i, 4);
             model.setValueAt(getP.getProvincia(), i, 5);
-            model.setValueAt(getP.getConductor(), i, 6);
+            model.setValueAt(getP.getDriver(), i, 6);
         }
     }
 
@@ -273,7 +307,9 @@ public class Administrator extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JB_Charts;
     private javax.swing.JButton JB_LogOut;
+    private javax.swing.JButton JB_Previous;
     private javax.swing.JButton JB_Search;
+    private javax.swing.JButton JB_next;
     private javax.swing.JLabel JL_Code;
     private javax.swing.JLabel JL_CodeAgent;
     private javax.swing.JLabel JL_Email;
