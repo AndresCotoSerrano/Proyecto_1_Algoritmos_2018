@@ -6,6 +6,7 @@
 package cr.ac.ucr.GUI;
 
 import com.toedter.calendar.JCalendar;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,7 +40,7 @@ public class Administrator extends javax.swing.JFrame {
         JL_CodeAgent = new javax.swing.JLabel();
         JL_EmailAgent = new javax.swing.JLabel();
         JT_Table = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JT_Reporte = new javax.swing.JTable();
         JB_LogOut = new javax.swing.JButton();
         JB_Charts = new javax.swing.JButton();
         JT_ClientSearch = new javax.swing.JTextField();
@@ -79,7 +80,7 @@ public class Administrator extends javax.swing.JFrame {
         getContentPane().add(JL_CodeAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 180, 30));
         getContentPane().add(JL_EmailAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 220, 30));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JT_Reporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -98,15 +99,15 @@ public class Administrator extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        JT_Table.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
-            jTable1.getColumnModel().getColumn(6).setResizable(false);
+        JT_Table.setViewportView(JT_Reporte);
+        if (JT_Reporte.getColumnModel().getColumnCount() > 0) {
+            JT_Reporte.getColumnModel().getColumn(0).setResizable(false);
+            JT_Reporte.getColumnModel().getColumn(1).setResizable(false);
+            JT_Reporte.getColumnModel().getColumn(2).setResizable(false);
+            JT_Reporte.getColumnModel().getColumn(3).setResizable(false);
+            JT_Reporte.getColumnModel().getColumn(4).setResizable(false);
+            JT_Reporte.getColumnModel().getColumn(5).setResizable(false);
+            JT_Reporte.getColumnModel().getColumn(6).setResizable(false);
         }
 
         getContentPane().add(JT_Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 1220, 370));
@@ -175,7 +176,12 @@ public class Administrator extends javax.swing.JFrame {
     private void JT_DriverSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_DriverSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JT_DriverSearchActionPerformed
-
+    private ArrayList ordenesEnPilas(){
+        return null;
+    }
+    private void llenaTabla(){
+    
+     }
     /**
      * @param args the command line arguments
      */
@@ -231,7 +237,7 @@ public class Administrator extends javax.swing.JFrame {
     private javax.swing.JTextField JT_DriverSearch;
     private javax.swing.JTextField JT_OrderSearch;
     private javax.swing.JTextField JT_ProvinceSearch;
+    private javax.swing.JTable JT_Reporte;
     private javax.swing.JScrollPane JT_Table;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
