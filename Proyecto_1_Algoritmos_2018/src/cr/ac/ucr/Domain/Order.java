@@ -17,8 +17,8 @@ public class Order implements Serializable {
     String agente;
     String date;
     String provincia;
-    String conductor;
-    String restauran;
+    String driver;
+    String restaurant;
     String product;
     int quantity;
     int amount;
@@ -29,8 +29,8 @@ public class Order implements Serializable {
         this.agente = agente;
         this.date = date;
         this.provincia = provincia;
-        this.conductor = conductor;
-        this.restauran = restauran;
+        this.driver = conductor;
+        this.restaurant = restauran;
         this.product = product;
         this.quantity = quantity;
         this.amount = amount;
@@ -76,20 +76,20 @@ public class Order implements Serializable {
         this.provincia = provincia;
     }
 
-    public String getConductor() {
-        return conductor;
+    public String getDriver() {
+        return driver;
     }
 
-    public void setConductor(String conductor) {
-        this.conductor = conductor;
+    public void setDriver(String conductor) {
+        this.driver = conductor;
     }
 
-    public String getRestauran() {
-        return restauran;
+    public String getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestauran(String restauran) {
-        this.restauran = restauran;
+    public void setRestaurant(String restauran) {
+        this.restaurant = restauran;
     }
 
     public String getProduct() {
@@ -118,7 +118,7 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        return "Order{" + "Cliente=" + Cliente + ", NumOrder=" + NumOrder + ", agente=" + agente + ", date=" + date + ", provincia=" + provincia + ", conductor=" + conductor + ", restauran=" + restauran + ", product=" + product + ", quantity=" + quantity + ", amount=" + amount + '}';
+        return "Order{" + "Cliente=" + Cliente + ", NumOrder=" + NumOrder + ", agente=" + agente + ", date=" + date + ", provincia=" + provincia + ", conductor=" + driver + ", restauran=" + restaurant + ", product=" + product + ", quantity=" + quantity + ", amount=" + amount + '}';
     }
     
     
