@@ -63,6 +63,7 @@ public class Administrator extends javax.swing.JFrame {
         JB_Search = new javax.swing.JButton();
         JB_next = new javax.swing.JButton();
         JB_Previous = new javax.swing.JButton();
+        JB_CreateAccount = new javax.swing.JButton();
         JL_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -182,6 +183,16 @@ public class Administrator extends javax.swing.JFrame {
         });
         getContentPane().add(JB_Previous, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 620, 90, -1));
 
+        JB_CreateAccount.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_CreateAccount.setForeground(new java.awt.Color(204, 204, 5));
+        JB_CreateAccount.setText("Create account");
+        JB_CreateAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_CreateAccountActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_CreateAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
+
         JL_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
         getContentPane().add(JL_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 660));
 
@@ -218,6 +229,12 @@ public class Administrator extends javax.swing.JFrame {
         barra = this.JT_Table.getVerticalScrollBar();
         barra.setValue(barra.getValue() + alto);
     }//GEN-LAST:event_JB_nextActionPerformed
+
+    private void JB_CreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CreateAccountActionPerformed
+        CreateAccount ca = new CreateAccount();
+        dispose();
+        ca.setVisible(true);
+    }//GEN-LAST:event_JB_CreateAccountActionPerformed
     /**
      * Metodo en el cual se llena una pila con los objetos order
      *
@@ -306,6 +323,7 @@ public class Administrator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JB_Charts;
+    private javax.swing.JButton JB_CreateAccount;
     private javax.swing.JButton JB_LogOut;
     private javax.swing.JButton JB_Previous;
     private javax.swing.JButton JB_Search;
