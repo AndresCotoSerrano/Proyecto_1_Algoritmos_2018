@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class CircularLinkedList {
+public class CircularLinkedList implements List{
 
     /**
  * Clase donde realizamos una lista circular doblemente enlazada y sus respectivos metodos
@@ -17,12 +17,12 @@ public class CircularLinkedList {
  *
  */
 
-public class ListaCircularDoble implements List {
+
 
     private Node start;
     private Node end;
 
-    public ListaCircularDoble() {
+    public CircularLinkedList() {
 
         this.start = null;
         this.end = null;
@@ -152,10 +152,10 @@ public class ListaCircularDoble implements List {
             auxNode.next = newNode;// Enlazamos el nuevo nodo
 
             // hacemos que fin apunte al nuevo nodo
-            end = newNode;
+            this.end = newNode;
 
             // Hacemos el enlace circular
-            end.next = start;
+            this.end.next = this.start;
 
             // Para que funcione el doble enlace
             newNode.previous = auxNode;
@@ -340,4 +340,4 @@ public class ListaCircularDoble implements List {
     }
     
 }
-}
+

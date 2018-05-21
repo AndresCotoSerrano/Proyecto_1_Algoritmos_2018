@@ -6,6 +6,8 @@
 package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.FileChooser;
+import cr.ac.ucr.Domain.Product;
+import cr.ac.ucr.Logic.CircularLinkedList;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.Icon;
@@ -20,13 +22,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Insert_Product extends javax.swing.JFrame {
 
     FileChooser filechooser = new FileChooser();
+  
 
     /**
      * Creates new form Insert_Product
      */
     public Insert_Product() {
         initComponents();
-        tfd_PathImage.setEditable(false);
+        tft_Path.setEditable(false);
     }
 
     /**
@@ -39,16 +42,16 @@ public class Insert_Product extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cb_Product = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tft_Name = new javax.swing.JTextField();
+        tfd_Cost = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        tfd_PathImage = new javax.swing.JTextField();
+        tft_Path = new javax.swing.JTextField();
         lbl_Image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,10 +59,10 @@ public class Insert_Product extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         jLabel1.setText("Insert Product");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Drink", "Foods", "Desserts", "Various" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cb_Product.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Drink", "Food", "Dessert", "Various" }));
+        cb_Product.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cb_ProductActionPerformed(evt);
             }
         });
 
@@ -77,6 +80,11 @@ public class Insert_Product extends javax.swing.JFrame {
         });
 
         jButton2.setText("Insert Product");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Path Image");
 
@@ -89,7 +97,7 @@ public class Insert_Product extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(301, 301, 301)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_Product, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(302, 302, 302)
@@ -106,9 +114,9 @@ public class Insert_Product extends javax.swing.JFrame {
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                                .addComponent(jTextField1)
-                                .addComponent(jTextField2)
-                                .addComponent(tfd_PathImage))))
+                                .addComponent(tft_Name)
+                                .addComponent(tfd_Cost)
+                                .addComponent(tft_Path))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(lbl_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -122,21 +130,21 @@ public class Insert_Product extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jLabel2)
                 .addGap(26, 26, 26)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_Product, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tft_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfd_Cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(tfd_PathImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tft_Path, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
@@ -147,9 +155,9 @@ public class Insert_Product extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cb_ProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_ProductActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cb_ProductActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
@@ -166,9 +174,9 @@ public class Insert_Product extends javax.swing.JFrame {
             File fileName = fileChooser.getSelectedFile();
 
             if ((fileName == null) || (fileName.getName().equals(""))) {
-                tfd_PathImage.setText("...");
+                tft_Path.setText("...");
             } else {
-                tfd_PathImage.setText(fileName.getAbsolutePath());
+                tft_Path.setText(fileName.getAbsolutePath());
             }
         }
 
@@ -180,11 +188,59 @@ public class Insert_Product extends javax.swing.JFrame {
 //    Icon icono = new ImageIcon(fot.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
 //    jLabel1.setIcon(icono);
 //    this.repaint();
-        ImageIcon icon = new ImageIcon(tfd_PathImage.getText());
+        ImageIcon icon = new ImageIcon(tft_Path.getText());
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_Image.getWidth(), lbl_Image.getHeight(), Image.SCALE_DEFAULT));
         lbl_Image.setIcon(icon2);
         this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      
+    
+    CircularLinkedList circularDrink = new CircularLinkedList();
+    CircularLinkedList circularFood = new CircularLinkedList();
+    CircularLinkedList circularDessert = new CircularLinkedList();
+    CircularLinkedList circularVarious = new CircularLinkedList();
+        
+    circularDrink.
+        
+//        circularFood = new CircularLinkedList();
+//        circularDessert = new CircularLinkedList();
+//        circularVarious = new CircularLinkedList();
+//        circularDrink = new CircularLinkedList();
+        String type = "";
+        
+        
+         
+        
+        
+        if(cb_Product.getSelectedItem().toString().equals("Drink")){
+            
+          type = "Drink";
+            Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+            
+          
+        }else if(cb_Product.getSelectedItem().toString().equals("Food")){
+          
+            type = "Food";
+            Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+            
+            
+        }else if(cb_Product.getSelectedItem().toString().equals("Dessert")){
+            
+            type = "Dessert";
+            Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+            
+            
+        }else{
+            type = "Various";
+            Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+            
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,17 +278,17 @@ public class Insert_Product extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cb_Product;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbl_Image;
-    private javax.swing.JTextField tfd_PathImage;
+    private javax.swing.JTextField tfd_Cost;
+    private javax.swing.JTextField tft_Name;
+    private javax.swing.JTextField tft_Path;
     // End of variables declaration//GEN-END:variables
 }
