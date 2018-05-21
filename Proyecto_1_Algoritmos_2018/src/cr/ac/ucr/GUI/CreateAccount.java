@@ -5,6 +5,11 @@
  */
 package cr.ac.ucr.GUI;
 
+import cr.ac.ucr.Domain.Account;
+import cr.ac.ucr.Files.Write_Read_Files;
+import java.io.PrintStream;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author deltadragon
@@ -30,13 +35,13 @@ public class CreateAccount extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         JT_UserName = new javax.swing.JTextField();
-        JT_Password = new javax.swing.JTextField();
         JC_isAdmin = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         JB_Accept = new javax.swing.JButton();
         JB_Cancel = new javax.swing.JButton();
+        JT_Password = new javax.swing.JPasswordField();
         JL_Foto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,13 +60,6 @@ public class CreateAccount extends javax.swing.JFrame {
             }
         });
         getContentPane().add(JT_UserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 210, 30));
-
-        JT_Password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JT_PasswordActionPerformed(evt);
-            }
-        });
-        getContentPane().add(JT_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 210, 30));
 
         JC_isAdmin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Admin", "Agent" }));
         JC_isAdmin.setToolTipText("");
@@ -88,6 +86,11 @@ public class CreateAccount extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
         JB_Accept.setText("Accept");
+        JB_Accept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_AcceptActionPerformed(evt);
+            }
+        });
         getContentPane().add(JB_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
 
         JB_Cancel.setText("Cancel");
@@ -97,6 +100,7 @@ public class CreateAccount extends javax.swing.JFrame {
             }
         });
         getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
+        getContentPane().add(JT_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 210, 30));
 
         JL_Foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
         getContentPane().add(JL_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 427, 308));
@@ -108,10 +112,6 @@ public class CreateAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JT_UserNameActionPerformed
 
-    private void JT_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_PasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JT_PasswordActionPerformed
-
     private void JC_isAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_isAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JC_isAdminActionPerformed
@@ -121,6 +121,22 @@ public class CreateAccount extends javax.swing.JFrame {
         dispose();
         l.setVisible(true);
     }//GEN-LAST:event_JB_CancelActionPerformed
+
+    private void JB_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AcceptActionPerformed
+        Write_Read_Files wr = new Write_Read_Files();
+        PrintStream ps = wr.getPrintStream("Account.txt");
+        if (this.JC_isAdmin.getSelectedItem().equals("Admin")) {
+            Account a = new Account(this.JT_UserName.getText(), this.JT_Password.getText(), true);
+            ps.println(a.getUser() + "     " + a.getPass() + "     " + a.getIsAdmin());
+        } else {
+            Account a = new Account(this.JT_UserName.getText(), this.JT_Password.getText(), false);
+            ps.println(a.getUser() + "     " + a.getPass() + "     " + a.getIsAdmin());
+        }
+        JOptionPane.showMessageDialog(null, "Datos ingresados con exito");
+        dispose();
+        Login l = new Login();
+        l.setVisible(true);
+    }//GEN-LAST:event_JB_AcceptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,7 +178,7 @@ public class CreateAccount extends javax.swing.JFrame {
     private javax.swing.JButton JB_Cancel;
     private javax.swing.JComboBox<String> JC_isAdmin;
     private javax.swing.JLabel JL_Foto;
-    private javax.swing.JTextField JT_Password;
+    private javax.swing.JPasswordField JT_Password;
     private javax.swing.JTextField JT_UserName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

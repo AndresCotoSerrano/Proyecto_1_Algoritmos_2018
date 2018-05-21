@@ -202,7 +202,7 @@ public class Insert_Product extends javax.swing.JFrame {
     CircularLinkedList circularDessert = new CircularLinkedList();
     CircularLinkedList circularVarious = new CircularLinkedList();
         
-    circularDrink.
+   // circularDrink.
         
 //        circularFood = new CircularLinkedList();
 //        circularDessert = new CircularLinkedList();
