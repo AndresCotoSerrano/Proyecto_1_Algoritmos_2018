@@ -30,7 +30,7 @@ public class Administrator extends javax.swing.JFrame {
     public Administrator() throws PilaException {
         initComponents();
         this.setLocationRelativeTo(null);
-        llenaTabla();
+        fillTable();
     }
 
     /**
@@ -259,7 +259,7 @@ public class Administrator extends javax.swing.JFrame {
      *
      * @throws PilaException
      */
-    private void llenaTabla() throws PilaException {
+    private void fillTable() throws PilaException {
         LinkedStack stack = saveOrders();
         ArrayList<Order> list = new ArrayList<>();
         DefaultTableModel model = (DefaultTableModel) this.JT_Reporte.getModel();
