@@ -167,21 +167,25 @@ public class CRUDs extends javax.swing.JFrame {
 
     private void JMI_InsertRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertRestaurantActionPerformed
         InsertRestaurant ir = new InsertRestaurant();
+        this.dispose();
         ir.setVisible(true);
     }//GEN-LAST:event_JMI_InsertRestaurantActionPerformed
 
     private void JMI_InsertAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAgentActionPerformed
         InsertAgent as = new InsertAgent();
+        this.dispose();
         as.setVisible(true);
     }//GEN-LAST:event_JMI_InsertAgentActionPerformed
 
     private void JMI_InsertProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertProductActionPerformed
         InsertProduct ip = new InsertProduct();
+        this.dispose();
         ip.setVisible(true);
     }//GEN-LAST:event_JMI_InsertProductActionPerformed
 
     private void JMI_InsertAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAdministratorActionPerformed
         InsertAdministrator ia = new InsertAdministrator();
+        this.dispose();
         ia.setVisible(true);
     }//GEN-LAST:event_JMI_InsertAdministratorActionPerformed
 

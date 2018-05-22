@@ -34,10 +34,9 @@ public class InsertProduct extends javax.swing.JFrame {
      * Creates new form Insert_Product
      */
     public InsertProduct() {
-        
+
         initComponents();
-        
-        
+
         tft_Path.setEditable(false);
     }
 
@@ -64,8 +63,10 @@ public class InsertProduct extends javax.swing.JFrame {
         lbl_Image = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        JB_Cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         jLabel1.setText("Insert Product");
@@ -103,6 +104,13 @@ public class InsertProduct extends javax.swing.JFrame {
 
         jLabel7.setText("jLabel7");
 
+        JB_Cancel.setText("Cancel");
+        JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_CancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,6 +126,12 @@ public class InsertProduct extends javax.swing.JFrame {
                         .addGap(302, 302, 302)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(lbl_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
@@ -126,21 +140,18 @@ public class InsertProduct extends javax.swing.JFrame {
                                 .addComponent(jLabel3)))
                         .addGap(87, 87, 87)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59)
+                                .addComponent(JB_Cancel))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                                 .addComponent(tft_Name)
                                 .addComponent(tfd_Cost)
                                 .addComponent(tft_Path))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(lbl_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(191, 191, 191)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -167,7 +178,9 @@ public class InsertProduct extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(tft_Path, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JB_Cancel))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -221,18 +234,12 @@ public class InsertProduct extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
+        CircularLinkedList circularDrink = new CircularLinkedList();
+        CircularLinkedList circularFood = new CircularLinkedList();
+        CircularLinkedList circularDessert = new CircularLinkedList();
+        CircularLinkedList circularVarious = new CircularLinkedList();
 
-
-      
-    
-    CircularLinkedList circularDrink = new CircularLinkedList();
-    CircularLinkedList circularFood = new CircularLinkedList();
-    CircularLinkedList circularDessert = new CircularLinkedList();
-    CircularLinkedList circularVarious = new CircularLinkedList();
-        
-   // circularDrink.
-        
-
+        // circularDrink.
 //        circularFood = new CircularLinkedList();
 //        circularDessert = new CircularLinkedList();
 //        circularVarious = new CircularLinkedList();
@@ -249,32 +256,40 @@ public class InsertProduct extends javax.swing.JFrame {
                 type = "Food";
                 Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
                 circularFood.insert(product);
-                 jLabel6.setText("The Product was insert succeful");
+                jLabel6.setText("The Product was insert succeful");
             } else if (cb_Product.getSelectedItem().toString().equals("Dessert")) {
                 type = "Dessert";
                 Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
                 circularDessert.insert(product);
-                 jLabel6.setText("The Product was insert succeful");
+                jLabel6.setText("The Product was insert succeful");
             } else {
                 type = "Various";
                 Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
                 circularVarious.insert(product);
-                 jLabel6.setText("The Product was insert succeful");
-                 
+                jLabel6.setText("The Product was insert succeful");
+
             }
             try {
-              
-           // System.out.println(circularDrink.getSize());
-           System.out.println(circularDrink.getNode(0).toString());
-        } catch (ListException ex) {
-            Logger.getLogger(InsertProduct.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        } catch (ListException ex) {
-            Logger.getLogger(InsertProduct.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-        
+                // System.out.println(circularDrink.getSize());
+                System.out.println(circularDrink.getNode(0).toString());
+            } catch (ListException ex) {
+                Logger.getLogger(InsertProduct.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ListException ex) {
+            Logger.getLogger(InsertProduct.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        CRUDs crud = new CRUDs();
+        this.dispose();
+        crud.setVisible(true);
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
+        CRUDs crud = new CRUDs();
+        this.dispose();
+        crud.setVisible(true);
+    }//GEN-LAST:event_JB_CancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,6 +328,7 @@ public class InsertProduct extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Cancel;
     private javax.swing.JComboBox<String> cb_Product;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

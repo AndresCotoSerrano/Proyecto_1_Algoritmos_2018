@@ -24,7 +24,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author Melvin
  */
 public class InsertRestaurant extends javax.swing.JFrame {
-    
+
     Image_Panel imagePanel;
     LinkedList<Restaurant> linkedListRestaurant = new LinkedList<>();
 
@@ -58,8 +58,10 @@ public class InsertRestaurant extends javax.swing.JFrame {
         lbl_ID1 = new javax.swing.JLabel();
         lbl_Logo = new javax.swing.JLabel();
         tft_Path = new javax.swing.JTextField();
+        JB_Cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         lbl_InsertRestaurant.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         lbl_InsertRestaurant.setText("Insert Restaurant");
@@ -103,6 +105,13 @@ public class InsertRestaurant extends javax.swing.JFrame {
 
         lbl_Logo.setText("jLabel9");
 
+        JB_Cancel.setText("Cancel");
+        JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_CancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,8 +151,10 @@ public class InsertRestaurant extends javax.swing.JFrame {
                                                 .addComponent(lbl_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(tft_Path))
                                             .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 15, Short.MAX_VALUE)))))))
-                .addGap(210, 210, 210))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
+                .addGap(18, 18, 18)
+                .addComponent(JB_Cancel)
+                .addGap(134, 134, 134))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +186,9 @@ public class InsertRestaurant extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(lbl_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JB_Cancel))
                 .addGap(53, 53, 53))
         );
 
@@ -222,17 +235,26 @@ public class InsertRestaurant extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Load_LogoActionPerformed
 
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
-       
+
         Restaurant restaurant = new Restaurant(lbl_ID1.getText(), tft_Path.getText(), tfd_Name.getText(), tfd_Province.getText(), tfd_Location.getText());
         linkedListRestaurant.add(restaurant);
+        CRUDs crud = new CRUDs();
+        this.dispose();
+        crud.setVisible(true);
     }//GEN-LAST:event_btn_InsertActionPerformed
 
-    
-       public LinkedList getRestaurantList (){
-        
+    private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
+        CRUDs crud = new CRUDs();
+        this.dispose();
+        crud.setVisible(true);
+    }//GEN-LAST:event_JB_CancelActionPerformed
+
+    public LinkedList getRestaurantList() {
+
         return linkedListRestaurant;
+
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -270,6 +292,7 @@ public class InsertRestaurant extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Cancel;
     private javax.swing.JButton btn_Insert;
     private javax.swing.JButton btn_Load_Logo;
     private javax.swing.JLabel lbl_ID;

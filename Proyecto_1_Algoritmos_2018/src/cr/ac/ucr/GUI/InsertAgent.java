@@ -13,18 +13,17 @@ import java.util.LinkedList;
  * @author Melvin
  */
 public class InsertAgent extends javax.swing.JFrame {
-    
+
     LinkedList<Agent> linkedAgent = new LinkedList<>();
 
     int IDAgent = 0;
-    
-    
+
     /**
      * Creates new form Insert_Agent
      */
     public InsertAgent() {
         initComponents();
-        lbl_ID2.setText(IDAgent()+"");
+        lbl_ID2.setText(IDAgent() + "");
     }
 
     /**
@@ -58,9 +57,11 @@ public class InsertAgent extends javax.swing.JFrame {
         lbl_Location = new javax.swing.JLabel();
         tft_Province = new javax.swing.JTextField();
         tft_Location = new javax.swing.JTextField();
+        JB_Cancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_Insert_Agent.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
@@ -102,7 +103,7 @@ public class InsertAgent extends javax.swing.JFrame {
                 btn_Insert_AgemtActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Insert_Agemt, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 689, 107, 40));
+        getContentPane().add(btn_Insert_Agemt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 690, 100, 40));
 
         lbl_ID.setText("ID");
         getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 95, -1, -1));
@@ -140,26 +141,43 @@ public class InsertAgent extends javax.swing.JFrame {
         getContentPane().add(tft_Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 441, 251, 30));
         getContentPane().add(tft_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 489, 251, 32));
 
+        JB_Cancel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        JB_Cancel.setText("Cancel");
+        JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_CancelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 690, 100, 40));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-320, -50, 1620, 1120));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_Insert_AgemtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Insert_AgemtActionPerformed
-        
+
         Agent agent = new Agent(tft_User.getText(), tft_Code.getText(), "123", lbl_ID2.getText(), tft_Name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Location.getText());
-        
+
         linkedAgent.add(agent);
+        CRUDs crud = new CRUDs();
+        this.dispose();
+        crud.setVisible(true);
     }//GEN-LAST:event_btn_Insert_AgemtActionPerformed
 
-    
-    public int IDAgent(){
+    private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
+        CRUDs crud = new CRUDs();
+        this.dispose();
+        crud.setVisible(true);
+    }//GEN-LAST:event_JB_CancelActionPerformed
+
+    public int IDAgent() {
         IDAgent++;
         return IDAgent;
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -197,6 +215,7 @@ public class InsertAgent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Cancel;
     private javax.swing.JButton btn_Insert_Agemt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_Code;

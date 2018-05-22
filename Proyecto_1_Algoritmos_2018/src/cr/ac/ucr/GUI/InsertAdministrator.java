@@ -7,8 +7,6 @@ package cr.ac.ucr.GUI;
 
 import java.util.LinkedList;
 
-
-
 /**
  *
  * @author Melvin
@@ -17,14 +15,13 @@ public class InsertAdministrator extends javax.swing.JFrame {
 
     int countIDAdmin = 1;
     LinkedList<cr.ac.ucr.Domain.Administrator> linkedAdministrator = new LinkedList<>();
- 
-    
+
     /**
      * Creates new form insert_Administrator
      */
     public InsertAdministrator() {
         initComponents();
-        lbl_ID2.setText(countIDAdministrator()+"");
+        lbl_ID2.setText(countIDAdministrator() + "");
     }
 
     /**
@@ -54,10 +51,12 @@ public class InsertAdministrator extends javax.swing.JFrame {
         tft_Province = new javax.swing.JTextField();
         tft_Location = new javax.swing.JTextField();
         btn_Inser_Administrator = new javax.swing.JButton();
+        JB_Cancel = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         lbl_Message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
@@ -146,12 +145,21 @@ public class InsertAdministrator extends javax.swing.JFrame {
                 btn_Inser_AdministratorActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Inser_Administrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 610, 138, 48));
+        getContentPane().add(btn_Inser_Administrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 610, 138, 48));
+
+        JB_Cancel.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        JB_Cancel.setText("Cancel");
+        JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_CancelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 610, 140, 50));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 820));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 670));
 
         lbl_Message.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lbl_Message.setForeground(new java.awt.Color(0, 153, 153));
@@ -164,20 +172,27 @@ public class InsertAdministrator extends javax.swing.JFrame {
     private void btn_Inser_AdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Inser_AdministratorActionPerformed
         cr.ac.ucr.Domain.Administrator admin = new cr.ac.ucr.Domain.Administrator("123", lbl_ID2.getText(), tfd_Name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Location.getText());
         linkedAdministrator.add(admin);
+        CRUDs crud = new CRUDs();
+        this.dispose();
+        crud.setVisible(true);
     }//GEN-LAST:event_btn_Inser_AdministratorActionPerformed
 
-    
-    
-    public int countIDAdministrator(){
+    private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
+        CRUDs crud = new CRUDs();
+        this.dispose();
+        crud.setVisible(true);
+    }//GEN-LAST:event_JB_CancelActionPerformed
+
+    public int countIDAdministrator() {
         return countIDAdmin;
-        
+
     }
-    
-    public LinkedList AdminList (){
-        
+
+    public LinkedList AdminList() {
+
         return linkedAdministrator;
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -217,6 +232,7 @@ public class InsertAdministrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Cancel;
     private javax.swing.JButton btn_Inser_Administrator;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -18,11 +18,13 @@ import java.util.Queue;
  * @author Melvin
  */
 public class InsertDriver extends javax.swing.JFrame {
-    DriverFile driverFile=new DriverFile();
+
+    DriverFile driverFile = new DriverFile();
     LinkedList<Client> linkedListClient = new LinkedList<>();
-    Queue<Driver>drivers=new LinkedList<Driver>();
+    Queue<Driver> drivers = new LinkedList<Driver>();
     String typeVehicule;
-     /**
+
+    /**
      * Creates new form Insert_Client
      */
     public InsertDriver() {
@@ -62,10 +64,12 @@ public class InsertDriver extends javax.swing.JFrame {
         textfieldAge = new javax.swing.JTextField();
         tf_name = new javax.swing.JTextField();
         jComboBox2 = new javax.swing.JComboBox<>();
+        JB_Cancel = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         lbl_InsertClient.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         lbl_InsertClient.setText("Insert Driver");
@@ -115,6 +119,13 @@ public class InsertDriver extends javax.swing.JFrame {
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        JB_Cancel.setText("Cancel");
+        JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_CancelActionPerformed(evt);
             }
         });
 
@@ -168,8 +179,10 @@ public class InsertDriver extends javax.swing.JFrame {
                             .addComponent(lbl_Name)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(163, 163, 163)
-                        .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(222, Short.MAX_VALUE))
+                        .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(JB_Cancel)))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +233,9 @@ public class InsertDriver extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lbl_Message)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_Insert)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Insert)
+                    .addComponent(JB_Cancel))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
 
@@ -229,16 +244,16 @@ public class InsertDriver extends javax.swing.JFrame {
 
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
 
-   Driver driver=new Driver(typeVehicule, textfieldAge.getText(),tft_ID.getText(),tf_name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(),tft_Phone.getText(), tft_Province.getText(),tft_Address.getText());
-   driverFile.writeDrivers(driver,true);
-   
-   
+        Driver driver = new Driver(typeVehicule, textfieldAge.getText(), tft_ID.getText(), tf_name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Address.getText());
+        driverFile.writeDrivers(driver, true);
 
-
+        CRUDs crud = new CRUDs();
+        this.dispose();
+        crud.setVisible(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_InsertActionPerformed
-                 
+
     private void textfieldAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldAgeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textfieldAgeActionPerformed
@@ -249,13 +264,15 @@ public class InsertDriver extends javax.swing.JFrame {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-        typeVehicule=jComboBox2.getSelectedItem().toString();
+        typeVehicule = jComboBox2.getSelectedItem().toString();
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
-  
+    private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
+        CRUDs crud = new CRUDs();
+        this.dispose();
+        crud.setVisible(true);
+    }//GEN-LAST:event_JB_CancelActionPerformed
 
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -295,6 +312,7 @@ public class InsertDriver extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Cancel;
     private javax.swing.JButton btn_Insert;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
