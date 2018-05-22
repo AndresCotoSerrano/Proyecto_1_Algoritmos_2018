@@ -13,23 +13,35 @@ import java.io.Serializable;
  */
 public class Restaurant implements Serializable {
     
-    BufferedImage logo;
+    String ID;
+    String logo;
     String name;
     String province;
     String location;
 
-    public Restaurant(BufferedImage logo, String name, String province, String location) {
+    public Restaurant(String ID,String logo, String name, String province, String location) {
+        this.ID = ID;
         this.logo = logo;
         this.name = name;
         this.province = province;
         this.location = location;
     }
 
-    public BufferedImage getLogo() {
+   
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+    
+     public String getLogo() {
         return logo;
     }
 
-    public void setLogo(BufferedImage logo) {
+    public void setLogo(String logo) {
         this.logo = logo;
     }
 
@@ -59,7 +71,7 @@ public class Restaurant implements Serializable {
 
     @Override
     public String toString() {
-        return "Restaurant{" + "logo=" + logo + ", name=" + name + ", province=" + province + ", location=" + location + '}';
+        return "Restaurant{"+"ID="+ID + "logo=" + logo + ", name=" + name + ", province=" + province + ", location=" + location + '}';
     }
     
     
