@@ -1,4 +1,3 @@
-
 package cr.ac.ucr.Files;
 
 import java.io.BufferedReader;
@@ -10,10 +9,9 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import javax.swing.JOptionPane;
 
-
 public class Write_Read_Files {
-    
-         public BufferedReader getBufferReader(String nombre) {
+
+    public BufferedReader getBufferReader(String nombre) {
 
         File archivo = new File(nombre);
         BufferedReader br = null;
@@ -28,24 +26,23 @@ public class Write_Read_Files {
 
         }
 
-    return br;
+        return br;
     }
-     
-     public PrintStream getPrintStream(String nombre) {
+
+    public PrintStream getPrintStream(String nombre) {
 
         File archivo = new File(nombre);
         PrintStream ps = null;
 
         try {
-            FileOutputStream fos = new FileOutputStream(archivo,true);
+            FileOutputStream fos = new FileOutputStream(archivo, true);
             ps = new PrintStream(fos);
         } catch (FileNotFoundException fnfe) {
-            JOptionPane.showMessageDialog(null, "Problema");
+            JOptionPane.showMessageDialog(null, "El dato no se a podido ingresar");
         }
 
         return ps;
 
     }
-
 
 }

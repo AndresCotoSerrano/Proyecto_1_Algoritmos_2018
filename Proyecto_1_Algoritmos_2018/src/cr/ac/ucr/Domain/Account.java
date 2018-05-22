@@ -41,12 +41,17 @@ public class Account implements Serializable {
         this.pass = pass;
     }
 
-    public boolean isIsAdmin() {
+    public boolean getIsAdmin() {
         return isAdmin;
     }
 
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" + "user=" + user + ", pass=" + pass + ", isAdmin=" + isAdmin + '}';
     }
 
 }

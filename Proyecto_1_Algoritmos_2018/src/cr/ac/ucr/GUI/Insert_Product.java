@@ -221,6 +221,18 @@ public class Insert_Product extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
+
+
+      
+    
+    CircularLinkedList circularDrink = new CircularLinkedList();
+    CircularLinkedList circularFood = new CircularLinkedList();
+    CircularLinkedList circularDessert = new CircularLinkedList();
+    CircularLinkedList circularVarious = new CircularLinkedList();
+        
+   // circularDrink.
+        
+
 //        circularFood = new CircularLinkedList();
 //        circularDessert = new CircularLinkedList();
 //        circularVarious = new CircularLinkedList();

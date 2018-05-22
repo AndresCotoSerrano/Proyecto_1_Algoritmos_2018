@@ -5,19 +5,28 @@
  */
 package cr.ac.ucr.GUI;
 
+import cr.ac.ucr.Domain.Account;
+import cr.ac.ucr.Files.Write_Read_Files;
 import cr.ac.ucr.Logic.StackException.PilaException;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author deltadragon
  */
 public class Login extends javax.swing.JFrame {
-    
-    static ThreadWriteFile threadFile = new ThreadWriteFile();;
+
+    static ThreadWriteFile threadFile = new ThreadWriteFile();
+
+    ;
 
     /**
      * Creates new form Login1
@@ -25,6 +34,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        LinkedList<Account> list = account();
     }
 
     @Override
@@ -114,6 +124,8 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JB_EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_EnterActionPerformed
+        LinkedList<Account> list = account();
+        int count = 0;
         if (this.JT_User.getText().equals("admin") && this.JT_Password.getText().equals("admin")) {
             try {
                 Administrator admin = new Administrator();
@@ -122,6 +134,26 @@ public class Login extends javax.swing.JFrame {
             } catch (PilaException ex) {
                 System.out.println("Algo fallo en el login");
             }
+        } else {
+            for (Account a : list) {
+                if (a.getUser().equals(this.JT_User.getText()) && a.getPass().equals(this.JT_Password.getText()) && a.getIsAdmin() == true) {
+                    try {
+                        System.out.println(this.JT_User.getText() + this.JT_Password.getText() + a.getIsAdmin());
+                        Administrator admin = new Administrator();
+                        admin.setVisible(true);
+                        this.dispose();
+                        count = 1;
+                        break;
+                    } catch (PilaException ex) {
+                        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    count = -1;
+                }
+            }
+        }
+        if (count == -1) {
+            JOptionPane.showMessageDialog(null, "Esta cuenta no existe");
         }
     }//GEN-LAST:event_JB_EnterActionPerformed
 
@@ -134,25 +166,90 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_JT_UserActionPerformed
 
     private void JT_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_PasswordActionPerformed
+        LinkedList<Account> list = account();
+        int count = 0;
         if (this.JT_User.getText().equals("admin") && this.JT_Password.getText().equals("admin")) {
             try {
                 Administrator admin = new Administrator();
                 admin.setVisible(true);
                 this.dispose();
             } catch (PilaException ex) {
-                System.out.println("Algo fallo en el login");;
+                System.out.println("Algo fallo en el login");
+            }
+        } else {
+            for (Account a : list) {
+                if (a.getUser().equals(this.JT_User.getText()) && a.getPass().equals(this.JT_Password.getText())) {
+                    try {
+                        if (a.getIsAdmin() == true) {
+                            Administrator admin = new Administrator();
+                            admin.setVisible(true);
+                            this.dispose();
+                            count = 1;
+                            break;
+                        } else if (a.getIsAdmin() == false) {
+                            ControlPanel panel = new ControlPanel();
+                            panel.setVisible(true);
+                            this.dispose();
+                            count = 1;
+                            break;
+                        }
+
+                    } catch (PilaException ex) {
+                        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    count = -1;
+                }
             }
         }
+        if (count == -1) {
+            JOptionPane.showMessageDialog(null, "Esta cuenta no existe");
+        }
     }//GEN-LAST:event_JT_PasswordActionPerformed
+    public LinkedList account() {
+        Write_Read_Files read = new Write_Read_Files();
+        LinkedList<Account> list = new LinkedList();
+        Account acc = null;
+        BufferedReader br = null;
+        try {
+            //Crear un objeto BufferedReader al que se le pasa 
+            //   un objeto FileReader con el nombre del fichero
+            br = read.getBufferReader("Account.txt");
+            //Leer la primera línea, guardando en un String
+            String texto = br.readLine();
+            //Repetir mientras no se llegue al final del fichero
+            while (texto != null) {
+                //Hacer lo que sea con la línea leída
+                String[] account = texto.split("     ");
+                acc = new Account(account[0], account[1], Boolean.parseBoolean(account[2]));
+                list.add(acc);
+                //Leer la siguiente línea
+                texto = br.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: Fichero no encontrado");
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error de lectura del fichero");
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error al cerrar el fichero");
+                System.out.println(e.getMessage());
+            }
+        }
+        return list;
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        
+
         //Inicia el hilo que guarda en los archivos los datos de las TDA a cada 20 Segundos
         threadFile.start();
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
