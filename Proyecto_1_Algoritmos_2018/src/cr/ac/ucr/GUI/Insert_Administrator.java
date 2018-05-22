@@ -81,7 +81,7 @@ public class Insert_Administrator extends javax.swing.JFrame {
 
         tfd_Name.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         tfd_Name.setForeground(new java.awt.Color(0, 153, 153));
-        getContentPane().add(tfd_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 297, 30));
+        getContentPane().add(tfd_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 300, 32));
 
         lbl_LastName1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbl_LastName1.setForeground(new java.awt.Color(0, 153, 153));

@@ -194,7 +194,7 @@ public class Insert_Client extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_InsertActionPerformed
 
-    public LinkedList clientList (){
+    public LinkedList getClientList (){
         
         return linkedListClient;
     }

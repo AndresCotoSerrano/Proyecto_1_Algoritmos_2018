@@ -83,7 +83,7 @@ public class Insert_Restaurant extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("Location");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Insert");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
