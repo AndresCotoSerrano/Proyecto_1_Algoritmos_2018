@@ -1,2 +1,4 @@
 administrador     admin     true
 agente     agente     false
+melvin     melvin     false
+andres     andres     true

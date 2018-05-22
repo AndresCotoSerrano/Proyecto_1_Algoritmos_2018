@@ -78,8 +78,8 @@ public class Administrator extends javax.swing.JFrame {
 
         JL_Name.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         JL_Name.setForeground(new java.awt.Color(204, 204, 5));
-        JL_Name.setText("Nombre:");
-        getContentPane().add(JL_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 80, 40));
+        JL_Name.setText("Name:");
+        getContentPane().add(JL_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 60, 40));
 
         JL_Code.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         JL_Code.setForeground(new java.awt.Color(204, 204, 5));
@@ -243,13 +243,13 @@ public class Administrator extends javax.swing.JFrame {
 
     private void JB_CreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CreateAccountActionPerformed
         CreateAccount ca = new CreateAccount();
-        dispose();
+//        dispose();
         ca.setVisible(true);
     }//GEN-LAST:event_JB_CreateAccountActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             CRUDs crud = new CRUDs();
-            this.dispose();
+//            this.dispose();
             crud.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
     /**

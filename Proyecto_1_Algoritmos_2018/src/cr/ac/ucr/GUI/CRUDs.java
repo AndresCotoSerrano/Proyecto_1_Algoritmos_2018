@@ -28,6 +28,7 @@ public class CRUDs extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JB_Cancel = new javax.swing.JButton();
         JL_fondo = new javax.swing.JLabel();
         JM_Cruds = new javax.swing.JMenuBar();
         JM_Driver = new javax.swing.JMenu();
@@ -44,6 +45,16 @@ public class CRUDs extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JB_Cancel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_Cancel.setForeground(new java.awt.Color(204, 204, 5));
+        JB_Cancel.setText("Cancel");
+        JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_CancelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, -1, -1));
 
         JL_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
         getContentPane().add(JL_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 380));
@@ -174,6 +185,10 @@ public class CRUDs extends javax.swing.JFrame {
         ia.setVisible(true);
     }//GEN-LAST:event_JMI_InsertAdministratorActionPerformed
 
+    private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_JB_CancelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -210,6 +225,7 @@ public class CRUDs extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Cancel;
     private javax.swing.JLabel JL_fondo;
     private javax.swing.JMenuItem JMI_InsertAdministrator;
     private javax.swing.JMenuItem JMI_InsertAgent;

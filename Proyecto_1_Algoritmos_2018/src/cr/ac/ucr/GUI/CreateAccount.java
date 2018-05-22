@@ -117,9 +117,9 @@ public class CreateAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_JC_isAdminActionPerformed
 
     private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
-        Login l = new Login();
+//        Login l = new Login();
         dispose();
-        l.setVisible(true);
+//        l.setVisible(true);
     }//GEN-LAST:event_JB_CancelActionPerformed
 
     private void JB_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AcceptActionPerformed
@@ -134,8 +134,8 @@ public class CreateAccount extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(null, "Datos ingresados con exito");
         dispose();
-        Login l = new Login();
-        l.setVisible(true);
+//        Login l = new Login();
+//        l.setVisible(true);
     }//GEN-LAST:event_JB_AcceptActionPerformed
 
     /**
