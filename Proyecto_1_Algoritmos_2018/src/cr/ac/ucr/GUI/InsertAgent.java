@@ -177,6 +177,10 @@ public class InsertAgent extends javax.swing.JFrame {
         IDAgent++;
         return IDAgent;
     }
+    
+    public LinkedList getAgentList(){
+    return linkedAgent;    
+}
 
     /**
      * @param args the command line arguments

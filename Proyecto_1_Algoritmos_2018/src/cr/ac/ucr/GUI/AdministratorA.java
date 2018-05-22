@@ -20,14 +20,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author deltadragon
  */
-public class Administrator extends javax.swing.JFrame {
+public class AdministratorA extends javax.swing.JFrame {
 
     Dimension dimension;
     int alto;
     JScrollBar barra;
     final int filas = 21;
 
-    public Administrator() throws PilaException {
+    public AdministratorA() throws PilaException {
         initComponents();
         this.setLocationRelativeTo(null);
         fillTable();
@@ -315,14 +315,16 @@ public class Administrator extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Administrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministratorA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Administrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministratorA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Administrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministratorA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Administrator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministratorA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -330,7 +332,7 @@ public class Administrator extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new Administrator().setVisible(true);
+                    new AdministratorA().setVisible(true);
                 } catch (PilaException ex) {
                     System.out.println("algo fallo");
                 }

@@ -21,7 +21,7 @@ public class InsertDriver extends javax.swing.JFrame {
 
     DriverFile driverFile = new DriverFile();
     LinkedList<Client> linkedListClient = new LinkedList<>();
-    Queue<Driver> drivers = new LinkedList<Driver>();
+    Queue<Driver> driversQueue = new LinkedList<Driver>();
     String typeVehicule;
 
     /**
@@ -245,7 +245,9 @@ public class InsertDriver extends javax.swing.JFrame {
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
 
         Driver driver = new Driver(typeVehicule, textfieldAge.getText(), tft_ID.getText(), tf_name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Address.getText());
-        driverFile.writeDrivers(driver, true);
+        driversQueue.add(driver);
+        
+       // driverFile.writeDrivers(driver, true);
 
         CRUDs crud = new CRUDs();
         this.dispose();
@@ -273,6 +275,12 @@ public class InsertDriver extends javax.swing.JFrame {
         crud.setVisible(true);
     }//GEN-LAST:event_JB_CancelActionPerformed
 
+    
+    public Queue getDriverQueue(){
+        return driversQueue;
+        
+    }
+    
     /**
      * @param args the command line arguments
      */

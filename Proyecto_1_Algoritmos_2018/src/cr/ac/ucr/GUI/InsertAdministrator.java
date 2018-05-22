@@ -5,6 +5,7 @@
  */
 package cr.ac.ucr.GUI;
 
+import cr.ac.ucr.Domain.Administrator;
 import java.util.LinkedList;
 
 /**
@@ -14,7 +15,7 @@ import java.util.LinkedList;
 public class InsertAdministrator extends javax.swing.JFrame {
 
     int countIDAdmin = 1;
-    LinkedList<cr.ac.ucr.Domain.Administrator> linkedAdministrator = new LinkedList<>();
+    LinkedList<Administrator> linkedAdministrator = new LinkedList<>();
 
     /**
      * Creates new form insert_Administrator
@@ -22,6 +23,7 @@ public class InsertAdministrator extends javax.swing.JFrame {
     public InsertAdministrator() {
         initComponents();
         lbl_ID2.setText(countIDAdministrator() + "");
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -169,7 +171,7 @@ public class InsertAdministrator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_Inser_AdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Inser_AdministratorActionPerformed
-        cr.ac.ucr.Domain.Administrator admin = new cr.ac.ucr.Domain.Administrator("123", lbl_ID2.getText(), tfd_Name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Location.getText());
+        Administrator admin = new Administrator(lbl_ID2.getText(), tfd_Name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Location.getText());
         linkedAdministrator.add(admin);
         CRUDs crud = new CRUDs();
         this.dispose();
@@ -187,7 +189,7 @@ public class InsertAdministrator extends javax.swing.JFrame {
 
     }
 
-    public LinkedList AdminList() {
+    public LinkedList getAdminList() {
 
         return linkedAdministrator;
     }

@@ -127,7 +127,7 @@ public class Login extends javax.swing.JFrame {
         int count = 0;
         if (this.JT_User.getText().equals("admin") && this.JT_Password.getText().equals("admin")) {
             try {
-                Administrator admin = new Administrator();
+                AdministratorA admin = new AdministratorA();
                 admin.setVisible(true);
                 this.dispose();
             } catch (PilaException ex) {
@@ -138,7 +138,7 @@ public class Login extends javax.swing.JFrame {
                 if (a.getUser().equals(this.JT_User.getText()) && a.getPass().equals(this.JT_Password.getText()) && a.getIsAdmin() == true) {
                     try {
                         System.out.println(this.JT_User.getText() + this.JT_Password.getText() + a.getIsAdmin());
-                        Administrator admin = new Administrator();
+                        AdministratorA admin = new AdministratorA();
                         admin.setVisible(true);
                         this.dispose();
                         count = 1;
@@ -169,7 +169,7 @@ public class Login extends javax.swing.JFrame {
         int count = 0;
         if (this.JT_User.getText().equals("admin") && this.JT_Password.getText().equals("admin")) {
             try {
-                Administrator admin = new Administrator();
+                AdministratorA admin = new AdministratorA();
                 admin.setVisible(true);
                 this.dispose();
             } catch (PilaException ex) {
@@ -180,7 +180,7 @@ public class Login extends javax.swing.JFrame {
                 if (a.getUser().equals(this.JT_User.getText()) && a.getPass().equals(this.JT_Password.getText())) {
                     try {
                         if (a.getIsAdmin() == true) {
-                            Administrator admin = new Administrator();
+                            AdministratorA admin = new AdministratorA();
                             admin.setVisible(true);
                             this.dispose();
                             count = 1;

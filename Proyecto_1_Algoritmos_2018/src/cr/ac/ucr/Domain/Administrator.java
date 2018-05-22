@@ -4,21 +4,14 @@ package cr.ac.ucr.Domain;
 
 public class Administrator extends Person{
     
-    String password;
-    int countID = 0;
+   
     
-    public Administrator(String password,String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address) {
+    public Administrator(String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address) {
         super(ID, name, lastName1, lastName2, email, phone, province, address);
-        this.password = password;
+     
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+   
 
     public String getID() {
         return ID;
@@ -86,7 +79,7 @@ public class Administrator extends Person{
 
     @Override
     public String toString() {
-        return "Administrator{" + "password=" + password + '}';
+        return "Administrator{" + '}';
     }
     
     

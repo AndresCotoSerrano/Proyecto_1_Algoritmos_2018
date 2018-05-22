@@ -15,18 +15,18 @@ public class Agent extends Person {
 
     String user;
     String code;
-    String password;
+    
 
     public Agent(String user, String code,String password, String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address) {
         super(ID, name, lastName1, lastName2, email, phone, province, address);
         this.user = user;
         this.code = code;
-        this.password = password;
+        
     }
 
     @Override
     public String toString() {
-        return "Agent{" + "user=" + user + ", code=" + code + '}';
+        return "Agent{"+super.toString() + " user=" + user + ", code=" + code + '}';
     }
 
     public String getUser() {
@@ -109,13 +109,7 @@ public class Agent extends Person {
         this.address = address;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+   
 
    
 
