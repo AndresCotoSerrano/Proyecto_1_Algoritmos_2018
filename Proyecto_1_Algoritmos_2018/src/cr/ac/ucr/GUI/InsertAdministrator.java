@@ -52,8 +52,8 @@ public class InsertAdministrator extends javax.swing.JFrame {
         tft_Location = new javax.swing.JTextField();
         btn_Inser_Administrator = new javax.swing.JButton();
         JB_Cancel = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         lbl_Message = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -156,15 +156,14 @@ public class InsertAdministrator extends javax.swing.JFrame {
         });
         getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 610, 140, 50));
 
+        lbl_Message.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_Message.setForeground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(lbl_Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, 490, 60));
+
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 670));
-
-        lbl_Message.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lbl_Message.setForeground(new java.awt.Color(0, 153, 153));
-        lbl_Message.setText("jLabel3");
-        getContentPane().add(lbl_Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 710, 670, 60));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
