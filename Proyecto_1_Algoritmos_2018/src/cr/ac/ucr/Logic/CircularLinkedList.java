@@ -275,7 +275,9 @@ public class CircularLinkedList implements List{
     @Override
     public Object first() throws ListException {
         if (isEmpty()) {
+            
             throw new ListException("La lista no contiene ningun elemento para evaluar");
+            
         } else {
             return start.element;
         }
@@ -321,7 +323,7 @@ public class CircularLinkedList implements List{
 
             if (position == counter) {
 
-                return auxNode;
+                return auxNode.element;
 
             }
 
@@ -332,7 +334,7 @@ public class CircularLinkedList implements List{
 
         if (auxNode == end) {
 
-            return auxNode;
+            return auxNode.element;
 
         }
 

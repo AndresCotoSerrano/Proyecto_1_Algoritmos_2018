@@ -8,8 +8,11 @@ package cr.ac.ucr.GUI;
 import cr.ac.ucr.Domain.FileChooser;
 import cr.ac.ucr.Domain.Product;
 import cr.ac.ucr.Logic.CircularLinkedList;
+import cr.ac.ucr.Logic.ListException.ListException;
 import java.awt.Image;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -22,13 +25,19 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Insert_Product extends javax.swing.JFrame {
 
     FileChooser filechooser = new FileChooser();
-  
+    CircularLinkedList circularDrink = new CircularLinkedList();
+    CircularLinkedList circularFood = new CircularLinkedList();
+    CircularLinkedList circularDessert = new CircularLinkedList();
+    CircularLinkedList circularVarious = new CircularLinkedList();
 
     /**
      * Creates new form Insert_Product
      */
     public Insert_Product() {
+        
         initComponents();
+        
+        
         tft_Path.setEditable(false);
     }
 
@@ -53,6 +62,8 @@ public class Insert_Product extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         tft_Path = new javax.swing.JTextField();
         lbl_Image = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +99,10 @@ public class Insert_Product extends javax.swing.JFrame {
 
         jLabel5.setText("Path Image");
 
+        jLabel6.setText("jLabel6");
+
+        jLabel7.setText("jLabel7");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,9 +133,15 @@ public class Insert_Product extends javax.swing.JFrame {
                                 .addComponent(tfd_Cost)
                                 .addComponent(tft_Path))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(226, 226, 226)
-                        .addComponent(lbl_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(225, Short.MAX_VALUE))
+                        .addGap(228, 228, 228)
+                        .addComponent(lbl_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(191, 191, 191)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,15 +162,19 @@ public class Insert_Product extends javax.swing.JFrame {
                     .addComponent(tfd_Cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(tft_Path, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lbl_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -161,10 +186,10 @@ public class Insert_Product extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        JFileChooser fileChooser = new JFileChooser();
+        JFileChooser fileChooser = new JFileChooser("C:\\Users\\Melvin\\Desktop\\CallCenterAlgoritmos\\Proyecto_1_Algoritmos_2018\\src\\cr\\ac\\ucr\\Img");
         fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
-        FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
+        FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif", "png");
         fileChooser.setFileFilter(imgFilter);
 
         int result = fileChooser.showOpenDialog(this);
@@ -195,6 +220,9 @@ public class Insert_Product extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+
+
       
     
     CircularLinkedList circularDrink = new CircularLinkedList();
@@ -204,41 +232,47 @@ public class Insert_Product extends javax.swing.JFrame {
         
    // circularDrink.
         
+
 //        circularFood = new CircularLinkedList();
 //        circularDessert = new CircularLinkedList();
 //        circularVarious = new CircularLinkedList();
 //        circularDrink = new CircularLinkedList();
         String type = "";
-        
-        
-         
-        
-        
-        if(cb_Product.getSelectedItem().toString().equals("Drink")){
-            
-          type = "Drink";
-            Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
-            
-          
-        }else if(cb_Product.getSelectedItem().toString().equals("Food")){
-          
-            type = "Food";
-            Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
-            
-            
-        }else if(cb_Product.getSelectedItem().toString().equals("Dessert")){
-            
-            type = "Dessert";
-            Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
-            
-            
-        }else{
-            type = "Various";
-            Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
-            
+
+        try {
+            if (cb_Product.getSelectedItem().toString().equals("Drink")) {
+                type = "Drink";
+                Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+                this.circularDrink.insert(product);
+                jLabel6.setText("The Product was insert succeful");
+            } else if (cb_Product.getSelectedItem().toString().equals("Food")) {
+                type = "Food";
+                Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+                circularFood.insert(product);
+                 jLabel6.setText("The Product was insert succeful");
+            } else if (cb_Product.getSelectedItem().toString().equals("Dessert")) {
+                type = "Dessert";
+                Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+                circularDessert.insert(product);
+                 jLabel6.setText("The Product was insert succeful");
+            } else {
+                type = "Various";
+                Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+                circularVarious.insert(product);
+                 jLabel6.setText("The Product was insert succeful");
+                 
+            }
+            try {
+              
+           // System.out.println(circularDrink.getSize());
+           System.out.println(circularDrink.getNode(0).toString());
+        } catch (ListException ex) {
+            Logger.getLogger(Insert_Product.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+        } catch (ListException ex) {
+            Logger.getLogger(Insert_Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -286,6 +320,8 @@ public class Insert_Product extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lbl_Image;
     private javax.swing.JTextField tfd_Cost;
     private javax.swing.JTextField tft_Name;

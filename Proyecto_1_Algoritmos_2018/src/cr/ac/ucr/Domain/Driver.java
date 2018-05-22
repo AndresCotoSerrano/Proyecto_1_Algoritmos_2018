@@ -105,7 +105,7 @@ public class Driver extends Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Driver{" + "typeVehicule=" + typeVehicule + ", age=" + age + '}';
+        return  super.toString()+ " typeVehicule=" + typeVehicule + ", age=" + age + '}';
     }
 
    

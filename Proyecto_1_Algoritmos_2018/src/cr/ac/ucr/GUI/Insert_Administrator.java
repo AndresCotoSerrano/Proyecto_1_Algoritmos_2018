@@ -54,114 +54,109 @@ public class Insert_Administrator extends javax.swing.JFrame {
         tft_Province = new javax.swing.JTextField();
         tft_Location = new javax.swing.JTextField();
         btn_Inser_Administrator = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        lbl_Message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
         jLabel1.setText("Insert Administrator");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 37, 297, 40));
 
+        lbl_ID.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID.setForeground(new java.awt.Color(0, 153, 153));
         lbl_ID.setText("ID");
+        getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 115, 82, 30));
 
+        lbl_ID2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_ID2.setForeground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 115, 297, 30));
+
+        lbl_Name.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Name.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Name.setText("Name");
+        getContentPane().add(lbl_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
+        tfd_Name.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tfd_Name.setForeground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(tfd_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 297, 30));
+
+        lbl_LastName1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_LastName1.setForeground(new java.awt.Color(0, 153, 153));
         lbl_LastName1.setText("LastName1");
+        getContentPane().add(lbl_LastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
+        tft_LastName1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tft_LastName1.setForeground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(tft_LastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 297, 30));
+
+        lbl_LastName2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_LastName2.setForeground(new java.awt.Color(0, 153, 153));
         lbl_LastName2.setText("LastName2");
+        getContentPane().add(lbl_LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
+        tft_LastName2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tft_LastName2.setForeground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(tft_LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 297, 30));
+
+        lbl_Email.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Email.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Email.setText("Email");
+        getContentPane().add(lbl_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
 
+        tft_Email.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tft_Email.setForeground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(tft_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 297, 30));
+
+        lbl_Phone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Phone.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Phone.setText("Phone");
+        getContentPane().add(lbl_Phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
 
+        tft_Phone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tft_Phone.setForeground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(tft_Phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 297, 30));
+
+        lbl_Province.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Province.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Province.setText("Province");
+        getContentPane().add(lbl_Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
 
+        lbl_Location.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Location.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Location.setText("Location");
+        getContentPane().add(lbl_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, -1));
 
+        tft_Province.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tft_Province.setForeground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(tft_Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 297, 30));
+
+        tft_Location.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tft_Location.setForeground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(tft_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, 297, 30));
+
+        btn_Inser_Administrator.setBackground(new java.awt.Color(51, 51, 51));
+        btn_Inser_Administrator.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_Inser_Administrator.setForeground(new java.awt.Color(0, 153, 153));
         btn_Inser_Administrator.setText("Insert");
         btn_Inser_Administrator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_Inser_AdministratorActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_Inser_Administrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 610, 138, 48));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_Name)
-                            .addComponent(lbl_LastName1)
-                            .addComponent(lbl_LastName2)
-                            .addComponent(lbl_Email)
-                            .addComponent(lbl_Phone))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
-                            .addComponent(lbl_ID2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfd_Name)
-                            .addComponent(tft_LastName1)
-                            .addComponent(tft_LastName2)
-                            .addComponent(tft_Email)
-                            .addComponent(tft_Phone)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_Province)
-                            .addComponent(lbl_Location))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tft_Province)
-                            .addComponent(tft_Location, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))))
-                .addGap(200, 200, 200))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(228, 228, 228)
-                .addComponent(btn_Inser_Administrator, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_ID2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Name)
-                    .addComponent(tfd_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_LastName1)
-                    .addComponent(tft_LastName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_LastName2)
-                    .addComponent(tft_LastName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Email)
-                    .addComponent(tft_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Phone)
-                    .addComponent(tft_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_Province)
-                    .addComponent(tft_Province, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Location)
-                    .addComponent(tft_Location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(122, 122, 122)
-                .addComponent(btn_Inser_Administrator, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 820));
+
+        lbl_Message.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_Message.setForeground(new java.awt.Color(0, 153, 153));
+        lbl_Message.setText("jLabel3");
+        getContentPane().add(lbl_Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 710, 670, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -222,12 +217,14 @@ public class Insert_Administrator extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Inser_Administrator;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_Email;
     private javax.swing.JLabel lbl_ID;
     private javax.swing.JLabel lbl_ID2;
     private javax.swing.JLabel lbl_LastName1;
     private javax.swing.JLabel lbl_LastName2;
     private javax.swing.JLabel lbl_Location;
+    private javax.swing.JLabel lbl_Message;
     private javax.swing.JLabel lbl_Name;
     private javax.swing.JLabel lbl_Phone;
     private javax.swing.JLabel lbl_Province;

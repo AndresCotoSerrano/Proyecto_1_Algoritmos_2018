@@ -6,18 +6,22 @@
 package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Client;
+import cr.ac.ucr.Domain.Driver;
 import cr.ac.ucr.Files.ClientFile;
+import cr.ac.ucr.Files.DriverFile;
 import cr.ac.ucr.Logic.CircularLinkedList;
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  *
  * @author Melvin
  */
 public class Insert_Driverr extends javax.swing.JFrame {
-    ClientFile clietfile;
+    DriverFile driverFile=new DriverFile();
     LinkedList<Client> linkedListClient = new LinkedList<>();
-    
+    Queue<Driver>drivers=new LinkedList<Driver>();
+    String typeVehicule;
      /**
      * Creates new form Insert_Client
      */
@@ -41,7 +45,6 @@ public class Insert_Driverr extends javax.swing.JFrame {
         lbl_Phone = new javax.swing.JLabel();
         lbl_Province = new javax.swing.JLabel();
         lbl_ID = new javax.swing.JLabel();
-        tft_Name = new javax.swing.JTextField();
         tft_ID = new javax.swing.JTextField();
         tft_Email = new javax.swing.JTextField();
         tft_Phone = new javax.swing.JTextField();
@@ -56,8 +59,9 @@ public class Insert_Driverr extends javax.swing.JFrame {
         lbl_Message = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        textfieldAge = new javax.swing.JTextField();
+        tf_name = new javax.swing.JTextField();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         jLabel1.setText("jLabel1");
 
@@ -95,61 +99,77 @@ public class Insert_Driverr extends javax.swing.JFrame {
 
         jLabel3.setText("Type Vehicle");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        textfieldAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                textfieldAgeActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Motocicleta", "Bicicleta", "Carro", " " }));
+        tf_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_nameActionPerformed(evt);
+            }
+        });
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Motocicleta", "Carro", "Bicicleta", " ", " " }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lbl_Message, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(100, 100, 100)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2)
-                    .addComponent(lbl_Address)
-                    .addComponent(lbl_LastName2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_LastName1)
-                                .addGap(43, 43, 43))
-                            .addComponent(lbl_ID, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_Email, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_Phone, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_Province, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_LastName2)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(lbl_InsertClient, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_LastName1)
+                                        .addGap(43, 43, 43))
+                                    .addComponent(lbl_ID, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_Email, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_Phone, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_Province, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_Address, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_Message, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tft_Province, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tft_Address, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btn_Insert, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                        .addComponent(tft_Email, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tft_Phone))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tft_Name, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                    .addComponent(tft_LastName1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                    .addComponent(tft_LastName2)
-                                    .addComponent(tft_ID)))))
-                    .addComponent(lbl_Name))
-                .addContainerGap(84, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(lbl_InsertClient, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addComponent(textfieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(tf_name)
+                                            .addComponent(tft_LastName1)
+                                            .addComponent(tft_LastName2)
+                                            .addComponent(tft_ID)
+                                            .addComponent(tft_Email, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                                            .addComponent(tft_Phone, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                                            .addComponent(tft_Province, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                                            .addComponent(tft_Address, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(56, 56, 56)
+                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lbl_Name)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,32 +177,32 @@ public class Insert_Driverr extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbl_InsertClient, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Name)
-                    .addComponent(tft_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_LastName1)
-                    .addComponent(tft_LastName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_LastName2)
-                    .addComponent(tft_LastName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_Name)
+                            .addComponent(tf_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_LastName1)
+                            .addComponent(tft_LastName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_LastName2)
+                            .addComponent(tft_LastName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_ID)
                             .addComponent(tft_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(48, 48, 48)
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_Email)
                             .addComponent(tft_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
+                        .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_Phone)
                             .addComponent(tft_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(45, 45, 45)
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_Province)
                             .addComponent(tft_Province, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -190,18 +210,18 @@ public class Insert_Driverr extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_Address)
                             .addComponent(tft_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textfieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(lbl_Message)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(lbl_Message)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_Insert)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
@@ -209,32 +229,30 @@ public class Insert_Driverr extends javax.swing.JFrame {
 
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
 
- Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
-        linkedListClient.add(client);
-       
-
-   // Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
-//   clietfile =new ClientFile();
-//   lbl_Message.setText(clietfile.writeClients(client,true));
-
+   Driver driver=new Driver(typeVehicule, textfieldAge.getText(),tft_ID.getText(),tf_name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(),tft_Phone.getText(), tft_Province.getText(),tft_Address.getText());
+   driverFile.writeDrivers(driver,true);
+   
+   
 
 
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_InsertActionPerformed
- private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-   String valor=jComboBox1.getSelectedItem().toString();
-     
-
-    }                                          
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+                 
+    private void textfieldAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldAgeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_textfieldAgeActionPerformed
 
-    public LinkedList clientList (){
-        
-        return linkedListClient;
-    }
+    private void tf_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_nameActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        typeVehicule=jComboBox2.getSelectedItem().toString();
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+  
 
     
     
@@ -276,11 +294,10 @@ public class Insert_Driverr extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Insert;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbl_Address;
     private javax.swing.JLabel lbl_Email;
     private javax.swing.JLabel lbl_ID;
@@ -291,12 +308,13 @@ public class Insert_Driverr extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Name;
     private javax.swing.JLabel lbl_Phone;
     private javax.swing.JLabel lbl_Province;
+    private javax.swing.JTextField textfieldAge;
+    private javax.swing.JTextField tf_name;
     private javax.swing.JTextField tft_Address;
     private javax.swing.JTextField tft_Email;
     private javax.swing.JTextField tft_ID;
     private javax.swing.JTextField tft_LastName1;
     private javax.swing.JTextField tft_LastName2;
-    private javax.swing.JTextField tft_Name;
     private javax.swing.JTextField tft_Phone;
     private javax.swing.JTextField tft_Province;
     // End of variables declaration//GEN-END:variables
