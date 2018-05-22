@@ -64,6 +64,7 @@ public class Administrator extends javax.swing.JFrame {
         JB_next = new javax.swing.JButton();
         JB_Previous = new javax.swing.JButton();
         JB_CreateAccount = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         JL_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -193,6 +194,16 @@ public class Administrator extends javax.swing.JFrame {
         });
         getContentPane().add(JB_CreateAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
 
+        jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(204, 204, 5));
+        jButton1.setText("CRUD's");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 110, 30));
+
         JL_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
         getContentPane().add(JL_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 660));
 
@@ -235,6 +246,12 @@ public class Administrator extends javax.swing.JFrame {
         dispose();
         ca.setVisible(true);
     }//GEN-LAST:event_JB_CreateAccountActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            CRUDs crud = new CRUDs();
+            this.dispose();
+            crud.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
     /**
      * Metodo en el cual se llena una pila con los objetos order
      *
@@ -345,5 +362,6 @@ public class Administrator extends javax.swing.JFrame {
     private javax.swing.JTextField JT_ProvinceSearch;
     private javax.swing.JTable JT_Reporte;
     private javax.swing.JScrollPane JT_Table;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
