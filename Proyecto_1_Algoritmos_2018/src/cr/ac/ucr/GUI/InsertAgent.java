@@ -64,15 +64,15 @@ public class InsertAgent extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_Insert_Agent.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_Insert_Agent.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lbl_Insert_Agent.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Insert_Agent.setText("Insert Agent");
         getContentPane().add(lbl_Insert_Agent, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 30, 204, 34));
 
-        lbl_Name.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_Name.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Name.setText("Name");
-        getContentPane().add(lbl_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 150, -1, -1));
+        getContentPane().add(lbl_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         lbl_User.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_User.setForeground(new java.awt.Color(0, 153, 153));
@@ -97,6 +97,7 @@ public class InsertAgent extends javax.swing.JFrame {
         getContentPane().add(tft_Code, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 597, 251, 30));
 
         btn_Insert_Agemt.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btn_Insert_Agemt.setForeground(new java.awt.Color(0, 153, 153));
         btn_Insert_Agemt.setText("Insert");
         btn_Insert_Agemt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,9 +110,10 @@ public class InsertAgent extends javax.swing.JFrame {
         getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 95, -1, -1));
         getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 95, 210, -1));
 
+        lbl_LastName1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_LastName1.setForeground(new java.awt.Color(0, 153, 153));
         lbl_LastName1.setText("LastName1");
-        getContentPane().add(lbl_LastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 223, -1, -1));
+        getContentPane().add(lbl_LastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         lbl_LastName2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_LastName2.setForeground(new java.awt.Color(0, 153, 153));
@@ -142,6 +144,7 @@ public class InsertAgent extends javax.swing.JFrame {
         getContentPane().add(tft_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 489, 251, 32));
 
         JB_Cancel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        JB_Cancel.setForeground(new java.awt.Color(0, 153, 153));
         JB_Cancel.setText("Cancel");
         JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

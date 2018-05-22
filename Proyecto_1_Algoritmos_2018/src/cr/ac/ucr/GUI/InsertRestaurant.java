@@ -59,138 +59,90 @@ public class InsertRestaurant extends javax.swing.JFrame {
         lbl_Logo = new javax.swing.JLabel();
         tft_Path = new javax.swing.JTextField();
         JB_Cancel = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_InsertRestaurant.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_InsertRestaurant.setForeground(new java.awt.Color(0, 153, 153));
         lbl_InsertRestaurant.setText("Insert Restaurant");
+        getContentPane().add(lbl_InsertRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 290, -1));
 
         lbl_InsertLogo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_InsertLogo.setForeground(new java.awt.Color(0, 153, 153));
         lbl_InsertLogo.setText("Insert the Logo of the Restaurant");
+        getContentPane().add(lbl_InsertLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 429, -1, -1));
 
         btn_Load_Logo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btn_Load_Logo.setForeground(new java.awt.Color(0, 153, 153));
         btn_Load_Logo.setText("Load Logo");
         btn_Load_Logo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_Load_LogoActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_Load_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 491, 287, -1));
 
-        lbl_Name.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_Name.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Name.setText("Name");
+        getContentPane().add(lbl_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 120, 30));
+        getContentPane().add(tfd_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 162, 287, 31));
 
-        lbl_Province.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Province.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_Province.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Province.setText("Province");
+        getContentPane().add(lbl_Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
-        lbl_Location.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Location.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_Location.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Location.setText("Location");
+        getContentPane().add(lbl_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
+        btn_Insert.setForeground(new java.awt.Color(0, 153, 153));
         btn_Insert.setText("Insert");
         btn_Insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InsertActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_Insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 700, 90, 30));
 
         tfd_Province.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfd_ProvinceActionPerformed(evt);
             }
         });
+        getContentPane().add(tfd_Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 243, 287, 31));
+        getContentPane().add(tfd_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 356, 287, 30));
 
+        lbl_ID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_ID.setForeground(new java.awt.Color(0, 153, 153));
         lbl_ID.setText("ID");
+        getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         lbl_ID1.setText("jLabel8");
+        getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 92, -1, -1));
 
+        lbl_Logo.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Logo.setText("jLabel9");
+        getContentPane().add(lbl_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 609, 287, 82));
+        getContentPane().add(tft_Path, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 563, 287, -1));
 
+        JB_Cancel.setForeground(new java.awt.Color(0, 153, 153));
         JB_Cancel.setText("Cancel");
         JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_CancelActionPerformed(evt);
             }
         });
+        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 700, 90, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(lbl_InsertRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_ID)
-                                .addGap(123, 123, 123)
-                                .addComponent(lbl_ID1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbl_Location)
-                                            .addComponent(lbl_Province))
-                                        .addGap(54, 54, 54))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lbl_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfd_Name)
-                                    .addComponent(tfd_Province)
-                                    .addComponent(tfd_Location)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(btn_Load_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbl_InsertLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbl_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(tft_Path))
-                                            .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))))
-                .addGap(18, 18, 18)
-                .addComponent(JB_Cancel)
-                .addGap(134, 134, 134))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lbl_InsertRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_ID)
-                    .addComponent(lbl_ID1))
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfd_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Province)
-                    .addComponent(tfd_Province, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(82, 82, 82)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Location)
-                    .addComponent(tfd_Location, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addComponent(lbl_InsertLogo)
-                .addGap(38, 38, 38)
-                .addComponent(btn_Load_Logo)
-                .addGap(39, 39, 39)
-                .addComponent(tft_Path, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(lbl_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JB_Cancel))
-                .addGap(53, 53, 53))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 700, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -295,6 +247,7 @@ public class InsertRestaurant extends javax.swing.JFrame {
     private javax.swing.JButton JB_Cancel;
     private javax.swing.JButton btn_Insert;
     private javax.swing.JButton btn_Load_Logo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_ID;
     private javax.swing.JLabel lbl_ID1;
     private javax.swing.JLabel lbl_InsertLogo;

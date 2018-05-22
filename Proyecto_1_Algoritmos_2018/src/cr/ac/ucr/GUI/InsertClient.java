@@ -55,142 +55,89 @@ public class InsertClient extends javax.swing.JFrame {
         tft_Address = new javax.swing.JTextField();
         lbl_Message = new javax.swing.JLabel();
         JB_Cancel = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_InsertClient.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_InsertClient.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbl_InsertClient.setForeground(new java.awt.Color(0, 153, 153));
         lbl_InsertClient.setText("Insert Client");
+        getContentPane().add(lbl_InsertClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 11, 214, -1));
 
         lbl_Name.setText("Name");
+        getContentPane().add(lbl_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(-700, -520, -1, -1));
 
+        lbl_Email.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_Email.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Email.setText("E-mail");
+        getContentPane().add(lbl_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 327, -1, -1));
 
+        lbl_Phone.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_Phone.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Phone.setText("Number phone");
+        getContentPane().add(lbl_Phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 387, -1, -1));
 
+        lbl_Province.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_Province.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Province.setText("Province");
+        getContentPane().add(lbl_Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 452, -1, -1));
 
+        lbl_ID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_ID.setForeground(new java.awt.Color(0, 153, 153));
         lbl_ID.setText("ID");
+        getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 259, -1, -1));
+        getContentPane().add(tft_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 94, 214, -1));
+        getContentPane().add(tft_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 256, 214, -1));
+        getContentPane().add(tft_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 324, 214, -1));
+        getContentPane().add(tft_Phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 384, 214, -1));
+        getContentPane().add(tft_Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 449, 214, -1));
 
+        btn_Insert.setForeground(new java.awt.Color(0, 153, 153));
         btn_Insert.setText("Insert");
         btn_Insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InsertActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_Insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 570, 90, -1));
 
+        lbl_LastName1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_LastName1.setForeground(new java.awt.Color(0, 153, 153));
         lbl_LastName1.setText("LastName1");
+        getContentPane().add(lbl_LastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 151, -1, -1));
 
+        lbl_LastName2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_LastName2.setForeground(new java.awt.Color(0, 153, 153));
         lbl_LastName2.setText("LastName2");
+        getContentPane().add(lbl_LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 197, -1, -1));
+        getContentPane().add(tft_LastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 148, 214, -1));
+        getContentPane().add(tft_LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 194, 222, -1));
 
+        lbl_Address.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_Address.setForeground(new java.awt.Color(0, 153, 153));
         lbl_Address.setText("Exactly Address");
+        getContentPane().add(lbl_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 499, -1, -1));
+        getContentPane().add(tft_Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 496, 214, -1));
 
         lbl_Message.setText("jLabel2");
+        getContentPane().add(lbl_Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 534, 360, -1));
 
+        JB_Cancel.setForeground(new java.awt.Color(0, 153, 153));
         JB_Cancel.setText("Cancel");
         JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_CancelActionPerformed(evt);
             }
         });
+        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, 70, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_Address)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_LastName2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_LastName1)
-                                        .addGap(43, 43, 43))
-                                    .addComponent(lbl_ID, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_Email, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_Phone, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_Province, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(42, 42, 42)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(tft_Email)
-                                            .addComponent(tft_Phone)
-                                            .addComponent(tft_Province)
-                                            .addComponent(tft_Address)
-                                            .addComponent(btn_Insert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(50, 50, 50)
-                                        .addComponent(lbl_InsertClient, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(42, 42, 42)
-                                        .addComponent(tft_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(42, 42, 42)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tft_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tft_LastName1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addComponent(lbl_Name)
-                            .addComponent(tft_LastName2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addComponent(JB_Cancel)))
-                .addContainerGap(126, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbl_Message, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_InsertClient, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Name)
-                    .addComponent(tft_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_LastName1)
-                    .addComponent(tft_LastName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_LastName2)
-                    .addComponent(tft_LastName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_ID)
-                    .addComponent(tft_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Email)
-                    .addComponent(tft_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Phone)
-                    .addComponent(tft_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Province)
-                    .addComponent(tft_Province, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Address)
-                    .addComponent(tft_Address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(lbl_Message)
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Insert)
-                    .addComponent(JB_Cancel))
-                .addContainerGap(212, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 820));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -255,6 +202,7 @@ public class InsertClient extends javax.swing.JFrame {
     private javax.swing.JButton JB_Cancel;
     private javax.swing.JButton btn_Insert;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_Address;
     private javax.swing.JLabel lbl_Email;
     private javax.swing.JLabel lbl_ID;
