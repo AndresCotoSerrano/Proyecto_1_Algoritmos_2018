@@ -134,7 +134,7 @@ public class CRUDs extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JMI_InsertDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertDriverActionPerformed
-        Insert_Driverr id = new Insert_Driverr();
+        InsertDriver id = new InsertDriver();
         id.setVisible(true);
     }//GEN-LAST:event_JMI_InsertDriverActionPerformed
 
@@ -155,22 +155,22 @@ public class CRUDs extends javax.swing.JFrame {
     }//GEN-LAST:event_JM_AdministratorActionPerformed
 
     private void JMI_InsertRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertRestaurantActionPerformed
-        Insert_Restaurant ir = new Insert_Restaurant();
+        InsertRestaurant ir = new InsertRestaurant();
         ir.setVisible(true);
     }//GEN-LAST:event_JMI_InsertRestaurantActionPerformed
 
     private void JMI_InsertAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAgentActionPerformed
-        Insert_Agent as = new Insert_Agent();
+        InsertAgent as = new InsertAgent();
         as.setVisible(true);
     }//GEN-LAST:event_JMI_InsertAgentActionPerformed
 
     private void JMI_InsertProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertProductActionPerformed
-        Insert_Product ip = new Insert_Product();
+        InsertProduct ip = new InsertProduct();
         ip.setVisible(true);
     }//GEN-LAST:event_JMI_InsertProductActionPerformed
 
     private void JMI_InsertAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAdministratorActionPerformed
-        Insert_Administrator ia = new Insert_Administrator();
+        InsertAdministrator ia = new InsertAdministrator();
         ia.setVisible(true);
     }//GEN-LAST:event_JMI_InsertAdministratorActionPerformed
 
