@@ -17,7 +17,7 @@ import java.util.Queue;
  *
  * @author Melvin
  */
-public class Insert_Driverr extends javax.swing.JFrame {
+public class InsertDriver extends javax.swing.JFrame {
     DriverFile driverFile=new DriverFile();
     LinkedList<Client> linkedListClient = new LinkedList<>();
     Queue<Driver>drivers=new LinkedList<Driver>();
@@ -25,7 +25,7 @@ public class Insert_Driverr extends javax.swing.JFrame {
      /**
      * Creates new form Insert_Client
      */
-    public Insert_Driverr() {
+    public InsertDriver() {
         initComponents();
     }
 
@@ -273,21 +273,23 @@ public class Insert_Driverr extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Insert_Driverr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertDriver.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Insert_Driverr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertDriver.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Insert_Driverr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertDriver.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Insert_Driverr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertDriver.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Insert_Driverr().setVisible(true);
+                new InsertDriver().setVisible(true);
             }
         });
     }
