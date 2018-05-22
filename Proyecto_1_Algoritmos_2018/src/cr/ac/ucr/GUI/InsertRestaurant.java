@@ -7,10 +7,12 @@ package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Clase_Prueba;
 import cr.ac.ucr.Domain.Image_Panel;
+import cr.ac.ucr.Domain.Restaurant;
 import cr.ac.ucr.Files.LoanLogo;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.LinkedList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -21,14 +23,15 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author Melvin
  */
-public class Insert_Restaurant extends javax.swing.JFrame {
+public class InsertRestaurant extends javax.swing.JFrame {
     
     Image_Panel imagePanel;
+    LinkedList<Restaurant> linkedListRestaurant = new LinkedList<>();
 
     /**
      * Creates new form Insert_Restaurant
      */
-    public Insert_Restaurant() {
+    public InsertRestaurant() {
         initComponents();
     }
 
@@ -41,30 +44,28 @@ public class Insert_Restaurant extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_InsertRestaurant = new javax.swing.JLabel();
+        lbl_InsertLogo = new javax.swing.JLabel();
         btn_Load_Logo = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lbl_Name = new javax.swing.JLabel();
+        tfd_Name = new javax.swing.JTextField();
+        lbl_Province = new javax.swing.JLabel();
+        lbl_Location = new javax.swing.JLabel();
+        btn_Insert = new javax.swing.JButton();
+        tfd_Province = new javax.swing.JTextField();
+        tfd_Location = new javax.swing.JTextField();
+        lbl_ID = new javax.swing.JLabel();
+        lbl_ID1 = new javax.swing.JLabel();
         lbl_Logo = new javax.swing.JLabel();
         tft_Path = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
-        jLabel1.setText("Insert Restaurant");
+        lbl_InsertRestaurant.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_InsertRestaurant.setText("Insert Restaurant");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("Insert the Logo of the Restaurant");
+        lbl_InsertLogo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_InsertLogo.setText("Insert the Logo of the Restaurant");
 
         btn_Load_Logo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btn_Load_Logo.setText("Load Logo");
@@ -74,37 +75,33 @@ public class Insert_Restaurant extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("Name");
+        lbl_Name.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Name.setText("Name");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("Province");
+        lbl_Province.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Province.setText("Province");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("Location");
+        lbl_Location.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbl_Location.setText("Location");
 
-        jButton2.setText("Insert");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_Insert.setText("Insert");
+        btn_Insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_InsertActionPerformed(evt);
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfd_Province.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfd_ProvinceActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Code");
+        lbl_ID.setText("ID");
 
-        jLabel7.setText("ID");
-
-        jLabel8.setText("jLabel8");
+        lbl_ID1.setText("jLabel8");
 
         lbl_Logo.setText("jLabel9");
-
-        tft_Path.setText("jTextField5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,88 +111,80 @@ public class Insert_Restaurant extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(139, 139, 139)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbl_InsertRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                                .addComponent(lbl_ID)
                                 .addGap(123, 123, 123)
-                                .addComponent(jLabel8)
+                                .addComponent(lbl_ID1)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel6))
+                                            .addComponent(lbl_Location)
+                                            .addComponent(lbl_Province))
                                         .addGap(54, 54, 54))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbl_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField4)
+                                    .addComponent(tfd_Name)
+                                    .addComponent(tfd_Province)
+                                    .addComponent(tfd_Location)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(btn_Load_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lbl_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(tft_Path))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(btn_Load_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbl_InsertLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbl_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(tft_Path))
+                                            .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 15, Short.MAX_VALUE)))))))
                 .addGap(210, 210, 210))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(292, 292, 292)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_InsertRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(lbl_ID)
+                    .addComponent(lbl_ID1))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfd_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_Province)
+                    .addComponent(tfd_Province, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                    .addComponent(lbl_Location)
+                    .addComponent(tfd_Location, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addComponent(lbl_InsertLogo)
+                .addGap(38, 38, 38)
                 .addComponent(btn_Load_Logo)
-                .addGap(40, 40, 40)
+                .addGap(39, 39, 39)
                 .addComponent(tft_Path, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(26, 26, 26)
                 .addComponent(lbl_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(47, 47, 47))
+                .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tfd_ProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfd_ProvinceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tfd_ProvinceActionPerformed
 
     private void btn_Load_LogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Load_LogoActionPerformed
         // TODO add your handling code here:
@@ -232,10 +221,18 @@ public class Insert_Restaurant extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_btn_Load_LogoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
+       
+        Restaurant restaurant = new Restaurant(lbl_ID1.getText(), tft_Path.getText(), tfd_Name.getText(), tfd_Province.getText(), tfd_Location.getText());
+        linkedListRestaurant.add(restaurant);
+    }//GEN-LAST:event_btn_InsertActionPerformed
 
+    
+       public LinkedList getRestaurantList (){
+        
+        return linkedListRestaurant;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -253,40 +250,39 @@ public class Insert_Restaurant extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Insert_Restaurant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertRestaurant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Insert_Restaurant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertRestaurant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Insert_Restaurant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertRestaurant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Insert_Restaurant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertRestaurant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Insert_Restaurant().setVisible(true);
+                new InsertRestaurant().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Insert;
     private javax.swing.JButton btn_Load_Logo;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel lbl_ID;
+    private javax.swing.JLabel lbl_ID1;
+    private javax.swing.JLabel lbl_InsertLogo;
+    private javax.swing.JLabel lbl_InsertRestaurant;
+    private javax.swing.JLabel lbl_Location;
     private javax.swing.JLabel lbl_Logo;
+    private javax.swing.JLabel lbl_Name;
+    private javax.swing.JLabel lbl_Province;
+    private javax.swing.JTextField tfd_Location;
+    private javax.swing.JTextField tfd_Name;
+    private javax.swing.JTextField tfd_Province;
     private javax.swing.JTextField tft_Path;
     // End of variables declaration//GEN-END:variables
 }

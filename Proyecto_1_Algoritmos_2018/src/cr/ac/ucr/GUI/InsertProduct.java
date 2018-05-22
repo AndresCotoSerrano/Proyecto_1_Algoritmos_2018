@@ -22,7 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author Melvin
  */
-public class Insert_Product extends javax.swing.JFrame {
+public class InsertProduct extends javax.swing.JFrame {
 
     FileChooser filechooser = new FileChooser();
     CircularLinkedList circularDrink = new CircularLinkedList();
@@ -33,7 +33,7 @@ public class Insert_Product extends javax.swing.JFrame {
     /**
      * Creates new form Insert_Product
      */
-    public Insert_Product() {
+    public InsertProduct() {
         
         initComponents();
         
@@ -267,10 +267,10 @@ public class Insert_Product extends javax.swing.JFrame {
            // System.out.println(circularDrink.getSize());
            System.out.println(circularDrink.getNode(0).toString());
         } catch (ListException ex) {
-            Logger.getLogger(Insert_Product.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InsertProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
         } catch (ListException ex) {
-            Logger.getLogger(Insert_Product.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InsertProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         
@@ -293,20 +293,21 @@ public class Insert_Product extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Insert_Product.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Insert_Product.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Insert_Product.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Insert_Product.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Insert_Product().setVisible(true);
+                new InsertProduct().setVisible(true);
             }
         });
     }

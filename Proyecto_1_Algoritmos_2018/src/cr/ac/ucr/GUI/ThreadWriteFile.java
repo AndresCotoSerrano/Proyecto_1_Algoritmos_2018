@@ -13,7 +13,7 @@ public class ThreadWriteFile extends Thread {
        ClientFile clietfile;
        Write_Read_Files write;
     
-    Insert_Client insertClient = new Insert_Client();
+    InsertClient insertClient = new InsertClient();
     
     LinkedList<Client> fileLinkedListClient = insertClient.getClientList();
     

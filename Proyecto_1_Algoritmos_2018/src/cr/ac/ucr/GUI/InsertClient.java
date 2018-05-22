@@ -13,13 +13,13 @@ import java.util.LinkedList;
  *
  * @author Melvin
  */
-public class Insert_Client extends javax.swing.JFrame {
+public class InsertClient extends javax.swing.JFrame {
     ClientFile clietfile;
     LinkedList<Client> linkedListClient = new LinkedList<>();
      /**
      * Creates new form Insert_Client
      */
-    public Insert_Client() {
+    public InsertClient() {
         initComponents();
     }
 
@@ -184,14 +184,6 @@ public class Insert_Client extends javax.swing.JFrame {
  Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
         linkedListClient.add(client);
 
-   // Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
-//   clietfile =new ClientFile();
-//   lbl_Message.setText(clietfile.writeClients(client,true));
-
-
-
-
-        // TODO add your handling code here:
     }//GEN-LAST:event_btn_InsertActionPerformed
 
     public LinkedList getClientList (){
@@ -218,20 +210,21 @@ public class Insert_Client extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Insert_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Insert_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Insert_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Insert_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Insert_Client().setVisible(true);
+                new InsertClient().setVisible(true);
             }
         });
     }
