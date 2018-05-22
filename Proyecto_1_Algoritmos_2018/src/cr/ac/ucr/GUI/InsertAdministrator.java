@@ -150,6 +150,7 @@ public class InsertAdministrator extends javax.swing.JFrame {
         getContentPane().add(btn_Inser_Administrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 610, 138, 48));
 
         JB_Cancel.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        JB_Cancel.setForeground(new java.awt.Color(0, 153, 153));
         JB_Cancel.setText("Cancel");
         JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
