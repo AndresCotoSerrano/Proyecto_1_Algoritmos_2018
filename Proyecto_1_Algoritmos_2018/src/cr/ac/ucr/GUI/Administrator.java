@@ -5,12 +5,14 @@
  */
 package cr.ac.ucr.GUI;
 
-
 import cr.ac.ucr.Domain.Order;
 import cr.ac.ucr.Logic.LinkedStack;
 import cr.ac.ucr.Logic.StackException.PilaException;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JScrollBar;
 
@@ -20,17 +22,20 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author deltadragon
  */
-public class AdministratorA extends javax.swing.JFrame {
+public class Administrator extends javax.swing.JFrame {
 
+    int count = 0;
     Dimension dimension;
     int alto;
     JScrollBar barra;
     final int filas = 21;
+    ArrayList<Order> finalList = new ArrayList<>();
 
-    public AdministratorA() throws PilaException {
+    public Administrator() throws PilaException {
         initComponents();
         this.setLocationRelativeTo(null);
-        fillTable();
+        this.chargeTable(fillTable());
+        finalList = fillTable();
     }
 
     /**
@@ -53,7 +58,6 @@ public class AdministratorA extends javax.swing.JFrame {
         JT_Reporte = new javax.swing.JTable();
         JB_LogOut = new javax.swing.JButton();
         JB_Charts = new javax.swing.JButton();
-        JT_ClientSearch = new javax.swing.JTextField();
         JT_OrderSearch = new javax.swing.JTextField();
         JT_AgentSearch = new javax.swing.JTextField();
         JT_AmountSearch = new javax.swing.JTextField();
@@ -64,6 +68,7 @@ public class AdministratorA extends javax.swing.JFrame {
         JB_next = new javax.swing.JButton();
         JB_Previous = new javax.swing.JButton();
         JB_CreateAccount = new javax.swing.JButton();
+        JT_ClientSearch = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         JL_img = new javax.swing.JLabel();
 
@@ -138,12 +143,16 @@ public class AdministratorA extends javax.swing.JFrame {
         JB_Charts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/graficos1.png"))); // NOI18N
         getContentPane().add(JB_Charts, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 10, 40, 40));
 
-        JT_ClientSearch.addActionListener(new java.awt.event.ActionListener() {
+        JT_OrderSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JT_ClientSearchActionPerformed(evt);
+                JT_OrderSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(JT_ClientSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 170, 30));
+        JT_OrderSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JT_OrderSearchKeyReleased(evt);
+            }
+        });
         getContentPane().add(JT_OrderSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 160, 30));
 
         JT_AgentSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -151,8 +160,38 @@ public class AdministratorA extends javax.swing.JFrame {
                 JT_AgentSearchActionPerformed(evt);
             }
         });
+        JT_AgentSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JT_AgentSearchKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JT_AgentSearchKeyTyped(evt);
+            }
+        });
         getContentPane().add(JT_AgentSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 170, 30));
+
+        JT_AmountSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JT_AmountSearchActionPerformed(evt);
+            }
+        });
+        JT_AmountSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JT_AmountSearchKeyReleased(evt);
+            }
+        });
         getContentPane().add(JT_AmountSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 210, 170, 30));
+
+        JT_ProvinceSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JT_ProvinceSearchActionPerformed(evt);
+            }
+        });
+        JT_ProvinceSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JT_ProvinceSearchKeyReleased(evt);
+            }
+        });
         getContentPane().add(JT_ProvinceSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 210, 160, 30));
 
         JT_DriverSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -160,9 +199,19 @@ public class AdministratorA extends javax.swing.JFrame {
                 JT_DriverSearchActionPerformed(evt);
             }
         });
+        JT_DriverSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JT_DriverSearchKeyReleased(evt);
+            }
+        });
         getContentPane().add(JT_DriverSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 210, 170, 30));
 
         JT_DateSearch.setText("dateTextField1");
+        JT_DateSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JT_DateSearchMouseClicked(evt);
+            }
+        });
         getContentPane().add(JT_DateSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 160, 30));
 
         JB_Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/lupa1.png"))); // NOI18N
@@ -194,6 +243,18 @@ public class AdministratorA extends javax.swing.JFrame {
         });
         getContentPane().add(JB_CreateAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
 
+        JT_ClientSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JT_ClientSearchActionPerformed(evt);
+            }
+        });
+        JT_ClientSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JT_ClientSearchKeyReleased(evt);
+            }
+        });
+        getContentPane().add(JT_ClientSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 170, 30));
+
         jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(204, 204, 5));
         jButton1.setText("CRUD's");
@@ -217,16 +278,12 @@ public class AdministratorA extends javax.swing.JFrame {
 
     }//GEN-LAST:event_JB_LogOutActionPerformed
 
-    private void JT_ClientSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_ClientSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JT_ClientSearchActionPerformed
-
     private void JT_AgentSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_AgentSearchActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_JT_AgentSearchActionPerformed
 
     private void JT_DriverSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_DriverSearchActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_JT_DriverSearchActionPerformed
 
     private void JB_PreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_PreviousActionPerformed
@@ -248,10 +305,100 @@ public class AdministratorA extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_CreateAccountActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            CRUDs crud = new CRUDs();
+        CRUDs crud = new CRUDs();
 //            this.dispose();
-            crud.setVisible(true);
+        crud.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void JT_ClientSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_ClientSearchActionPerformed
+
+    }//GEN-LAST:event_JT_ClientSearchActionPerformed
+
+    private void JT_OrderSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_OrderSearchActionPerformed
+
+    }//GEN-LAST:event_JT_OrderSearchActionPerformed
+
+    private void JT_AgentSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_AgentSearchKeyTyped
+
+    }//GEN-LAST:event_JT_AgentSearchKeyTyped
+
+    private void JT_ClientSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_ClientSearchKeyReleased
+        count = 0;
+        try {
+            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
+                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JT_ClientSearchKeyReleased
+
+    private void JT_AgentSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_AgentSearchKeyReleased
+        count = 0;
+        try {
+            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
+                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JT_AgentSearchKeyReleased
+
+    private void JT_DateSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_DateSearchMouseClicked
+        count = 0;
+        try {
+            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
+                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JT_DateSearchMouseClicked
+
+    private void JT_AmountSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_AmountSearchActionPerformed
+
+    }//GEN-LAST:event_JT_AmountSearchActionPerformed
+
+    private void JT_ProvinceSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_ProvinceSearchActionPerformed
+
+    }//GEN-LAST:event_JT_ProvinceSearchActionPerformed
+
+    private void JT_OrderSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_OrderSearchKeyReleased
+        count = 0;
+        try {
+            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
+                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JT_OrderSearchKeyReleased
+
+    private void JT_AmountSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_AmountSearchKeyReleased
+        count = 0;
+        try {
+            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
+                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JT_AmountSearchKeyReleased
+
+    private void JT_ProvinceSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_ProvinceSearchKeyReleased
+        count = 0;
+        try {
+            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
+                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JT_ProvinceSearchKeyReleased
+
+    private void JT_DriverSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_DriverSearchKeyReleased
+        count = 0;
+        try {
+            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
+                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JT_DriverSearchKeyReleased
     /**
      * Metodo en el cual se llena una pila con los objetos order
      *
@@ -262,8 +409,8 @@ public class AdministratorA extends javax.swing.JFrame {
         LinkedStack stack = new LinkedStack();
         Order order1 = null;
 
-        for (int i = 0; i < 45; i++) {
-            order1 = new Order("Cliente" + i, i, "Agente" + i, "Date" + i, "Province" + i, "Driver" + i, "restautarant" + i, "product" + i,
+        for (int i = 0; i < 10; i++) {
+            order1 = new Order("cliente" + i, i, "agente" + i, "1" + i + "/05/2028", "province" + i, "driver" + i, "restautarant" + i, "product" + i,
                     +i, i);
             stack.push(order1);
         }
@@ -276,14 +423,128 @@ public class AdministratorA extends javax.swing.JFrame {
      *
      * @throws PilaException
      */
-    private void fillTable() throws PilaException {
+    private ArrayList fillTable() throws PilaException {
         LinkedStack stack = saveOrders();
         ArrayList<Order> list = new ArrayList<>();
-        DefaultTableModel model = (DefaultTableModel) this.JT_Reporte.getModel();
-        model.setRowCount(0);
         while (!stack.isEmpty()) {
             list.add((Order) stack.pop());
         }
+        return list;
+    }
+
+    private ArrayList fillArray(LinkedStack search) throws PilaException {
+        LinkedStack stack = search;
+        ArrayList<Order> list = new ArrayList<>();
+        while (!stack.isEmpty()) {
+            list.add((Order) stack.pop());
+        }
+        return list;
+    }
+
+    public ArrayList dateSearch() {
+        ArrayList<Order> list = new ArrayList<>();
+        try {
+            String valor = this.JT_DateSearch.getText();
+            LinkedStack stack = saveOrders();
+            System.out.println(valor);
+            while (!stack.isEmpty()) {
+                Order order = (Order) stack.peek();
+                if (valor.length() > order.getDate().length()) {
+                    stack.pop();
+                } else if (valor.equals(order.getDate().substring(0, valor.length()))) {
+                    list.add((Order) stack.pop());
+                } else {
+                    stack.pop();
+                }
+            }
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public ArrayList agentSearch() {
+        ArrayList<Order> list = new ArrayList<>();
+        try {
+            String valor = this.JT_AgentSearch.getText();
+            LinkedStack stack = saveOrders();
+
+            while (!stack.isEmpty()) {
+                Order order = (Order) stack.peek();
+                if (valor.length() > order.getAgente().length()) {
+                    stack.pop();
+                } else if (valor.equals(order.getAgente().substring(0, valor.length()))) {
+                    list.add((Order) stack.pop());
+                } else {
+                    stack.pop();
+                }
+            }
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public ArrayList recursiveSearch(Order list, String one, String two, String three, String four, String five, String six, String seven) throws PilaException {
+//        ArrayList<Order> auxList = list;
+
+        System.out.println(count);
+        if (count > fillTable().size() - 1) {
+            System.out.println("entro aca" + count);
+            return finalList;
+
+        }
+        if (one.length() == list.getCliente().length()) {
+            if (one.equals(list.getCliente()) || three.equals(list.getAgente())
+                    || four.equals(list.getDate()) || six.equals(list.getProvincia())
+                    || seven.equals(list.getDriver())) {
+                return recursiveSearch(finalList.get(count++), one, two, three, four, five, six, seven);
+            } else {
+                finalList.remove(count);
+                System.out.println("se elimino");
+                return recursiveSearch(finalList.get(count++), one, two, three, four, five, six, seven);
+            }
+        } else {
+            if (one.equals(list.getCliente().substring(0, one.length())) || three.equals(list.getAgente().substring(0, three.length()))
+                    || four.equals(list.getDate().substring(0, four.length())) || six.equals(list.getProvincia().substring(0, six.length()))
+                    || seven.equals(list.getDriver().substring(0, seven.length()))) {
+                System.out.println("just run");
+                return recursiveSearch(finalList.get(count++), one, two, three, four, five, six, seven);
+            } else {
+                finalList.remove(count);
+                System.out.println("se elimino");
+                return recursiveSearch(finalList.get(count++), one, two, three, four, five, six, seven);
+            }
+        }
+    }
+
+    public ArrayList clienteSearch() {
+        ArrayList<Order> list = new ArrayList<>();
+        try {
+            String valor = this.JT_ClientSearch.getText();
+            LinkedStack stack = saveOrders();
+            while (!stack.isEmpty()) {
+                Order order = (Order) stack.peek();
+                System.out.println(valor);
+                if (valor.length() > order.getCliente().length()) {
+                    stack.pop();
+                } else if (valor.equals(order.getCliente().substring(0, valor.length()))) {
+                    list.add((Order) stack.pop());
+                } else {
+                    stack.pop();
+
+                }
+            }
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public void chargeTable(ArrayList list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Reporte.getModel();
+        model.setRowCount(0);
         Object O[] = null;
         for (int i = 0; i < list.size(); i++) {
             model.addRow(O);
@@ -312,16 +573,24 @@ public class AdministratorA extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdministratorA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrator.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdministratorA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrator.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdministratorA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrator.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdministratorA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrator.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -332,7 +601,7 @@ public class AdministratorA extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new AdministratorA().setVisible(true);
+                    new Administrator().setVisible(true);
                 } catch (PilaException ex) {
                     System.out.println("algo fallo");
                 }
@@ -366,4 +635,5 @@ public class AdministratorA extends javax.swing.JFrame {
     private javax.swing.JScrollPane JT_Table;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
+
 }

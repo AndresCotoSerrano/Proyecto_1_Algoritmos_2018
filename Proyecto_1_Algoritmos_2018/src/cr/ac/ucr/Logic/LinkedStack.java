@@ -72,7 +72,7 @@ public class LinkedStack implements Stack {
      */
     @Override
     public Object peek() {
-        return this.top;
+        return this.top.element;
     }
 
     @Override
