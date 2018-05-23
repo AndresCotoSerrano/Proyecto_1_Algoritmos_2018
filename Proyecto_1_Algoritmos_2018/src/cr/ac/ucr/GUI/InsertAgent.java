@@ -165,6 +165,12 @@ public class InsertAgent extends javax.swing.JFrame {
         Agent agent = new Agent(tft_User.getText(), tft_Code.getText(), "123", lbl_ID2.getText(), tft_Name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Location.getText());
 
         linkedAgent.add(agent);
+        
+        int i = 0;
+        while(i <= linkedAgent.size()-1){
+        System.out.println("INSERT AGENT: "+linkedAgent.get(i));
+        i++;
+        }
         CRUDs crud = new CRUDs();
         this.dispose();
         crud.setVisible(true);

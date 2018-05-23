@@ -9,6 +9,7 @@ import cr.ac.ucr.Domain.FileChooser;
 import cr.ac.ucr.Domain.Product;
 import cr.ac.ucr.Logic.CircularLinkedList;
 import cr.ac.ucr.Logic.ListException.ListException;
+import cr.ac.ucr.Logic.Node;
 import java.awt.Image;
 import java.io.File;
 import java.util.logging.Level;
@@ -29,6 +30,9 @@ public class InsertProduct extends javax.swing.JFrame {
     CircularLinkedList circularFood = new CircularLinkedList();
     CircularLinkedList circularDessert = new CircularLinkedList();
     CircularLinkedList circularVarious = new CircularLinkedList();
+    
+
+    
 
     CircularLinkedList circularListProduct = new CircularLinkedList();
 
@@ -40,6 +44,8 @@ public class InsertProduct extends javax.swing.JFrame {
         initComponents();
 
         tft_Path.setEditable(false);
+        
+   
     }
 
     /**
@@ -204,28 +210,6 @@ public class InsertProduct extends javax.swing.JFrame {
 
         String type = "";
 
-        //            if (cb_Product.getSelectedItem().toString().equals("Drink")) {
-//                type = "Drink";
-//                Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
-//                this.circularDrink.insert(product);
-//                jLabel6.setText("The Product was insert succeful");
-//            } else if (cb_Product.getSelectedItem().toString().equals("Food")) {
-//                type = "Food";
-//                Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
-//                circularFood.insert(product);
-//                jLabel6.setText("The Product was insert succeful");
-//            } else if (cb_Product.getSelectedItem().toString().equals("Dessert")) {
-//                type = "Dessert";
-//                Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
-//                circularDessert.insert(product);
-//                jLabel6.setText("The Product was insert succeful");
-//            } else {
-//                type = "Various";
-//                Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
-//                circularVarious.insert(product);
-//                jLabel6.setText("The Product was insert succeful");
-//
-//            }
         if (cb_Product.getSelectedItem().toString().equals("Drink")) {
             type = "Drink";
         } else if (cb_Product.getSelectedItem().toString().equals("Food")) {
@@ -240,8 +224,8 @@ public class InsertProduct extends javax.swing.JFrame {
         try {
 
             circularListProduct.insert(product);
-            // System.out.println(circularDrink.getSize());
-            System.out.println(circularDrink.getNode(0).toString());
+            
+          System.out.println(circularListProduct.getNode(0).toString());
         } catch (ListException ex) {
             Logger.getLogger(InsertProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -257,23 +241,12 @@ public class InsertProduct extends javax.swing.JFrame {
         crud.setVisible(true);
     }//GEN-LAST:event_JB_CancelActionPerformed
 
-//    public CircularLinkedList getDrinkList() {
-//        return circularDrink;
-//    }
-//
-//    public CircularLinkedList getFoodList() {
-//        return circularFood;
-//    }
-//
-//    public CircularLinkedList getDessertList() {
-//        return circularDessert;
-//    }
-//
-//    public CircularLinkedList getVariousList() {
-//        return circularVarious;
-//    }
+
     
     public CircularLinkedList getProductCircularList(){
+        
+        
+        
         return circularListProduct;
     }
 

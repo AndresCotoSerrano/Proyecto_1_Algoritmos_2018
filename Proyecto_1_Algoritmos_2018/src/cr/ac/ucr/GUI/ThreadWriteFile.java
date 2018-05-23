@@ -28,12 +28,12 @@ public class ThreadWriteFile extends Thread {
     InsertProduct insertProduct = new InsertProduct();
 
     //Creacion de la respectiva TDA para cargar los datos guardados en la ejecucion a los 20 segundos.
-    LinkedList<Client> fileLinkedListClient = insertClient.getClientList();
-    LinkedList<Restaurant> fileLinkedListRestaurant = insertRestaurant.getRestaurantList();
-    LinkedList<Agent> fileLinkedListAgent = insertAgent.getAgentList();
-    LinkedList<Administrator> fileLinkedListAdministrator = insertAdministrator.getAdminList();
-    //Queue<Driver> = insertDriver.getDriverQueue();
-    CircularLinkedList fileProductCircularList = insertProduct.getProductCircularList();
+//    LinkedList<Client> fileLinkedListClient = insertClient.getClientList();
+//    LinkedList<Restaurant> fileLinkedListRestaurant = insertRestaurant.getRestaurantList();
+//    LinkedList<Agent> fileLinkedListAgent = insertAgent.getAgentList();
+//    LinkedList<Administrator> fileLinkedListAdministrator = insertAdministrator.getAdminList();
+//    //Queue<Driver> = insertDriver.getDriverQueue();
+//    CircularLinkedList fileProductCircularList = insertProduct.getProductCircularList();
     
     
 //    CircularLinkedList fileCircularDrink = insertProduct.getDrinkList();
@@ -52,6 +52,8 @@ public class ThreadWriteFile extends Thread {
         PrintStream psAgent = write.getPrintStream("agent.txt");
         PrintStream psAdministrator = write.getPrintStream("administrator.txt");
         PrintStream psProduct = write.getPrintStream("product.txt");
+        
+        PrintStream prueba = write.getPrintStream("PRUEBA.txt");
 
         int iCliente = 0;
         int iRestaurante = 0;
@@ -64,37 +66,61 @@ public class ThreadWriteFile extends Thread {
         
 
         while (true) {
+            
+             LinkedList<Client> fileLinkedListClient = insertClient.getClientList();
+    LinkedList<Restaurant> fileLinkedListRestaurant = insertRestaurant.getRestaurantList();
+    LinkedList<Agent> fileLinkedListAgent = insertAgent.getAgentList();
+    LinkedList<Administrator> fileLinkedListAdministrator = insertAdministrator.getAdminList();
+    //Queue<Driver> = insertDriver.getDriverQueue();
+    CircularLinkedList fileProductCircularList = insertProduct.getProductCircularList();
+            
+            System.out.println("AQUI "+fileProductCircularList.isEmpty());
 
             try {
 
-                Thread.sleep(20000);
-                System.out.println("PRUEBA DE HILO, pasaron 20 segundos MEEEEELVIIIN");
+                Thread.sleep(10000);
+                
+               System.out.println("PRUEBA DE HILO, pasaron 10 segundos MEEEEELVIIIN");
+               
+               prueba.println("PRUEBAAAAAAAAAAAAA");
 
+                
+                if(!fileLinkedListClient.isEmpty()){
                 for (Client c : fileLinkedListClient) {
                     psClients.println(c.getID() + "   " + c.getName() + "   " + c.getLastName1() + "   " + c.getLastName2() + "   " + c.getEmail() + "   " + c.getPhone() + "   " + c.getProvince() + "   " + c.getAddress());
                 }
+                }
                 
+                if(!fileLinkedListRestaurant.isEmpty()){
                 for(Restaurant r: fileLinkedListRestaurant){
                     psRestaurant.println(r.getID()+"   "+r.getLogo()+"   "+r.getName()+"   "+r.getProvince()+"   "+r.getLocation());
+                }
                 }
                 
 //                for(Driver){
 //                    
 //                }
 
+                if(!fileLinkedListAgent.isEmpty()){
                 for(Agent a: fileLinkedListAgent){
                     psAgent.println(a.getID()+"   "+a.getName()+"   "+a.getLastName1()+"   "+a.getLastName2()+"   "+a.getEmail()+"   "+a.getPhone()+"   "+a.getAddress()+"   "+a.getUser()+"   "+a.getCode());
                 }
+                }
                 
+                if(!fileLinkedListAdministrator.isEmpty()){
                 for(Administrator adm: fileLinkedListAdministrator){
                     psAdministrator.println(adm.getID()+"   "+adm.getName()+"   "+adm.getLastName1()+"   "+adm.getLastName2()+"   "+adm.getEmail()+"   "+adm.getPhone()+"   "+adm.getAddress()+"   ");
                 }
+                }
                 
-                while(iProduct != fileProductCircularList.getSize()-1){
+                if(!fileProductCircularList.isEmpty()){
+                    System.out.println(fileProductCircularList.getNode(0).toString());
+                while(iProduct <= fileProductCircularList.getSize()-1){
                     
                     Product product = (Product) fileProductCircularList.getNode(iProduct);
                     psProduct.println(product.getName()+"   "+product.getCost()+"   "+product.getType()+"   "+product.getPathImage());
                     iProduct++;
+                }
                 }
                 
 
