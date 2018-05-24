@@ -5,15 +5,15 @@
  */
 package cr.ac.ucr.GUI;
 
+import cr.ac.ucr.Domain.Agent;
+import java.util.LinkedList;
+
 /**
  *
  * @author deltadragon
  */
 public class CRUDs extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CRUDs
-     */
     public CRUDs() {
         initComponents();
         this.setLocationRelativeTo(null);

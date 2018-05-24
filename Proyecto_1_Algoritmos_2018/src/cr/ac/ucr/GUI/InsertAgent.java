@@ -14,7 +14,7 @@ import java.util.LinkedList;
  */
 public class InsertAgent extends javax.swing.JFrame {
 
-    LinkedList<Agent> linkedAgent = new LinkedList<>();
+    public static LinkedList<Agent> linkedAgent = new LinkedList();
 
     int IDAgent = 0;
 
@@ -163,13 +163,10 @@ public class InsertAgent extends javax.swing.JFrame {
     private void btn_Insert_AgemtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Insert_AgemtActionPerformed
 
         Agent agent = new Agent(tft_User.getText(), tft_Code.getText(), "123", lbl_ID2.getText(), tft_Name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Location.getText());
-
-        linkedAgent.add(agent);
-        
-        int i = 0;
-        while(i <= linkedAgent.size()-1){
-        System.out.println("INSERT AGENT: "+linkedAgent.get(i));
-        i++;
+        this.linkedAgent.add(agent);
+        System.out.println("insertado");
+        for (Agent a : linkedAgent) {
+            System.out.println(a.toString());
         }
         CRUDs crud = new CRUDs();
         this.dispose();
@@ -186,10 +183,18 @@ public class InsertAgent extends javax.swing.JFrame {
         IDAgent++;
         return IDAgent;
     }
-    
-    public LinkedList getAgentList(){
-    return linkedAgent;    
-}
+
+    public LinkedList getAgentList() {
+        LinkedList<Agent> list = linkedAgent;
+        System.out.println("me ejecute");
+        if (linkedAgent.isEmpty()) {
+            System.out.println("pero la lista vino vacia");
+        }
+        for (Agent a : linkedAgent) {
+            System.out.println(a.toString());
+        }
+        return list;
+    }
 
     /**
      * @param args the command line arguments
