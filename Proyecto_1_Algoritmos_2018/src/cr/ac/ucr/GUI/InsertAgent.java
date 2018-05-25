@@ -6,6 +6,7 @@
 package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Agent;
+import cr.ac.ucr.Files.readFiles;
 import java.util.LinkedList;
 
 /**
@@ -15,6 +16,7 @@ import java.util.LinkedList;
 public class InsertAgent extends javax.swing.JFrame {
 
     public static LinkedList<Agent> linkedAgent = new LinkedList();
+    
 
     int IDAgent = 0;
 
@@ -23,7 +25,18 @@ public class InsertAgent extends javax.swing.JFrame {
      */
     public InsertAgent() {
         initComponents();
-        lbl_ID2.setText(IDAgent() + "");
+        readFiles read= new readFiles();
+        LinkedList<Agent> agentList = read.readAgent();
+        if(agentList.isEmpty()){
+            lbl_ID2.setText("1");
+        
+        }else{
+            int id = Integer.parseInt(agentList.getLast().getID());
+            id++;
+            lbl_ID2.setText(id+"");
+        }
+            
+       
     }
 
     /**
@@ -106,9 +119,14 @@ public class InsertAgent extends javax.swing.JFrame {
         });
         getContentPane().add(btn_Insert_Agemt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 690, 100, 40));
 
+        lbl_ID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_ID.setForeground(new java.awt.Color(0, 153, 153));
         lbl_ID.setText("ID");
         getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 95, -1, -1));
-        getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 95, 210, -1));
+
+        lbl_ID2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_ID2.setForeground(new java.awt.Color(0, 153, 153));
+        getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 95, 210, 25));
 
         lbl_LastName1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_LastName1.setForeground(new java.awt.Color(0, 153, 153));
@@ -162,7 +180,7 @@ public class InsertAgent extends javax.swing.JFrame {
 
     private void btn_Insert_AgemtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Insert_AgemtActionPerformed
 
-        Agent agent = new Agent(tft_User.getText(), tft_Code.getText(), "123", lbl_ID2.getText(), tft_Name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Location.getText());
+       Agent agent = new Agent(lbl_ID2.getText(), tft_Name.getText(), tft_LastName1.getText(), tft_LastName2.getText(), tft_Email.getText(), tft_Phone.getText(), tft_Province.getText(), tft_Location.getText(), tft_User.getText(), tft_Code.getText());
         this.linkedAgent.add(agent);
         System.out.println("insertado");
         for (Agent a : linkedAgent) {

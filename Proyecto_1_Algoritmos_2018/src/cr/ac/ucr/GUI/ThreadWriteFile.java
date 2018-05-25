@@ -8,8 +8,11 @@ import cr.ac.ucr.Domain.Product;
 import cr.ac.ucr.Domain.Restaurant;
 import cr.ac.ucr.Files.ClientFile;
 import cr.ac.ucr.Files.Write_Read_Files;
+import cr.ac.ucr.Files.readFiles;
 import cr.ac.ucr.Logic.CircularLinkedList;
 import cr.ac.ucr.Logic.ListException.ListException;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -19,6 +22,7 @@ import java.util.logging.Logger;
 public class ThreadWriteFile extends Thread {
 
     LinkedList<Agent> fileLinkedListAgent;
+    readFiles read = new readFiles();
     Write_Read_Files write;
     //Instancias de las ventanas de Insert de cada objeto.
     InsertClient insertClient = new InsertClient();
@@ -95,10 +99,43 @@ public class ThreadWriteFile extends Thread {
 //                    
 //                }
                 if (!fileLinkedListAgent.isEmpty()) {
-                    for (Agent a : fileLinkedListAgent) {
-                        System.out.println("guardo correctamente");
-                        psAgent.println(a.getID() + "   " + a.getName() + "   " + a.getLastName1() + "   " + a.getLastName2() + "   " + a.getEmail() + "   " + a.getPhone() + "   " + a.getAddress() + "   " + a.getUser() + "   " + a.getCode());
-                        InsertAgent.linkedAgent.remove(a);
+
+                    System.out.println("PRUEBA111");
+
+                    LinkedList<Agent> agentList = read.readAgent();
+                    int i = 0;
+
+                    if (agentList.isEmpty()) {
+                        for (Agent a : fileLinkedListAgent) {
+                            System.out.println("ENTRE AQUIII 1");
+                            psAgent.println(a.getID() + ";" + a.getName() + ";" + a.getLastName1() + ";" + a.getLastName2() + ";" + a.getEmail() + ";" + a.getPhone() + ";"+a.getProvince()+";" + a.getAddress() + ";" + a.getUser() + ";" + a.getCode());
+
+                        }
+                    } else {
+
+                        while (i <= agentList.size() - 1) {
+                            System.out.println("VALOR DE I "+i);
+                            for (Agent a : fileLinkedListAgent) {
+                                System.out.println(agentList.size() + "PRUEBA");
+                               
+                                   // psAgent.println(a.getID() + "   " + a.getName() + "   " + a.getLastName1() + "   " + a.getLastName2() + "   " + a.getEmail() + "   " + a.getPhone() + "   " +a.getProvince()+"   " +a.getAddress() + "   " + a.getUser() + "   " + a.getCode());
+
+                                   System.out.println(a.getID());
+                                   System.out.println(agentList.get(i).getID());
+                                   System.out.println(a.getName());
+                                   System.out.println(agentList.get(i).getName());
+                                   
+                                   
+                                    if (!a.getID().equalsIgnoreCase(agentList.get(i).getID()) && !a.getName().equalsIgnoreCase(agentList.get(i).getName())) {
+                                        System.out.println("guardo correctamente");
+                                        System.out.println("ENTRE AQUIII 2");
+                                        psAgent.println(a.getID() + ";" + a.getName() + ";" + a.getLastName1() + ";" + a.getLastName2() + ";" + a.getEmail() + ";" + a.getPhone() + ";"+a.getProvince()+ ";" + a.getAddress() + ";" + a.getUser() + ";" + a.getCode());
+                                    }
+                                
+//InsertAgent.linkedAgent.remove(a);
+                            }
+                            i++;
+                        }
                     }
                 }
 

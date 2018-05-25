@@ -17,7 +17,7 @@ public class Agent extends Person {
     String code;
     
 
-    public Agent(String user, String code,String password, String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address) {
+    public Agent(String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address, String user, String code) {
         super(ID, name, lastName1, lastName2, email, phone, province, address);
         this.user = user;
         this.code = code;

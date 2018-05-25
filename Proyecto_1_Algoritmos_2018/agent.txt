@@ -1,21 +1,128 @@
-1   andres   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   andres   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   melvin   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   andres   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   melvin   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   andres   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   melvin   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   andres   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   melvin   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   andres   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   melvin   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   andres   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   melvin   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   andres   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   melvin   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   andres   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   melvin   dasd   sadas   asdasd   asdasdsa   asdsadas   dasdasd   sadasdas
-1   asdsda   sadadsad   dsasd   asdasd   asdasd   dasdasdasd   asdasda   sdsadsad
-1   asdsda   sadadsad   asndres   asdasd   asdasd   dasdasdasd   asdasda   sdsadsad
-1   andres   asdas   asdasdasdsdasd   dasdasd   dasdasdas   asdasd   sadasdasd   asdasdas
-1   sdaasd   asdasdasdasdadsadsd   asdasdasd   dads   asdasd   asdasd   asdasdsad   asdasdsad
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+1;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin;melvin
+2;andres;andres;andres;andres;andres;andres;andres;andres;andres
