@@ -103,7 +103,8 @@ public class ThreadWriteFile extends Thread {
                     System.out.println("PRUEBA111");
 
                     LinkedList<Agent> agentList = read.readAgent();
-                    int i = 0;
+                    int iAgent = 0;
+                    int o =0;
 
                     if (agentList.isEmpty()) {
                         for (Agent a : fileLinkedListAgent) {
@@ -112,6 +113,17 @@ public class ThreadWriteFile extends Thread {
 
                         }
                     } else {
+                        
+                        for (Agent ag : this.fileLinkedListAgent) {
+                    if (ag.getID().equalsIgnoreCase(agentList.get(o).getID()) && ag.getName().equalsIgnoreCase(agentList.get(o).getName())) {
+                    iAgent++;
+                    o++;
+                    }  }
+//                if (discount.getName().equals(d.getName())) {
+//                   
+//                    i++;
+//                }
+                     int i =0;   
 
                         while (i <= agentList.size() - 1) {
                             System.out.println("VALOR DE I "+i);
@@ -126,18 +138,60 @@ public class ThreadWriteFile extends Thread {
                                    System.out.println(agentList.get(i).getName());
                                    
                                    
-                                    if (!a.getID().equalsIgnoreCase(agentList.get(i).getID()) && !a.getName().equalsIgnoreCase(agentList.get(i).getName())) {
+                                    if (iAgent==0) {
                                         System.out.println("guardo correctamente");
                                         System.out.println("ENTRE AQUIII 2");
                                         psAgent.println(a.getID() + ";" + a.getName() + ";" + a.getLastName1() + ";" + a.getLastName2() + ";" + a.getEmail() + ";" + a.getPhone() + ";"+a.getProvince()+ ";" + a.getAddress() + ";" + a.getUser() + ";" + a.getCode());
+                                        
                                     }
                                 
 //InsertAgent.linkedAgent.remove(a);
                             }
                             i++;
+                            
                         }
+                        iAgent = 0;
                     }
                 }
+                
+                //AQUI
+                
+//                   public void addDiscount(Discount discount) {
+//
+//        if (this.discountList.isEmpty()) {
+//           
+//            this.discountList.add(discount);
+//        } else {
+//
+//            int i = 0;
+//
+//            for (Discount d : this.discountList) {
+//                if (discount.getName().equals(d.getName())) {
+//                   
+//                    i++;
+//                }
+//            }
+//            if (i == 0) {
+//                
+//                this.discountList.add(discount);
+//            } else {
+//                for (Discount d : this.discountList) {
+//                    if (discount.getName().equals(d.getName()) && discount.getTotal() > d.getTotal()) {
+//                     
+//                        this.discountList.remove(d);
+//                        this.discountList.add(discount);
+//
+//                    }
+//
+//                }
+//
+//            }
+//
+//        }
+//
+//    }
+                
+                //ACA
 
                 if (!fileLinkedListAdministrator.isEmpty()) {
                     for (Administrator adm : fileLinkedListAdministrator) {
