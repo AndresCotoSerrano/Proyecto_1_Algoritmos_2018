@@ -9,6 +9,7 @@ import cr.ac.ucr.Domain.Account;
 import cr.ac.ucr.Files.Write_Read_Files;
 import cr.ac.ucr.Logic.ListException.ListException;
 import cr.ac.ucr.Logic.StackException.PilaException;
+import cr.ac.ucr.Security.EncriptMD5;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
@@ -136,7 +137,7 @@ public class Login extends javax.swing.JFrame {
             }
         } else {
             for (Account a : list) {
-                if (a.getUser().equals(this.JT_User.getText()) && a.getPass().equals(this.JT_Password.getText()) && a.getIsAdmin() == true) {
+                if (a.getUser().equals(this.JT_User.getText()) && a.getPass().equals(EncriptMD5.getMD5(this.JT_Password.getText())) && a.getIsAdmin() == true) {
                     try {
                         System.out.println(this.JT_User.getText() + this.JT_Password.getText() + a.getIsAdmin());
                         Administrator admin = new Administrator();

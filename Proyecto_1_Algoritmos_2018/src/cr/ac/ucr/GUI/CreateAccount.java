@@ -7,6 +7,7 @@ package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Account;
 import cr.ac.ucr.Files.Write_Read_Files;
+import cr.ac.ucr.Security.EncriptMD5;
 import java.io.PrintStream;
 import javax.swing.JOptionPane;
 
@@ -126,10 +127,10 @@ public class CreateAccount extends javax.swing.JFrame {
         Write_Read_Files wr = new Write_Read_Files();
         PrintStream ps = wr.getPrintStream("Account.txt");
         if (this.JC_isAdmin.getSelectedItem().equals("Admin")) {
-            Account a = new Account(this.JT_UserName.getText(), this.JT_Password.getText(), true);
+            Account a = new Account(this.JT_UserName.getText(), EncriptMD5.getMD5(this.JT_Password.getText()), true);
             ps.println(a.getUser() + "     " + a.getPass() + "     " + a.getIsAdmin());
         } else {
-            Account a = new Account(this.JT_UserName.getText(), this.JT_Password.getText(), false);
+            Account a = new Account(this.JT_UserName.getText(), EncriptMD5.getMD5(this.JT_Password.getText()), false);
             ps.println(a.getUser() + "     " + a.getPass() + "     " + a.getIsAdmin());
         }
         JOptionPane.showMessageDialog(null, "Datos ingresados con exito");

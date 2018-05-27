@@ -63,8 +63,8 @@ public class InsertAgent extends javax.swing.JFrame {
         lbl_ID2 = new javax.swing.JLabel();
         lbl_LastName1 = new javax.swing.JLabel();
         lbl_LastName2 = new javax.swing.JLabel();
-        tft_LastName2 = new javax.swing.JTextField();
         tft_LastName1 = new javax.swing.JTextField();
+        tft_LastName2 = new javax.swing.JTextField();
         lbl_Phone = new javax.swing.JLabel();
         tft_Phone = new javax.swing.JTextField();
         lbl_Province = new javax.swing.JLabel();
@@ -141,8 +141,8 @@ public class InsertAgent extends javax.swing.JFrame {
         lbl_LastName2.setMinimumSize(new java.awt.Dimension(51, 24));
         lbl_LastName2.setPreferredSize(new java.awt.Dimension(51, 24));
         getContentPane().add(lbl_LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 110, -1));
-        getContentPane().add(tft_LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 215, 251, 30));
-        getContentPane().add(tft_LastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 275, 251, 33));
+        getContentPane().add(tft_LastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 215, 251, 30));
+        getContentPane().add(tft_LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 275, 251, 33));
 
         lbl_Phone.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_Phone.setForeground(new java.awt.Color(0, 153, 153));

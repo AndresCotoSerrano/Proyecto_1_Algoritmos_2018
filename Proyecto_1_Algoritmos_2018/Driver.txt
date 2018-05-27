@@ -1,3 +1,0 @@
-1   melvin   melvin   melvin   melvin   melvin   melvin   melvin   null   melvin
-2   ana   ana   ana   ana   ana   ana   ana   Carro   ana
-3   andres   andres   andres   andres   andres   andres   andres   null   andres

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import javax.swing.JOptionPane;
@@ -33,9 +34,25 @@ public class Write_Read_Files {
 
         File archivo = new File(nombre);
         PrintStream ps = null;
-
         try {
-            FileOutputStream fos = new FileOutputStream(archivo, true);
+            FileOutputStream fos = new FileOutputStream(archivo, false);
+            ps = new PrintStream(fos);
+        } catch (FileNotFoundException fnfe) {
+            JOptionPane.showMessageDialog(null, "El dato no se a podido ingresar");
+        }
+
+        return ps;
+
+    }
+
+    public PrintStream getPrintStreamWithDelete(String nombre) throws IOException {
+
+        File archivo = new File(nombre);
+        archivo.delete();
+        PrintStream ps = null;
+        try {
+            archivo.createNewFile();
+            FileOutputStream fos = new FileOutputStream(archivo, false);
             ps = new PrintStream(fos);
         } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "El dato no se a podido ingresar");
