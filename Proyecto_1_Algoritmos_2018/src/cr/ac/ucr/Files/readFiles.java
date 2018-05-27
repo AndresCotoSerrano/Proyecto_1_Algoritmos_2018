@@ -189,7 +189,7 @@ public class readFiles {
         try {
             //Crear un objeto BufferedReader al que se le pasa 
             //   un objeto FileReader con el nombre del fichero
-            br = read.getBufferReader("restaurant.txt");
+            br = read.getBufferReader("product.txt");
             //Leer la primera línea, guardando en un String
             String text = br.readLine();
             //Repetir mientras no se llegue al final del fichero
@@ -219,6 +219,7 @@ public class readFiles {
                 System.out.println(e.getMessage());
             }
         }
+          System.out.println("PRODUCTOS EN LISTA: "+list.size());
         return list;
     }
       

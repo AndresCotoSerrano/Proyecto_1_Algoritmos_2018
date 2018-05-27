@@ -77,8 +77,8 @@ public class InsertDriver extends javax.swing.JFrame {
         tf_name = new javax.swing.JTextField();
         jComboBox2 = new javax.swing.JComboBox<>();
         JB_Cancel = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         lbl_ID2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -114,7 +114,7 @@ public class InsertDriver extends javax.swing.JFrame {
         lbl_ID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_ID.setForeground(new java.awt.Color(0, 153, 153));
         lbl_ID.setText("ID");
-        getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+        getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
         getContentPane().add(tft_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 214, -1));
         getContentPane().add(tft_Phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 214, -1));
         getContentPane().add(tft_Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 214, -1));
@@ -189,13 +189,13 @@ public class InsertDriver extends javax.swing.JFrame {
         });
         getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 620, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 700));
-
         lbl_ID2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lbl_ID2.setForeground(new java.awt.Color(0, 153, 153));
         getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 210, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 620, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

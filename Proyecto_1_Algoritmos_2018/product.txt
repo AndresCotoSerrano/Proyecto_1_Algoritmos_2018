@@ -1,0 +1,25 @@
+Coca Cola   1000   Drink   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\CocaCola.png
+Arroz con leche   700   Dessert   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\ArrozLeche.jpg
+Batido proteina   1200   Various   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Batido.jpg
+Brownie   700   Dessert   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Brownie.jpg
+Cafe   750   Drink   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Cafe.jpg
+Cadana Dry   1000   Drink   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\CanadaDry.jpg
+Cantones   1500   Food   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Cantones.jpg
+Crepa   1300   Dessert   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Crepa.png
+Cup cake   900   Dessert   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\CupCake.jpg
+Ensalada   1000   Various   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Ensalada.JPG
+Ensalada Frutas   1300   Various   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\EnsaladaFrutas.jpg
+Fanta   1000   Drink   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Fanta.jpg
+Hamburguesa   1100   Food   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Hamburguesa.jpg
+Helado   800   Dessert   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Helado.jpg
+Imperial   500   Drink   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Imperial.png
+Maiz   700   Various   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Maiz.jpg
+Manzana   450   Various   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Manzana.jpg
+Papas   700   Various   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Papas.jpg
+Pollo   1500   Food   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Pollo.jpg
+Queque   850   Dessert   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Queque.jpg
+Sandwice   1250   Food   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Sandwice.jpg
+Sushi   1600   Food   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Sushi.jpg
+Taco   1250   Food   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Taco.png
+Torta Chilena   650   Dessert   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\TortaChilena.jpg
+Pizza   2000   Food   C:\Users\Melvin\Desktop\A ProyectoAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Pizza.png

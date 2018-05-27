@@ -14,6 +14,7 @@ import cr.ac.ucr.Logic.ListException.ListException;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.logging.Level;
@@ -26,17 +27,15 @@ public class ThreadWriteFile extends Thread {
     LinkedList<Restaurant> fileLinkedRestaurant;
     CircularLinkedList fileCircularProduct;
     Queue<Driver> fileLinkedDriver;
-            
-       //LinkedList<Administrator> fileLinkedListAdministrator = insertAdministrator.getAdminList();
+     ArrayList<Product> listProduct;
+     
     readFiles read = new readFiles();
     Write_Read_Files write;
     //Instancias de las ventanas de Insert de cada objeto.
     InsertClient insertClient = new InsertClient();
-  // InsertDriver insertDriver = new InsertDriver();
+ 
    
-
-
-    public void run() {
+ public void run() {
 
      
         write = new Write_Read_Files();
@@ -46,7 +45,7 @@ public class ThreadWriteFile extends Thread {
         PrintStream psAgent = write.getPrintStream("agent.txt");
         PrintStream psAdministrator = write.getPrintStream("administrator.txt");
         PrintStream psProduct = write.getPrintStream("product.txt");
-       // PrintStream prueba = write.getPrintStream("PRUEBA.txt");
+     
 
 
         int iProduct = 0;
@@ -54,24 +53,22 @@ public class ThreadWriteFile extends Thread {
         while (true) {
 
             LinkedList<Client> fileLinkedListClient = insertClient.getClientList();
-           // LinkedList<Restaurant> fileLinkedListRestaurant = insertRestaurant.getRestaurantList();
-            
-            //LinkedList<Administrator> fileLinkedListAdministrator = insertAdministrator.getAdminList();
+         
             fileLinkedRestaurant = InsertRestaurant.linkedListRestaurant;
             fileLinkedListAgent = InsertAgent.linkedAgent;
             fileLinkedAdministrator = InsertAdministrator.linkedAdministrator;
             fileCircularProduct = InsertProduct.circularListProduct;
             fileLinkedDriver = InsertDriver.driversQueue;
             
-            //CircularLinkedList fileProductCircularList = insertProduct.getProductCircularList();
+            
            
-            System.out.println("AQUI " + fileLinkedListAgent.isEmpty());
+            
 
             try {
 
-                Thread.sleep(10000);
+                Thread.sleep(20000);
 
-                System.out.println("PRUEBA DE HILO, pasaron 10 segundos MEEEEELVIIIN");
+                System.out.println("PRUEBA DE HILO, pasaron 20 segundos MEEEEELVIIIN");
 
 
                 if (!fileLinkedListClient.isEmpty()) {
@@ -123,11 +120,19 @@ public class ThreadWriteFile extends Thread {
                     while (iProduct <= fileCircularProduct.getSize() - 1) {
 
                         Product product = (Product) fileCircularProduct.getNode(iProduct);
+                        System.out.println(product.getName());
+                       // listProduct.add(product);
                         psProduct.println(product.getName() + "   " + product.getCost() + "   " + product.getType() + "   " + product.getPathImage());
-                        //InsertProduct.circularListProduct.delete(product);
+                        InsertProduct.circularListProduct.delete(product);
                         iProduct++;
-                       
+                        System.out.println("A" +iProduct);
                     }
+//                    iProduct = 0;
+//                    while (iProduct<=listProduct.size() ){
+//                        Product p = listProduct.get(iProduct);
+//                           psProduct.println(p.getName() + "   " + p.getCost() + "   " + p.getType() + "   " + p.getPathImage());
+//                            listProduct.remove(iProduct);
+//                    }
                 }
 
             } catch (InterruptedException ex) {

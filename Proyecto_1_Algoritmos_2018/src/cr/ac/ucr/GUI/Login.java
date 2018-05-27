@@ -7,6 +7,7 @@ package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Account;
 import cr.ac.ucr.Files.Write_Read_Files;
+import cr.ac.ucr.Logic.ListException.ListException;
 import cr.ac.ucr.Logic.StackException.PilaException;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -194,6 +195,8 @@ public class Login extends javax.swing.JFrame {
                         }
 
                     } catch (PilaException ex) {
+                        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ListException ex) {
                         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {

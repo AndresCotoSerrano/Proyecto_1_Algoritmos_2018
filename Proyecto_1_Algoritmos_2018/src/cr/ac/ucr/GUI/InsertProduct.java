@@ -188,14 +188,6 @@ public class InsertProduct extends javax.swing.JFrame {
             }
         }
 
-//    ImageIcon icon = new ImageIcon(url);  
-//  
-//JLabel label = new JLabel("some text");  
-//label.setIcon(icon);  
-//    ImageIcon fot = new ImageIcon(path_ala_imagen);
-//    Icon icono = new ImageIcon(fot.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
-//    jLabel1.setIcon(icono);
-//    this.repaint();
         ImageIcon icon = new ImageIcon(tft_Path.getText());
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_Image.getWidth(), lbl_Image.getHeight(), Image.SCALE_DEFAULT));
         lbl_Image.setIcon(icon2);
@@ -226,7 +218,7 @@ public class InsertProduct extends javax.swing.JFrame {
 
             circularListProduct.insert(product);
             
-          System.out.println(circularListProduct.getNode(0).toString());
+          
         } catch (ListException ex) {
             Logger.getLogger(InsertProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
