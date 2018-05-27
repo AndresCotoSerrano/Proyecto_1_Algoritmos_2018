@@ -26,15 +26,15 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class InsertProduct extends javax.swing.JFrame {
 
     FileChooser filechooser = new FileChooser();
-    CircularLinkedList circularDrink = new CircularLinkedList();
-    CircularLinkedList circularFood = new CircularLinkedList();
-    CircularLinkedList circularDessert = new CircularLinkedList();
-    CircularLinkedList circularVarious = new CircularLinkedList();
+//    CircularLinkedList circularDrink = new CircularLinkedList();
+//    CircularLinkedList circularFood = new CircularLinkedList();
+//    CircularLinkedList circularDessert = new CircularLinkedList();
+//    CircularLinkedList circularVarious = new CircularLinkedList();
     
 
     
 
-    CircularLinkedList circularListProduct = new CircularLinkedList();
+    public static CircularLinkedList circularListProduct = new CircularLinkedList();
 
     /**
      * Creates new form Insert_Product
@@ -44,6 +44,7 @@ public class InsertProduct extends javax.swing.JFrame {
         initComponents();
 
         tft_Path.setEditable(false);
+         this.setLocationRelativeTo(null);
         
    
     }

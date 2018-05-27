@@ -26,13 +26,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class InsertRestaurant extends javax.swing.JFrame {
 
     Image_Panel imagePanel;
-    LinkedList<Restaurant> linkedListRestaurant = new LinkedList<>();
+    public static LinkedList<Restaurant> linkedListRestaurant = new LinkedList<>();
 
     /**
      * Creates new form Insert_Restaurant
      */
     public InsertRestaurant() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**

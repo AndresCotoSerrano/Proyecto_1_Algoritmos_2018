@@ -187,7 +187,7 @@ public class CircularLinkedList implements List{
     public void delete(Object element) throws ListException {
         if (isEmpty()) {
 
-            throw new ListException("La lista estÃ¡ vacÃ­a.");
+            throw new ListException("La lista esta vacia.");
 
         }
 
@@ -195,6 +195,7 @@ public class CircularLinkedList implements List{
         if (start == end && start.element.equals(element)) {
 
             this.delete(element);// Anulo la lista
+            end.next = start;
 
         } else if (start.element.equals(element)) {// Elemento a
             // suprimir sea
@@ -231,6 +232,32 @@ public class CircularLinkedList implements List{
         // IMPORTANTE! debo mantener el enlace circular
         end.next = start;
     }
+    
+    
+//    public void delete(Object element) throws ListException {
+//        if (isEmpty()) {
+//            throw new ListException("La lista esta vacia");
+//        }
+//        if (inicio.element.equals(element)) {
+//            this.inicio = this.inicio.next;
+//            this.inicio.previus = null;
+//        } else {
+//            Node auxNode = this.inicio;
+//            Node previusNode = null;
+//
+//            while (auxNode.next != null && !auxNode.element.equals(element)) {
+//                previusNode.next = auxNode;
+//                auxNode = auxNode.next;
+//            }
+//            if (auxNode.element.equals(element)) {
+//                previusNode.next = auxNode.next;
+//                auxNode.next.previus = previusNode;
+//            }
+//        }
+//        fin.next = inicio;
+//        inicio.previus = fin;
+//    }
+
 
     /**
  * Metodo que muestra si existe o no un elemento en la lista circular

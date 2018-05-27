@@ -72,7 +72,7 @@ public class readFiles {
             //Repetir mientras no se llegue al final del fichero
             while (text != null) {
                 //Hacer lo que sea con la línea leída
-                String[] admin = text.split("     ");
+                String[] admin = text.split("   ");
                 administrator  = new Administrator(admin[0], admin[1], admin[2], admin[3], admin[4], admin[5], admin[6], admin[7]);
                        // = new Account(account[0], account[1], Boolean.parseBoolean(account[2]));
                 
@@ -113,7 +113,7 @@ public class readFiles {
             //Repetir mientras no se llegue al final del fichero
             while (text != null) {
                 //Hacer lo que sea con la línea leída
-                String[] driverA = text.split("     ");
+                String[] driverA = text.split("   ");
                 driver  = new Driver(driverA[0], driverA[1], driverA[2], driverA[3], driverA[4], driverA[5], driverA[6], driverA[7], driverA[8], driverA[9]);
                        // = new Account(account[0], account[1], Boolean.parseBoolean(account[2]));
                 
@@ -154,7 +154,7 @@ public class readFiles {
             //Repetir mientras no se llegue al final del fichero
             while (text != null) {
                 //Hacer lo que sea con la línea leída
-                String[] restaurantA = text.split("     ");
+                String[] restaurantA = text.split("   ");
                 restaurant  = new Restaurant(restaurantA[0], restaurantA[1], restaurantA[2], restaurantA[3], restaurantA[4]);
                        // = new Account(account[0], account[1], Boolean.parseBoolean(account[2]));
                 
@@ -195,7 +195,7 @@ public class readFiles {
             //Repetir mientras no se llegue al final del fichero
             while (text != null) {
                 //Hacer lo que sea con la línea leída
-                String[] productA = text.split("     ");
+                String[] productA = text.split("   ");
                 product  = new Product(productA[0], productA[1], productA[2], productA[3]);
                        // = new Account(account[0], account[1], Boolean.parseBoolean(account[2]));
                 
@@ -236,7 +236,7 @@ public class readFiles {
             //Repetir mientras no se llegue al final del fichero
             while (text != null) {
                 //Hacer lo que sea con la línea leída
-                String[] clientA = text.split("     ");
+                String[] clientA = text.split("   ");
                 client  = new Client(clientA[0], clientA[1], clientA[2], clientA[3], clientA[4], clientA[5], clientA[6], clientA[7]);
                        // = new Account(account[0], account[1], Boolean.parseBoolean(account[2]));
                 
@@ -277,7 +277,7 @@ public class readFiles {
             //Repetir mientras no se llegue al final del fichero
             while (text != null) {
                 //Hacer lo que sea con la línea leída
-                String[] orderA = text.split("     ");
+                String[] orderA = text.split("   ");
                 order  = new Order(orderA[0], Integer.parseInt(orderA[1]), orderA[2], orderA[3], orderA[4], orderA[5], orderA[6], orderA[7],  Integer.parseInt(orderA[8]),  Integer.parseInt(orderA[9]));
                        // = new Account(account[0], account[1], Boolean.parseBoolean(account[2]));
                 

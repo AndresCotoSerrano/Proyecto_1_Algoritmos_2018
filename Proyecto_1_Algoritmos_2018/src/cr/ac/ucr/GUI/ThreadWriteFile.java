@@ -22,31 +22,23 @@ import java.util.logging.Logger;
 public class ThreadWriteFile extends Thread {
 
     LinkedList<Agent> fileLinkedListAgent;
+    LinkedList<Administrator> fileLinkedAdministrator;
+    LinkedList<Restaurant> fileLinkedRestaurant;
+    CircularLinkedList fileCircularProduct;
+    Queue<Driver> fileLinkedDriver;
+            
+       //LinkedList<Administrator> fileLinkedListAdministrator = insertAdministrator.getAdminList();
     readFiles read = new readFiles();
     Write_Read_Files write;
     //Instancias de las ventanas de Insert de cada objeto.
     InsertClient insertClient = new InsertClient();
-    InsertRestaurant insertRestaurant = new InsertRestaurant();
-    InsertDriver insertDriver = new InsertDriver();
-    //InsertAgent insertAgent = new InsertAgent();
-    InsertAdministrator insertAdministrator = new InsertAdministrator();
-    InsertProduct insertProduct = new InsertProduct();
+  // InsertDriver insertDriver = new InsertDriver();
+   
 
-    //Creacion de la respectiva TDA para cargar los datos guardados en la ejecucion a los 20 segundos.
-//    LinkedList<Client> fileLinkedListClient = insertClient.getClientList();
-//    LinkedList<Restaurant> fileLinkedListRestaurant = insertRestaurant.getRestaurantList();
-//    LinkedList<Agent> fileLinkedListAgent = insertAgent.getAgentList();
-//    LinkedList<Administrator> fileLinkedListAdministrator = insertAdministrator.getAdminList();
-//    //Queue<Driver> = insertDriver.getDriverQueue();
-//    CircularLinkedList fileProductCircularList = insertProduct.getProductCircularList();
-//    CircularLinkedList fileCircularDrink = insertProduct.getDrinkList();
-//    CircularLinkedList fileCircularFood = insertProduct.getFoodList();
-//    CircularLinkedList fileCircularDessert = insertProduct.getDessertList();
-//    CircularLinkedList fileCircularVarious = insertProduct.getVariousList();
+
     public void run() {
 
-        //Client client=new Client(tft_ID.getText(), tft_Name.getText(),tft_LastName1.getText(),tft_LastName2.getText(),tft_Email.getText(), tft_Phone.getText(),tft_Province.getText(),tft_Address.getText());
-        //clietfile =new ClientFile();
+     
         write = new Write_Read_Files();
         PrintStream psClients = write.getPrintStream("clients.txt");
         PrintStream psRestaurant = write.getPrintStream("restaurant.txt");
@@ -54,25 +46,25 @@ public class ThreadWriteFile extends Thread {
         PrintStream psAgent = write.getPrintStream("agent.txt");
         PrintStream psAdministrator = write.getPrintStream("administrator.txt");
         PrintStream psProduct = write.getPrintStream("product.txt");
-        PrintStream prueba = write.getPrintStream("PRUEBA.txt");
+       // PrintStream prueba = write.getPrintStream("PRUEBA.txt");
 
-        int iCliente = 0;
-        int iRestaurante = 0;
-        int iDrivers = 0;
-        int iAgents = 0;
-        int iAdministrator = 0;
-        int iOrdenes = 0;
 
         int iProduct = 0;
 
         while (true) {
 
             LinkedList<Client> fileLinkedListClient = insertClient.getClientList();
-            LinkedList<Restaurant> fileLinkedListRestaurant = insertRestaurant.getRestaurantList();
-            LinkedList<Administrator> fileLinkedListAdministrator = insertAdministrator.getAdminList();
+           // LinkedList<Restaurant> fileLinkedListRestaurant = insertRestaurant.getRestaurantList();
+            
+            //LinkedList<Administrator> fileLinkedListAdministrator = insertAdministrator.getAdminList();
+            fileLinkedRestaurant = InsertRestaurant.linkedListRestaurant;
             fileLinkedListAgent = InsertAgent.linkedAgent;
-            //Queue<Driver> = insertDriver.getDriverQueue();
-            CircularLinkedList fileProductCircularList = insertProduct.getProductCircularList();
+            fileLinkedAdministrator = InsertAdministrator.linkedAdministrator;
+            fileCircularProduct = InsertProduct.circularListProduct;
+            fileLinkedDriver = InsertDriver.driversQueue;
+            
+            //CircularLinkedList fileProductCircularList = insertProduct.getProductCircularList();
+           
             System.out.println("AQUI " + fileLinkedListAgent.isEmpty());
 
             try {
@@ -81,7 +73,6 @@ public class ThreadWriteFile extends Thread {
 
                 System.out.println("PRUEBA DE HILO, pasaron 10 segundos MEEEEELVIIIN");
 
-                prueba.println("PRUEBAAAAAAAAAAAAA");
 
                 if (!fileLinkedListClient.isEmpty()) {
                     for (Client c : fileLinkedListClient) {
@@ -89,123 +80,53 @@ public class ThreadWriteFile extends Thread {
                     }
                 }
 
-                if (!fileLinkedListRestaurant.isEmpty()) {
-                    for (Restaurant r : fileLinkedListRestaurant) {
+                if (!fileLinkedRestaurant.isEmpty()) {
+                    for (Restaurant r : fileLinkedRestaurant) {
                         psRestaurant.println(r.getID() + "   " + r.getLogo() + "   " + r.getName() + "   " + r.getProvince() + "   " + r.getLocation());
+                        InsertRestaurant.linkedListRestaurant.remove(r);
                     }
                 }
 
-//                for(Driver){
-//                    
-//                }
+                if(!fileLinkedDriver.isEmpty()){
+                    for (Driver d : fileLinkedDriver){
+                        psDriver.println(d.getID()+"   "+d.getName()+"   "+d.getLastName1()+"   "+d.getLastName2()+"   "+d.getEmail()+"   "+d.getPhone()+"   "+d.getProvince()+"   "+d.getAddress()+"   "+d.getTypeVehicule()+"   "+d.getAge());
+                        InsertDriver.driversQueue.remove(d);
+                    }
+                   
+                }
+
                 if (!fileLinkedListAgent.isEmpty()) {
 
                     System.out.println("PRUEBA111");
 
                     LinkedList<Agent> agentList = read.readAgent();
-                    int iAgent = 0;
-                    int o =0;
+                   
 
-                    if (agentList.isEmpty()) {
-                        for (Agent a : fileLinkedListAgent) {
-                            System.out.println("ENTRE AQUIII 1");
-                            psAgent.println(a.getID() + ";" + a.getName() + ";" + a.getLastName1() + ";" + a.getLastName2() + ";" + a.getEmail() + ";" + a.getPhone() + ";"+a.getProvince()+";" + a.getAddress() + ";" + a.getUser() + ";" + a.getCode());
+                        for (Agent a : this.fileLinkedListAgent) {
+                            psAgent.println(a.getID() + ";" + a.getName() + ";" + a.getLastName1() + ";" + a.getLastName2() + ";" + a.getEmail() + ";" + a.getPhone() + ";" + a.getProvince() + ";" + a.getAddress() + ";" + a.getUser() + ";" + a.getCode());
 
+                            InsertAgent.linkedAgent.remove(a);
                         }
-                    } else {
-                        
-                        for (Agent ag : this.fileLinkedListAgent) {
-                    if (ag.getID().equalsIgnoreCase(agentList.get(o).getID()) && ag.getName().equalsIgnoreCase(agentList.get(o).getName())) {
-                    iAgent++;
-                    o++;
-                    }  }
-//                if (discount.getName().equals(d.getName())) {
-//                   
-//                    i++;
-//                }
-                     int i =0;   
-
-                        while (i <= agentList.size() - 1) {
-                            System.out.println("VALOR DE I "+i);
-                            for (Agent a : fileLinkedListAgent) {
-                                System.out.println(agentList.size() + "PRUEBA");
-                               
-                                   // psAgent.println(a.getID() + "   " + a.getName() + "   " + a.getLastName1() + "   " + a.getLastName2() + "   " + a.getEmail() + "   " + a.getPhone() + "   " +a.getProvince()+"   " +a.getAddress() + "   " + a.getUser() + "   " + a.getCode());
-
-                                   System.out.println(a.getID());
-                                   System.out.println(agentList.get(i).getID());
-                                   System.out.println(a.getName());
-                                   System.out.println(agentList.get(i).getName());
-                                   
-                                   
-                                    if (iAgent==0) {
-                                        System.out.println("guardo correctamente");
-                                        System.out.println("ENTRE AQUIII 2");
-                                        psAgent.println(a.getID() + ";" + a.getName() + ";" + a.getLastName1() + ";" + a.getLastName2() + ";" + a.getEmail() + ";" + a.getPhone() + ";"+a.getProvince()+ ";" + a.getAddress() + ";" + a.getUser() + ";" + a.getCode());
-                                        
-                                    }
-                                
-//InsertAgent.linkedAgent.remove(a);
-                            }
-                            i++;
-                            
-                        }
-                        iAgent = 0;
-                    }
+                    
                 }
-                
-                //AQUI
-                
-//                   public void addDiscount(Discount discount) {
-//
-//        if (this.discountList.isEmpty()) {
-//           
-//            this.discountList.add(discount);
-//        } else {
-//
-//            int i = 0;
-//
-//            for (Discount d : this.discountList) {
-//                if (discount.getName().equals(d.getName())) {
-//                   
-//                    i++;
-//                }
-//            }
-//            if (i == 0) {
-//                
-//                this.discountList.add(discount);
-//            } else {
-//                for (Discount d : this.discountList) {
-//                    if (discount.getName().equals(d.getName()) && discount.getTotal() > d.getTotal()) {
-//                     
-//                        this.discountList.remove(d);
-//                        this.discountList.add(discount);
-//
-//                    }
-//
-//                }
-//
-//            }
-//
-//        }
-//
-//    }
-                
-                //ACA
 
-                if (!fileLinkedListAdministrator.isEmpty()) {
-                    for (Administrator adm : fileLinkedListAdministrator) {
-                        psAdministrator.println(adm.getID() + "   " + adm.getName() + "   " + adm.getLastName1() + "   " + adm.getLastName2() + "   " + adm.getEmail() + "   " + adm.getPhone() + "   " + adm.getAddress() + "   ");
+              
+                if (!fileLinkedAdministrator.isEmpty()) {
+                    for (Administrator adm : fileLinkedAdministrator) {
+                        psAdministrator.println(adm.getID() + "   " + adm.getName() + "   " + adm.getLastName1() + "   " + adm.getLastName2() + "   " + adm.getEmail() + "   " + adm.getPhone() +"   "+adm.getProvince()  +"   " + adm.getAddress() + "   ");
+                        InsertAdministrator.linkedAdministrator.remove(adm);
                     }
                 }
 
-                if (!fileProductCircularList.isEmpty()) {
-                    System.out.println(fileProductCircularList.getNode(0).toString());
-                    while (iProduct <= fileProductCircularList.getSize() - 1) {
+                if (!fileCircularProduct.isEmpty()) {
+                    System.out.println(fileCircularProduct.getNode(0).toString());
+                    while (iProduct <= fileCircularProduct.getSize() - 1) {
 
-                        Product product = (Product) fileProductCircularList.getNode(iProduct);
+                        Product product = (Product) fileCircularProduct.getNode(iProduct);
                         psProduct.println(product.getName() + "   " + product.getCost() + "   " + product.getType() + "   " + product.getPathImage());
+                        //InsertProduct.circularListProduct.delete(product);
                         iProduct++;
+                       
                     }
                 }
 
@@ -213,10 +134,7 @@ public class ThreadWriteFile extends Thread {
             } catch (ListException ex) {
                 Logger.getLogger(ThreadWriteFile.class.getName()).log(Level.SEVERE, null, ex);
             }
-            // Client client= fileLinkedListClient.
-//   clietfile =new ClientFile();
-//   lbl_Message.setText(clietfile.writeClients(client,true));
-
+  
         }
 
     }

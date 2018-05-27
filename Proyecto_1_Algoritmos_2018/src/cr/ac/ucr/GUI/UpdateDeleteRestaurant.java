@@ -16,6 +16,7 @@ public class UpdateDeleteRestaurant extends javax.swing.JFrame {
      */
     public UpdateDeleteRestaurant() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**

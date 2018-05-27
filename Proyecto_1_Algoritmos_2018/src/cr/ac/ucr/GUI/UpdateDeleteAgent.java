@@ -16,6 +16,7 @@ public class UpdateDeleteAgent extends javax.swing.JFrame {
      */
     public UpdateDeleteAgent() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**

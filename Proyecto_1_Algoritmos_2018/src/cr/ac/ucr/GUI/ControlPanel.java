@@ -16,6 +16,7 @@ public class ControlPanel extends javax.swing.JFrame {
      */
     public ControlPanel() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**

@@ -6,6 +6,8 @@
 package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Administrator;
+import cr.ac.ucr.Domain.Agent;
+import cr.ac.ucr.Files.readFiles;
 import java.util.LinkedList;
 
 /**
@@ -15,14 +17,26 @@ import java.util.LinkedList;
 public class InsertAdministrator extends javax.swing.JFrame {
 
     int countIDAdmin = 1;
-    LinkedList<Administrator> linkedAdministrator = new LinkedList<>();
+    public static LinkedList<Administrator> linkedAdministrator = new LinkedList<>();
 
     /**
      * Creates new form insert_Administrator
      */
     public InsertAdministrator() {
         initComponents();
-        lbl_ID2.setText(countIDAdministrator() + "");
+        
+        readFiles read= new readFiles();
+        LinkedList<Administrator> adminList = read.readAdministrator();
+        if(adminList.isEmpty()){
+            lbl_ID2.setText("1");
+        
+        }else{
+            int id = Integer.parseInt(adminList.getLast().getID());
+            id++;
+            lbl_ID2.setText(id+"");
+        }
+        
+        //lbl_ID2.setText(countIDAdministrator() + "");
         this.setLocationRelativeTo(null);
     }
 

@@ -35,6 +35,7 @@ public class InsertAgent extends javax.swing.JFrame {
             id++;
             lbl_ID2.setText(id+"");
         }
+         this.setLocationRelativeTo(null);
             
        
     }

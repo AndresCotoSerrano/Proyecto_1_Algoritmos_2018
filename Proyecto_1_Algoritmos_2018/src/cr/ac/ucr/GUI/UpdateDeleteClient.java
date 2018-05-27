@@ -16,6 +16,7 @@ public class UpdateDeleteClient extends javax.swing.JFrame {
      */
     public UpdateDeleteClient() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**

@@ -17,7 +17,7 @@ public class Driver extends Person implements Serializable {
     String typeVehicule;
     String age;
 
-    public Driver(String typeVehicule, String age, String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address) {
+    public Driver(String ID, String name, String lastName1, String lastName2, String email, String phone, String province, String address,String typeVehicule, String age) {
         super(ID, name, lastName1, lastName2, email, phone, province, address);
         this.typeVehicule = typeVehicule;
         this.age = age;
