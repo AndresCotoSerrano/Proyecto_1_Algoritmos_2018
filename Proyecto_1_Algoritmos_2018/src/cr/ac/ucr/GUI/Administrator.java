@@ -9,12 +9,15 @@ import cr.ac.ucr.Domain.Order;
 import cr.ac.ucr.Logic.LinkedStack;
 import cr.ac.ucr.Logic.StackException.PilaException;
 import java.awt.Dimension;
+import java.awt.print.PrinterException;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JScrollBar;
+import javax.swing.JTable;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -72,6 +75,7 @@ public class Administrator extends javax.swing.JFrame {
         JB_CreateAccount = new javax.swing.JButton();
         JT_ClientSearch = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         JL_img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -277,6 +281,14 @@ public class Administrator extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 110, 30));
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/pdfIco.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 10, 40, 40));
+
         JL_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
         getContentPane().add(JL_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 660));
 
@@ -381,6 +393,16 @@ public class Administrator extends javax.swing.JFrame {
     private void JT_ReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_ReporteMouseClicked
         getOrderData();
     }//GEN-LAST:event_JT_ReporteMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        MessageFormat header = new MessageFormat("Ordenes");
+        MessageFormat footer = new MessageFormat("Page{0,number,integer}");
+        try{
+            this.JT_Reporte.print(JTable.PrintMode.NORMAL,header,footer);
+        } catch (PrinterException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
     private void getOrderData() {
         int row = this.JT_Reporte.getSelectedRow();
         String numOrder = JT_Reporte.getValueAt(row, 1).toString();
@@ -732,6 +754,7 @@ public class Administrator extends javax.swing.JFrame {
     private javax.swing.JTable JT_Reporte;
     private javax.swing.JScrollPane JT_Table;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 
 }
