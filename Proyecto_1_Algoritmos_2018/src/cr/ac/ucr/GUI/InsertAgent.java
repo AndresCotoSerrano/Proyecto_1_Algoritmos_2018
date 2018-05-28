@@ -19,42 +19,38 @@ import java.util.logging.Logger;
  */
 public class InsertAgent extends javax.swing.JFrame {
 
-    ReadFilesCSV readCsv = new ReadFilesCSV();
-    
-    
+   // ReadFilesCSV readCsv = new ReadFilesCSV();
     public static LinkedList<Agent> linkedAgent;
-    
+
+
 
     int IDAgent = 0;
 
     /**
      * Creates new form Insert_Agent
      */
-    public InsertAgent() throws IOException {
+    public InsertAgent(){
         initComponents();
-        LinkedList<Agent> agentList = readCsv.readCSVAgent();
         
-        if(agentList.isEmpty()){
-            linkedAgent = new LinkedList();
-        }else{
-            for (int i = 0; i < agentList.size(); i++) {
-                Agent agent = agentList.get(i);
-                linkedAgent.add(agent);
-            }
-        }
+       // linkedAgent 
+       // this.linkedAgent = ReadFilesCSV.readCSVAgent();
+        
+       // public static LinkedList<Agent> linkedAgent =  readCsv.readCSVAgent() ;
+       
+
          readFiles read= new readFiles();
        
-        if(agentList.isEmpty()){
-            lbl_ID2.setText("1");
-        
-        }else{
-            int id = Integer.parseInt(agentList.getLast().getID());
-            id++;
-            lbl_ID2.setText(id+"");
-        }
+//        if(agentList.isEmpty()){
+//            lbl_ID2.setText("1");
+//        
+//        }else{
+//            int id = Integer.parseInt(agentList.getLast().getID());
+//            id++;
+//            lbl_ID2.setText(id+"");
+//        }
          this.setLocationRelativeTo(null);
             
-       
+ 
     }
 
     /**
@@ -263,11 +259,9 @@ public class InsertAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
+               
                     new InsertAgent().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(InsertAgent.class.getName()).log(Level.SEVERE, null, ex);
-                }
+               
             }
         });
     }

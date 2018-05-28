@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 public class InsertDriver extends javax.swing.JFrame {
     
     
-ReadFilesCSV readCsv = new ReadFilesCSV();
+//ReadFilesCSV readCsv = new ReadFilesCSV();
     DriverFile driverFile = new DriverFile();
     //LinkedList<Client> linkedListClient = new LinkedList<>();
     public static Queue<Driver> driversQueue;
@@ -35,30 +35,23 @@ ReadFilesCSV readCsv = new ReadFilesCSV();
     /**
      * Creates new form Insert_Client
      */
-    public InsertDriver() throws IOException {
+    public InsertDriver() {
         initComponents();
         
-        LinkedList<Driver> driverList = readCsv.readCSVDriver();
+      //  LinkedList<Driver> driverList = readCsv.readCSVDriver();
         
-          if(driverList.isEmpty()){
-            driversQueue  = new LinkedList<Driver>();   
-          }else{
-              for (int i = 0; i < driverList.size(); i++) {
-                Driver driver = driverList.get(i);
-                driversQueue.add(driver);
-          }
-          }
+         
         
-        readFiles read= new readFiles();
-        LinkedList<Driver> DriverList = read.readDriver();
-        if(driverList.isEmpty()){
-            lbl_ID2.setText("1");
-        
-        }else{
-            int id = Integer.parseInt(driverList.getLast().getID());
-            id++;
-            lbl_ID2.setText(id+"");
-        }
+        //readFiles read= new readFiles();
+        //LinkedList<Driver> DriverList = read.readDriver();
+//        if(driversQueue.isEmpty()){
+//            lbl_ID2.setText("1");
+//        
+//        }else{
+//            int id = Integer.parseInt(ReadFilesCSV.readCSVDriver().getLast().getID());
+//            id++;
+//            lbl_ID2.setText(id+"");
+//        }
         
          this.setLocationRelativeTo(null);
     }
@@ -291,11 +284,9 @@ ReadFilesCSV readCsv = new ReadFilesCSV();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
+               
                     new InsertDriver().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(InsertDriver.class.getName()).log(Level.SEVERE, null, ex);
-                }
+               
             }
         });
     }

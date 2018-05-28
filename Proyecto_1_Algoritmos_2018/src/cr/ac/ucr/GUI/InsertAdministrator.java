@@ -22,7 +22,7 @@ public class InsertAdministrator extends javax.swing.JFrame {
 
     int countIDAdmin = 1;
     
-    ReadFilesCSV readCsv = new ReadFilesCSV();
+   // ReadFilesCSV readCsv = new ReadFilesCSV();
     
     
     
@@ -31,32 +31,25 @@ public class InsertAdministrator extends javax.swing.JFrame {
     /**
      * Creates new form insert_Administrator
      */
-    public InsertAdministrator() throws IOException {
+    public InsertAdministrator() {
         initComponents();
         
-        LinkedList<Administrator> admList = readCsv.readCSVAdministrator();
+        //LinkedList<Administrator> admList = readCsv.readCSVAdministrator();
         
-         if(admList.isEmpty()){
-         linkedAdministrator = new LinkedList<>();    
-         }else{
-              for (int i = 0; i < admList.size(); i++) {
-                Administrator adm = admList.get(i);
-                linkedAdministrator.add(adm);
-         }
-         }
+         
         
         
         
         readFiles read= new readFiles();
         LinkedList<Administrator> adminList = read.readAdministrator();
-        if(admList.isEmpty()){
-            lbl_ID2.setText("1");
-        
-        }else{
-            int id = Integer.parseInt(admList.getLast().getID());
-            id++;
-            lbl_ID2.setText(id+"");
-        }
+//        if(admList.isEmpty()){
+//            lbl_ID2.setText("1");
+//        
+//        }else{
+//            int id = Integer.parseInt(admList.getLast().getID());
+//            id++;
+//            lbl_ID2.setText(id+"");
+//        }
         
         //lbl_ID2.setText(countIDAdministrator() + "");
         this.setLocationRelativeTo(null);
@@ -264,11 +257,9 @@ public class InsertAdministrator extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
+               
                     new InsertAdministrator().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(InsertAdministrator.class.getName()).log(Level.SEVERE, null, ex);
-                }
+               
             }
         });
     }

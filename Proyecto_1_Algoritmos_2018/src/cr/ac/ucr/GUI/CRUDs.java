@@ -142,7 +142,7 @@ public class CRUDs extends javax.swing.JFrame {
             JT_Driver.getColumnModel().getColumn(9).setResizable(false);
         }
 
-        getContentPane().add(ScrollDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 680, 330));
+        getContentPane().add(ScrollDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 330));
 
         JT_Restaurant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,7 +171,7 @@ public class CRUDs extends javax.swing.JFrame {
             JT_Restaurant.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        getContentPane().add(ScrollRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 680, 330));
+        getContentPane().add(ScrollRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 330));
 
         JT_Agent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -206,7 +206,7 @@ public class CRUDs extends javax.swing.JFrame {
             JT_Agent.getColumnModel().getColumn(9).setResizable(false);
         }
 
-        getContentPane().add(ScrollAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 680, 330));
+        getContentPane().add(ScrollAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 330));
 
         JT_Product.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -234,7 +234,7 @@ public class CRUDs extends javax.swing.JFrame {
             JT_Product.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        getContentPane().add(ScrollProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 30, 680, 330));
+        getContentPane().add(ScrollProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 30, 740, 330));
 
         JTAdministrator.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -266,22 +266,22 @@ public class CRUDs extends javax.swing.JFrame {
             JTAdministrator.getColumnModel().getColumn(7).setResizable(false);
         }
 
-        getContentPane().add(ScrollAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 30, 680, 330));
+        getContentPane().add(ScrollAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 30, 740, 330));
 
         JT_client.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Name", "First Last Name", "Second Last Name", "Email", "Phone", "Province", "Address"
             }
         ));
         ScrollClient.setViewportView(JT_client);
 
-        getContentPane().add(ScrollClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 680, 330));
+        getContentPane().add(ScrollClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 330));
 
         JB_DeleteDriver.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         JB_DeleteDriver.setForeground(new java.awt.Color(204, 204, 5));
@@ -349,7 +349,7 @@ public class CRUDs extends javax.swing.JFrame {
         getContentPane().add(JB_DeleteClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
 
         JL_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
-        getContentPane().add(JL_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 460));
+        getContentPane().add(JL_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 460));
 
         JM_Driver.setText("Driver");
         JM_Driver.addActionListener(new java.awt.event.ActionListener() {
@@ -501,12 +501,8 @@ public class CRUDs extends javax.swing.JFrame {
     private void JMI_InsertDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertDriverActionPerformed
         InsertDriver id;
 
-        try {
             id = new InsertDriver();
             id.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
     }//GEN-LAST:event_JMI_InsertDriverActionPerformed
 
@@ -528,50 +524,32 @@ public class CRUDs extends javax.swing.JFrame {
 
     private void JMI_InsertRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertRestaurantActionPerformed
         InsertRestaurant ir;
-        try {
             ir = new InsertRestaurant();
             ir.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        }
         this.dispose();
 
     }//GEN-LAST:event_JMI_InsertRestaurantActionPerformed
 
     private void JMI_InsertAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAgentActionPerformed
         InsertAgent as;
-        try {
             as = new InsertAgent();
             as.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        }
         this.dispose();
 
     }//GEN-LAST:event_JMI_InsertAgentActionPerformed
 
     private void JMI_InsertProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertProductActionPerformed
         InsertProduct ip;
-        try {
             ip = new InsertProduct();
             ip.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ListException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        }
         this.dispose();
 
     }//GEN-LAST:event_JMI_InsertProductActionPerformed
 
     private void JMI_InsertAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAdministratorActionPerformed
         InsertAdministrator ia;
-        try {
             ia = new InsertAdministrator();
             ia.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        }
         this.dispose();
 
     }//GEN-LAST:event_JMI_InsertAdministratorActionPerformed

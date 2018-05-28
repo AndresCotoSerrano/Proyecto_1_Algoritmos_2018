@@ -30,25 +30,17 @@ public class InsertProduct extends javax.swing.JFrame {
 
     FileChooser filechooser = new FileChooser();
 
-ReadFilesCSV readCsv = new ReadFilesCSV();
+//ReadFilesCSV readCsv = new ReadFilesCSV();
     public static CircularLinkedList circularListProduct;
 
     /**
      * Creates new form Insert_Product
      */
-    public InsertProduct() throws IOException, ListException {
+    public InsertProduct() {
          initComponents();
          
-         LinkedList<Product> productList = readCsv.readCSVProduct();
-         
-         if(productList.isEmpty()){
-           circularListProduct = new CircularLinkedList();  
-         }else{
-              for (int i = 0; i < productList.size(); i++) {
-                Product product = productList.get(i);
-                circularListProduct.insert(product);
-         }
-         }
+        // LinkedList<Product> productList = readCsv.readCSVProduct();
+        
 
         tft_Path.setEditable(false);
          this.setLocationRelativeTo(null);
@@ -281,13 +273,11 @@ ReadFilesCSV readCsv = new ReadFilesCSV();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
+               
+               
                     new InsertProduct().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(InsertProduct.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ListException ex) {
-                    Logger.getLogger(InsertProduct.class.getName()).log(Level.SEVERE, null, ex);
-                }
+               
+               
             }
         });
     }

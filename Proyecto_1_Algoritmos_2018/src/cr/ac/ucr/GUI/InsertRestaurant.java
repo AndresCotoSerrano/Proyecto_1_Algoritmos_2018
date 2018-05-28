@@ -29,7 +29,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class InsertRestaurant extends javax.swing.JFrame {
 
-    ReadFilesCSV readCsv = new ReadFilesCSV();
+    //ReadFilesCSV readCsv = new ReadFilesCSV();
     
     
     Image_Panel imagePanel;
@@ -38,18 +38,10 @@ public class InsertRestaurant extends javax.swing.JFrame {
     /**
      * Creates new form Insert_Restaurant
      */
-    public InsertRestaurant() throws IOException {
+    public InsertRestaurant() {
         initComponents();
         
-         LinkedList<Restaurant> restaurantList = readCsv.readCSVRestaurant();
-        if(restaurantList.isEmpty()){
-             linkedListRestaurant = new LinkedList();
-        }else{
-            for (int i = 0; i < restaurantList.size(); i++) {
-                Restaurant restaurant = restaurantList.get(i);
-                linkedListRestaurant.add(restaurant);
-        }
-        }
+      
         
          this.setLocationRelativeTo(null);
     }
@@ -207,7 +199,7 @@ public class InsertRestaurant extends javax.swing.JFrame {
 
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
 
-        Restaurant restaurant = new Restaurant(lbl_ID1.getText(), tft_Path.getText(), tfd_Name.getText(), tfd_Province.getText(), tfd_Location.getText());
+        Restaurant restaurant = new Restaurant("1", tft_Path.getText(), tfd_Name.getText(), tfd_Province.getText(), tfd_Location.getText());
         linkedListRestaurant.add(restaurant);
         CRUDs crud = new CRUDs();
         this.dispose();
@@ -257,11 +249,9 @@ public class InsertRestaurant extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
+                
                     new InsertRestaurant().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(InsertRestaurant.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                
             }
         });
     }
