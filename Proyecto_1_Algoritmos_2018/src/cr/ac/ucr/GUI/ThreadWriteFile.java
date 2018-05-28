@@ -85,10 +85,9 @@ public class ThreadWriteFile extends Thread {
                 }
 
                 if (!fileLinkedListAgent.isEmpty()) {
-
                     for (Agent a : this.fileLinkedListAgent) {
-                            psAgent.println(a.getID() + "-" + a.getName() + "-" + a.getLastName1() + "-" + a.getLastName2() + "-" + a.getEmail() + "-" + a.getPhone() + "-" + a.getProvince() + "-" + a.getAddress() + "-" + a.getUser() + "-" + a.getCode());
-                        //InsertAgent.linkedAgent.remove(a);
+                        psAgent.println(a.getID() + "-" + a.getName() + "-" + a.getLastName1() + "-" + a.getLastName2() + "-" + a.getEmail() + "-" + a.getPhone() + "-" + a.getProvince() + "-" + a.getAddress() + "-" + a.getUser() + "-" + a.getCode());
+                        InsertAgent.linkedAgent.remove(a);
                     }
                 }
 

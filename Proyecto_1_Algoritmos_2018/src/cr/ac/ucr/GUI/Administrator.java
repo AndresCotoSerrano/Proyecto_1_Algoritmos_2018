@@ -29,13 +29,15 @@ public class Administrator extends javax.swing.JFrame {
     int alto;
     JScrollBar barra;
     final int filas = 21;
-    ArrayList<Order> finalList = new ArrayList<>();
+
+    public ArrayList<Order> finalList = fillTable();
+
+    ;
 
     public Administrator() throws PilaException {
         initComponents();
         this.setLocationRelativeTo(null);
         this.chargeTable(fillTable());
-        finalList = fillTable();
     }
 
     /**
@@ -119,6 +121,11 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
         JT_Reporte.setAutoscrolls(false);
+        JT_Reporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JT_ReporteMouseClicked(evt);
+            }
+        });
         JT_Table.setViewportView(JT_Reporte);
         if (JT_Reporte.getColumnModel().getColumnCount() > 0) {
             JT_Reporte.getColumnModel().getColumn(0).setResizable(false);
@@ -215,6 +222,11 @@ public class Administrator extends javax.swing.JFrame {
         getContentPane().add(JT_DateSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 160, 30));
 
         JB_Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/lupa1.png"))); // NOI18N
+        JB_Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_SearchActionPerformed(evt);
+            }
+        });
         getContentPane().add(JB_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 10, 40, 40));
 
         JB_next.setText("Next");
@@ -323,33 +335,15 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_JT_AgentSearchKeyTyped
 
     private void JT_ClientSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_ClientSearchKeyReleased
-        count = 0;
-        try {
-            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
-                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
-        } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        chargeTable(clienteSearch());
     }//GEN-LAST:event_JT_ClientSearchKeyReleased
 
     private void JT_AgentSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_AgentSearchKeyReleased
-        count = 0;
-        try {
-            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
-                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
-        } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        chargeTable(agentSearch());
     }//GEN-LAST:event_JT_AgentSearchKeyReleased
 
     private void JT_DateSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_DateSearchMouseClicked
-        count = 0;
-        try {
-            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
-                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
-        } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        chargeTable(dateSearch());
     }//GEN-LAST:event_JT_DateSearchMouseClicked
 
     private void JT_AmountSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_AmountSearchActionPerformed
@@ -361,51 +355,54 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_JT_ProvinceSearchActionPerformed
 
     private void JT_OrderSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_OrderSearchKeyReleased
-        count = 0;
-        try {
-            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
-                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
-        } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        chargeTable(numOrderSearch());
     }//GEN-LAST:event_JT_OrderSearchKeyReleased
 
     private void JT_AmountSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_AmountSearchKeyReleased
-        count = 0;
-        try {
-            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
-                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
-        } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        chargeTable(amountSearch());
     }//GEN-LAST:event_JT_AmountSearchKeyReleased
 
     private void JT_ProvinceSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_ProvinceSearchKeyReleased
-        count = 0;
-        try {
-            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
-                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
-        } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        chargeTable(provinceSearch());
     }//GEN-LAST:event_JT_ProvinceSearchKeyReleased
 
     private void JT_DriverSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JT_DriverSearchKeyReleased
-        count = 0;
+        chargeTable(driverSearch());
+    }//GEN-LAST:event_JT_DriverSearchKeyReleased
+
+    private void JB_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_SearchActionPerformed
         try {
-            chargeTable(recursiveSearch(finalList.get(count), this.JT_ClientSearch.getText(), this.JT_OrderSearch.getText(), this.JT_AgentSearch.getText(),
-                    this.JT_DateSearch.getText(), this.JT_AmountSearch.getText(), this.JT_ProvinceSearch.getText(), this.JT_DriverSearch.getText()));
+            chargeTable(fillTable());
         } catch (PilaException ex) {
             Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_JT_DriverSearchKeyReleased
+    }//GEN-LAST:event_JB_SearchActionPerformed
+
+    private void JT_ReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_ReporteMouseClicked
+        getOrderData();
+    }//GEN-LAST:event_JT_ReporteMouseClicked
+    private void getOrderData() {
+        int row = this.JT_Reporte.getSelectedRow();
+        String numOrder = JT_Reporte.getValueAt(row, 1).toString();
+        for (Order o : finalList) {
+            if (o.getNumOrder() == Integer.parseInt(numOrder)) {
+                OrderCompleteInformation order = new OrderCompleteInformation(o.getCliente(),o.getNumOrder()+"",o.getAgente()
+                ,o.getDate(),o.getProvincia(),o.getDriver(),o.getRestaurant(),o.getProduct(),o.getQuantity()+"",o.getAmount()+"");
+                order.setVisible(true);
+            }else{
+                System.out.println("no entro al if");
+            }
+        }
+
+    }
+
     /**
      * Metodo en el cual se llena una pila con los objetos order
      *
      * @return LinkedStack
      * @throws PilaException
      */
-    private LinkedStack saveOrders() throws PilaException {
+    public static LinkedStack saveOrders() throws PilaException {
         LinkedStack stack = new LinkedStack();
         Order order1 = null;
 
@@ -432,6 +429,14 @@ public class Administrator extends javax.swing.JFrame {
         return list;
     }
 
+    /**
+     * metodo encargado de rellenar un arrayList para cargar la tabla apartir de
+     * un stack
+     *
+     * @param search
+     * @return arrayList
+     * @throws PilaException
+     */
     private ArrayList fillArray(LinkedStack search) throws PilaException {
         LinkedStack stack = search;
         ArrayList<Order> list = new ArrayList<>();
@@ -441,6 +446,60 @@ public class Administrator extends javax.swing.JFrame {
         return list;
     }
 
+    /**
+     * metodo de filtrado de provincias
+     *
+     * @return ArrayList
+     */
+    private ArrayList provinceSearch() {
+        ArrayList<Order> list = new ArrayList<>();
+        try {
+            String valor = this.JT_ProvinceSearch.getText();
+            LinkedStack stack = saveOrders();
+            System.out.println(valor);
+            while (!stack.isEmpty()) {
+                Order order = (Order) stack.peek();
+                if (valor.length() > order.getProvincia().length()) {
+                    stack.pop();
+                } else if (valor.equals(order.getProvincia().substring(0, valor.length()))) {
+                    list.add((Order) stack.pop());
+                } else {
+                    stack.pop();
+                }
+            }
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    private ArrayList driverSearch() {
+        ArrayList<Order> list = new ArrayList<>();
+        try {
+            String valor = this.JT_DriverSearch.getText();
+            LinkedStack stack = saveOrders();
+            System.out.println(valor);
+            while (!stack.isEmpty()) {
+                Order order = (Order) stack.peek();
+                if (valor.length() > order.getDriver().length()) {
+                    stack.pop();
+                } else if (valor.equals(order.getDriver().substring(0, valor.length()))) {
+                    list.add((Order) stack.pop());
+                } else {
+                    stack.pop();
+                }
+            }
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    /**
+     * metodo encargado de buscar fechas
+     *
+     * @return arrayList
+     */
     public ArrayList dateSearch() {
         ArrayList<Order> list = new ArrayList<>();
         try {
@@ -463,6 +522,65 @@ public class Administrator extends javax.swing.JFrame {
         return list;
     }
 
+    /**
+     * metodo para filtrar el monto
+     *
+     * @return ArrayList
+     */
+    private ArrayList amountSearch() {
+        ArrayList<Order> list = new ArrayList<>();
+        try {
+            int valor = Integer.parseInt(this.JT_AmountSearch.getText());
+            LinkedStack stack = saveOrders();
+            System.out.println(valor);
+            while (!stack.isEmpty()) {
+                Order order = (Order) stack.peek();
+                if (valor > order.getAmount()) {
+                    stack.pop();
+                } else if (valor == order.getAmount()) {
+                    list.add((Order) stack.pop());
+                } else {
+                    stack.pop();
+                }
+            }
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    /**
+     * filtra el numero de order
+     *
+     * @return ArrayList
+     */
+    public ArrayList numOrderSearch() {
+        ArrayList<Order> list = new ArrayList<>();
+        try {
+            int valor = Integer.parseInt(this.JT_OrderSearch.getText());
+            LinkedStack stack = saveOrders();
+            System.out.println(valor);
+            while (!stack.isEmpty()) {
+                Order order = (Order) stack.peek();
+                if (valor > order.getNumOrder()) {
+                    stack.pop();
+                } else if (valor == order.getNumOrder()) {
+                    list.add((Order) stack.pop());
+                } else {
+                    stack.pop();
+                }
+            }
+        } catch (PilaException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    /**
+     * metodo encargado de buscar un agente
+     *
+     * @return arrayList
+     */
     public ArrayList agentSearch() {
         ArrayList<Order> list = new ArrayList<>();
         try {
@@ -485,39 +603,11 @@ public class Administrator extends javax.swing.JFrame {
         return list;
     }
 
-    public ArrayList recursiveSearch(Order list, String one, String two, String three, String four, String five, String six, String seven) throws PilaException {
-//        ArrayList<Order> auxList = list;
-
-        System.out.println(count);
-        if (count > fillTable().size() - 1) {
-            System.out.println("entro aca" + count);
-            return finalList;
-
-        }
-        if (one.length() == list.getCliente().length()) {
-            if (one.equals(list.getCliente()) || three.equals(list.getAgente())
-                    || four.equals(list.getDate()) || six.equals(list.getProvincia())
-                    || seven.equals(list.getDriver())) {
-                return recursiveSearch(finalList.get(count++), one, two, three, four, five, six, seven);
-            } else {
-                finalList.remove(count);
-                System.out.println("se elimino");
-                return recursiveSearch(finalList.get(count++), one, two, three, four, five, six, seven);
-            }
-        } else {
-            if (one.equals(list.getCliente().substring(0, one.length())) || three.equals(list.getAgente().substring(0, three.length()))
-                    || four.equals(list.getDate().substring(0, four.length())) || six.equals(list.getProvincia().substring(0, six.length()))
-                    || seven.equals(list.getDriver().substring(0, seven.length()))) {
-                System.out.println("just run");
-                return recursiveSearch(finalList.get(count++), one, two, three, four, five, six, seven);
-            } else {
-                finalList.remove(count);
-                System.out.println("se elimino");
-                return recursiveSearch(finalList.get(count++), one, two, three, four, five, six, seven);
-            }
-        }
-    }
-
+    /**
+     * metodo encargado de buscar el cliente que se escribe
+     *
+     * @return arrayList
+     */
     public ArrayList clienteSearch() {
         ArrayList<Order> list = new ArrayList<>();
         try {
@@ -542,6 +632,11 @@ public class Administrator extends javax.swing.JFrame {
         return list;
     }
 
+    /**
+     * metodo encargado de llenar la tabla
+     *
+     * @param list
+     */
     public void chargeTable(ArrayList list) {
         DefaultTableModel model = (DefaultTableModel) this.JT_Reporte.getModel();
         model.setRowCount(0);
