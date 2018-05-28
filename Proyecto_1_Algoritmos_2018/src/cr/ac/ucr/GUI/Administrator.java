@@ -407,10 +407,13 @@ public class Administrator extends javax.swing.JFrame {
         Order order1 = null;
 
         for (int i = 0; i < 10; i++) {
-            order1 = new Order("cliente" + i, i, "agente" + i, "1" + i + "/05/2028", "province" + i, "driver" + i, "restautarant" + i, "product" + i,
+            order1 = new Order("cliente" + i, i, "agente" + i, "1" + i + "/05/2028", "province" + i, "driver" + i, "restaurant"+1, "product" + i,
+            
                     +i, i);
             stack.push(order1);
         }
+        
+        
 
         return stack;
     }

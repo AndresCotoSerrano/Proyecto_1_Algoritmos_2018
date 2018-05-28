@@ -14,6 +14,9 @@ package cr.ac.ucr.GUI;
 //import com.itextpdf.text.pdf.PdfTemplate;
 //import com.itextpdf.text.pdf.PdfWriter;
 //import cr.ac.ucr.Logic.creatorPdf;
+import cr.ac.ucr.Domain.Order;
+import cr.ac.ucr.Logic.LinkedStack;
+import cr.ac.ucr.Logic.StackException.PilaException;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
@@ -25,6 +28,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import static java.util.Spliterators.iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.embed.swing.JFXPanel;
@@ -238,20 +246,28 @@ public class Graphics extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  DefaultCategoryDataset dataset = new DefaultCategoryDataset();
- jButton1. setBackground(Color.getHSBColor(30, 132, 73));
-        
-        dataset.setValue(6, "Enero", "MacDonald");
-        dataset.setValue(60, "Febrero", "MacDonald");
-        dataset.setValue(30, "Febrero", "MacDonald");
-        
-        
-        dataset.setValue(8, "Enero", "Burguer king");
-        dataset.setValue(30, "Febrero", "Burguer king");
-       
-        dataset.setValue(12, "Enero", "KFC");
-         dataset.setValue(90, "Febrero", "KFC");
-       
-        
+         try {
+             ArrayList<Order> list = grafic();
+             int suma=0;
+             String igual = null;
+              for(int i=1;i<list.size();i++){
+                  if(list.get(i).getRestaurant().equalsIgnoreCase(igual)||igual==null){
+                     igual=list.get(i).getRestaurant();
+                 System.out.println("llego "+list.get(i).getAmount());
+                 suma=suma+list.get(i).getAmount();
+                 dataset.setValue(suma, list.get(i).getDate(),list.get(i).getRestaurant());
+              }else{
+                       dataset.setValue(list.get(i).getAmount(), list.get(i).getDate(),list.get(i).getRestaurant());
+                        suma=0;
+                        igual=list.get(i).getRestaurant();
+                  }
+                        
+              }
+         } catch (PilaException ex) {
+             Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+         }
+ 
+
         JFreeChart chart = ChartFactory.createBarChart(
                 " Ventas por Restaurantes",
                 "Restaurantes", 
@@ -291,15 +307,28 @@ public class Graphics extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
-      line_chart_dataset.addValue( 15 , "McDonnald" , "Enero" );
-      line_chart_dataset.addValue( 30 , "McDonnald" , "Febrero" );
-      line_chart_dataset.addValue( 60 , "McDonnald" , "Marzo" );
-      line_chart_dataset.addValue( 120 , "KFC" , "Enero" );
-      line_chart_dataset.addValue( 240 , "KFC" , "Febrero" ); 
-      line_chart_dataset.addValue( 300 , "KFC" , "Marzo" );
-      line_chart_dataset.addValue( 90 , "Burguer King" , "Enero" );
-      line_chart_dataset.addValue( 59 , "Burguer King" , "Febrero" ); 
-      line_chart_dataset.addValue( 30 , "Burguer King" , "Marzo" );
+       try {
+             ArrayList<Order> list = grafic();
+             int suma=0;
+             String igual = null;
+              for(int i=1;i<list.size();i++){
+                  if(list.get(i).getRestaurant().equalsIgnoreCase(igual)||igual==null){
+                     igual=list.get(i).getRestaurant();
+                 System.out.println("llego "+list.get(i).getAmount());
+                 suma=suma+list.get(i).getAmount();
+                 line_chart_dataset.addValue(suma, list.get(i).getDate(),list.get(i).getRestaurant());
+              }else{
+                       line_chart_dataset.addValue(list.get(i).getAmount(), list.get(i).getDate(),list.get(i).getRestaurant());
+                        suma=0;
+                        igual=list.get(i).getRestaurant();
+                  }
+                        
+              }
+         } catch (PilaException ex) {
+             Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+         }
+      
+      
 
       JFreeChart lineChartObject = ChartFactory.createLineChart(
          "Ventas por Restaurante","Meses",
@@ -353,7 +382,36 @@ public class Graphics extends javax.swing.JFrame {
             }
         });
     }
-    //a
+     /**
+     * metodo encargado de leer la informacion de una pila y lugo ordenarlo en un array list
+     *
+     * @return arrayList
+     */
+   public ArrayList grafic() throws PilaException{
+       Administrator administrador=new Administrator();
+        LinkedStack stack = administrador.saveOrders();
+        ArrayList<Order> list = new ArrayList<>();
+       
+       while (!stack.isEmpty()) {
+            list.add((Order) stack.pop());
+            
+           
+        }
+        for (int i = 0; i < list.size(); i++) {
+           for (int j = 0; j < list.size() - i - 1; j++) {
+               if (list.get(j).getRestaurant().compareTo( list.get(j + 1).getRestaurant())>0) {
+                  Order temp = list.get(j);
+                  list.set(j, list.get(j + 1));
+                  list.set(j + 1, temp);
+               }
+           }
+           
+       }
+        System.err.println(list.toString());
+   
+  return  list;     
+   }
+  
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

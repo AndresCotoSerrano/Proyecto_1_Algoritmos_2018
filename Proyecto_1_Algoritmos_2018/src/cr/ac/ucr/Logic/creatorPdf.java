@@ -21,10 +21,11 @@
 //import javax.swing.JPanel;
 //import javax.swing.filechooser.FileNameExtensionFilter;
 //
-///**
-// *
-// * @author UsuarioPC
-// */
+ /**
+     * metodo encargado de exportar los graficos aun pdf
+     *
+     * @return void
+     */
 //public class creatorPdf {
 //    public void pdfCreator(JPanel jPanel_graphics){
 //            JFileChooser fileChooser = new JFileChooser(new File("c:\\"));

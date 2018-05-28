@@ -406,7 +406,6 @@ public class ControlPanel extends javax.swing.JFrame {
 
         btn_PreviousDrink.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/Previous.png"))); // NOI18N
 
-        btn_nextDrink.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin\\Desktop\\A ProyectoAlgoritmos\\Proyecto_1_Algoritmos_2018\\src\\cr\\ac\\ucr\\Img\\Next.png")); // NOI18N
         btn_nextDrink.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_nextDrinkActionPerformed(evt);
@@ -418,6 +417,11 @@ public class ControlPanel extends javax.swing.JFrame {
         btn_nextFood.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/Next.png"))); // NOI18N
 
         btn_previousDessert.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/Previous.png"))); // NOI18N
+        btn_previousDessert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_previousDessertActionPerformed(evt);
+            }
+        });
 
         btn_nextDessert.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/Next.png"))); // NOI18N
         btn_nextDessert.addActionListener(new java.awt.event.ActionListener() {
@@ -451,7 +455,6 @@ public class ControlPanel extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                                 .addComponent(btn_previousFood))
                             .addComponent(lbl_DrinkName, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -459,12 +462,10 @@ public class ControlPanel extends javax.swing.JFrame {
                         .addGap(27, 27, 27))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbl_FoodName, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addGap(39, 39, 39)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbl_FoodName, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbl_FoodPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -511,9 +512,8 @@ public class ControlPanel extends javax.swing.JFrame {
                         .addComponent(btn_nextDessert))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_DrinkImage, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(btn_nextDrink)
                                 .addGap(27, 27, 27))
                             .addComponent(btn_PreviousDrink)
@@ -521,7 +521,8 @@ public class ControlPanel extends javax.swing.JFrame {
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbl_DessertImage, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_previousDessert))))))
+                                    .addComponent(btn_previousDessert)))
+                            .addComponent(lbl_DrinkImage, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -610,6 +611,10 @@ public class ControlPanel extends javax.swing.JFrame {
           }
           
     }//GEN-LAST:event_btn_nextDrinkActionPerformed
+
+    private void btn_previousDessertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_previousDessertActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_previousDessertActionPerformed
 
     /**
      * @param args the command line arguments

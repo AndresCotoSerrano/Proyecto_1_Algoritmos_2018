@@ -415,7 +415,6 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -424,13 +423,10 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="lbl_FoodName" min="-2" pref="121" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                       <Component id="lbl_FoodPrice" min="-2" pref="121" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -496,8 +492,7 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbl_DrinkImage" alignment="3" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btn_nextDrink" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -510,6 +505,7 @@
                                       <Component id="btn_previousDessert" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Component id="lbl_DrinkImage" min="-2" pref="85" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -699,11 +695,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_nextDrink">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Melvin\Desktop\A ProyectoAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Next.png"/>
-            </Property>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_nextDrinkActionPerformed"/>
           </Events>
@@ -728,6 +719,9 @@
               <Image iconType="3" name="/cr/ac/ucr/Img/Previous.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_previousDessertActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_nextDessert">
           <Properties>
