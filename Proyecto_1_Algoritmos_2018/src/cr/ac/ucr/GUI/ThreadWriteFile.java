@@ -9,6 +9,7 @@ import cr.ac.ucr.Domain.Order;
 import cr.ac.ucr.Domain.Product;
 import cr.ac.ucr.Domain.Restaurant;
 import cr.ac.ucr.Files.ClientFile;
+import cr.ac.ucr.Files.ReadFilesCSV;
 import cr.ac.ucr.Files.Write_Read_Files;
 import cr.ac.ucr.Files.readFiles;
 import cr.ac.ucr.Logic.CircularLinkedList;
@@ -52,6 +53,12 @@ public class ThreadWriteFile extends Thread {
 
             LinkedList<Client> fileLinkedListClient = insertClient.getClientList();
 
+            InsertRestaurant.linkedListRestaurant=ReadFilesCSV.readCSVRestaurant();
+            InsertAgent.linkedAgent = ReadFilesCSV.readCSVAgent();
+            InsertAdministrator.linkedAdministrator = ReadFilesCSV.readCSVAdministrator();
+            InsertProduct.circularListProduct = ReadFilesCSV.readCSVProduct();
+            InsertDriver.driversQueue = ReadFilesCSV.readCSVDriver();
+            
             fileLinkedRestaurant = InsertRestaurant.linkedListRestaurant;
             fileLinkedListAgent = InsertAgent.linkedAgent;
             fileLinkedAdministrator = InsertAdministrator.linkedAdministrator;
@@ -60,12 +67,12 @@ public class ThreadWriteFile extends Thread {
 
             try {
 
-                Thread.sleep(20000);
+                Thread.sleep(10000);
 
                 System.out.println("PRUEBA DE HILO, pasaron 20 segundos MEEEEELVIIIN");
 
                 if (!fileLinkedListAgent.isEmpty()) {
-                    writeAgent();
+                    writeAgent();   
                 }
 
                 if (!fileLinkedListClient.isEmpty()) {
@@ -300,7 +307,7 @@ public class ThreadWriteFile extends Thread {
     public void writeProduct() throws ListException {
 
         try {
-
+            
             int i = 0;
             while (i <= fileCircularProduct.getSize()) {
                 Product product = (Product) fileCircularProduct.getNode(i);

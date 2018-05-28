@@ -165,12 +165,10 @@ public class CRUDs extends javax.swing.JFrame {
     private void JMI_InsertDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertDriverActionPerformed
         InsertDriver id;
         
-        try {
+        
             id = new InsertDriver();
             id.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
         
     }//GEN-LAST:event_JMI_InsertDriverActionPerformed
 
@@ -192,50 +190,43 @@ public class CRUDs extends javax.swing.JFrame {
 
     private void JMI_InsertRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertRestaurantActionPerformed
         InsertRestaurant ir;
-        try {
+       
             ir = new InsertRestaurant();
                ir.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
+       
         this.dispose();
      
     }//GEN-LAST:event_JMI_InsertRestaurantActionPerformed
 
     private void JMI_InsertAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAgentActionPerformed
         InsertAgent as;
-        try {
+        
             as = new InsertAgent();
              as.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+         
         this.dispose();
        
     }//GEN-LAST:event_JMI_InsertAgentActionPerformed
 
     private void JMI_InsertProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertProductActionPerformed
         InsertProduct ip;
-        try {
+        
             ip = new InsertProduct();
             ip.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ListException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        
         this.dispose();
         
     }//GEN-LAST:event_JMI_InsertProductActionPerformed
 
     private void JMI_InsertAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAdministratorActionPerformed
         InsertAdministrator ia;
-        try {
+        
             ia = new InsertAdministrator();
              ia.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
         this.dispose();
        
     }//GEN-LAST:event_JMI_InsertAdministratorActionPerformed
