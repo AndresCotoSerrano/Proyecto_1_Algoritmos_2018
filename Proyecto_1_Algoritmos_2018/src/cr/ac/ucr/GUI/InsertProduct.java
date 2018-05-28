@@ -224,7 +224,7 @@ public class InsertProduct extends javax.swing.JFrame {
             type = "Various";
         }
        // Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
-        Product product = new Product(lbl_ID2.getText(), tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+        Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
 
         try {
 
