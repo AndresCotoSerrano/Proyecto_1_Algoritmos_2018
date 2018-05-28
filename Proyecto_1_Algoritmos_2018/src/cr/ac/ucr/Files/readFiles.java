@@ -196,7 +196,7 @@ public class readFiles {
             while (text != null) {
                 //Hacer lo que sea con la línea leída
                 String[] productA = text.split("   ");
-                product  = new Product(productA[0], productA[1], productA[2], productA[3]);
+                //product  = new Product(productA[0], productA[1], productA[2], productA[3]);
                        // = new Account(account[0], account[1], Boolean.parseBoolean(account[2]));
                 
                 list.add(product);

@@ -74,6 +74,8 @@ public class InsertProduct extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         JB_Cancel = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        lbl_ID = new javax.swing.JLabel();
+        lbl_ID2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -82,7 +84,7 @@ public class InsertProduct extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
         jLabel1.setText("Insert Product");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 35, 228, 34));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 228, 34));
 
         cb_Product.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cb_Product.setForeground(new java.awt.Color(0, 153, 153));
@@ -97,7 +99,7 @@ public class InsertProduct extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("Select the Type");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 105, 122, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 122, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
@@ -160,6 +162,16 @@ public class InsertProduct extends javax.swing.JFrame {
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 860));
 
+        lbl_ID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_ID.setForeground(new java.awt.Color(0, 153, 153));
+        lbl_ID.setText("ID");
+        getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 70, 30));
+
+        lbl_ID2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_ID2.setForeground(new java.awt.Color(0, 153, 153));
+        lbl_ID2.setText("jLabel10");
+        getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 90, 30));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -212,7 +224,8 @@ public class InsertProduct extends javax.swing.JFrame {
         } else {
             type = "Various";
         }
-        Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+       // Product product = new Product(tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
+        Product product = new Product(lbl_ID2.getText(), tft_Name.getText(), tfd_Cost.getText(), type, tft_Path.getText());
 
         try {
 
@@ -292,6 +305,8 @@ public class InsertProduct extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel lbl_ID;
+    private javax.swing.JLabel lbl_ID2;
     private javax.swing.JLabel lbl_Image;
     private javax.swing.JTextField tfd_Cost;
     private javax.swing.JTextField tft_Name;
