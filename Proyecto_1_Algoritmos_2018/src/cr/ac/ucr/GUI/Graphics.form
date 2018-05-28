@@ -123,7 +123,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="3"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Line Chart"/>
+            <Property name="text" type="java.lang.String" value="Pie Chart"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>

@@ -9,10 +9,14 @@ import cr.ac.ucr.Domain.Clase_Prueba;
 import cr.ac.ucr.Domain.Image_Panel;
 import cr.ac.ucr.Domain.Restaurant;
 import cr.ac.ucr.Files.LoanLogo;
+import cr.ac.ucr.Files.ReadFilesCSV;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -25,14 +29,20 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class InsertRestaurant extends javax.swing.JFrame {
 
+    //ReadFilesCSV readCsv = new ReadFilesCSV();
+    
+    
     Image_Panel imagePanel;
-    public static LinkedList<Restaurant> linkedListRestaurant = new LinkedList<>();
+    public static LinkedList<Restaurant> linkedListRestaurant;
 
     /**
      * Creates new form Insert_Restaurant
      */
     public InsertRestaurant() {
         initComponents();
+        
+      
+        
          this.setLocationRelativeTo(null);
     }
 
@@ -189,7 +199,7 @@ public class InsertRestaurant extends javax.swing.JFrame {
 
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
 
-        Restaurant restaurant = new Restaurant(lbl_ID1.getText(), tft_Path.getText(), tfd_Name.getText(), tfd_Province.getText(), tfd_Location.getText());
+        Restaurant restaurant = new Restaurant("1", tft_Path.getText(), tfd_Name.getText(), tfd_Province.getText(), tfd_Location.getText());
         linkedListRestaurant.add(restaurant);
         CRUDs crud = new CRUDs();
         this.dispose();
@@ -239,7 +249,9 @@ public class InsertRestaurant extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InsertRestaurant().setVisible(true);
+                
+                    new InsertRestaurant().setVisible(true);
+                
             }
         });
     }

@@ -17,12 +17,22 @@ public class Account implements Serializable {
 
     String user;
     String pass;
+    String email;
     boolean isAdmin;
 
-    public Account(String user, String pass, boolean isAdmin) {
+    public Account(String user, String pass,String email, boolean isAdmin) {
         this.user = user;
         this.pass = pass;
+        this.email = email;
         this.isAdmin = isAdmin;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUser() {

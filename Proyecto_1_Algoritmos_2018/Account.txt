@@ -1,4 +1,1 @@
-administrador     admin     true
-agente     agente     false
-melvin     melvin     false
-andres     andres     true
+Andres-c4ca4238a0b923820dcc509a6f75849b-andres@gmail.com-true

@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @version 1.0
  * @
  */
-public class Order implements Serializable {
+public class Order  implements Serializable {
     String Cliente;
     int NumOrder;
     String agente;
@@ -120,8 +120,11 @@ public class Order implements Serializable {
     public String toString() {
         return "Order{" + "Cliente=" + Cliente + ", NumOrder=" + NumOrder + ", agente=" + agente + ", date=" + date + ", provincia=" + provincia + ", conductor=" + driver + ", restauran=" + restaurant + ", product=" + product + ", quantity=" + quantity + ", amount=" + amount + '}';
     }
+
+   
+    }
     
     
 
     
-}
+

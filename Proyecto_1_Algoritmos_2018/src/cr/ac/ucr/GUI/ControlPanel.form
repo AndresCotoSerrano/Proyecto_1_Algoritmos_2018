@@ -401,7 +401,8 @@
                       <Group type="102" attributes="0">
                           <Component id="lbl_DrinkImage" min="-2" pref="133" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_nextDrink" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_nextDrink" min="-2" pref="42" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -415,7 +416,6 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -424,13 +424,10 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="lbl_FoodName" min="-2" pref="121" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                       <Component id="lbl_FoodPrice" min="-2" pref="121" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -496,12 +493,7 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbl_DrinkImage" alignment="3" min="-2" pref="85" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btn_nextDrink" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btn_PreviousDrink" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -510,6 +502,8 @@
                                       <Component id="btn_previousDessert" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Component id="lbl_DrinkImage" min="-2" pref="85" max="-2" attributes="0"/>
+                              <Component id="btn_nextDrink" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -584,9 +578,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lbl_FoodImage">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel26"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_FoodName">
           <Properties>
@@ -596,7 +587,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jLabel27"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_FoodPrice">
@@ -607,13 +597,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jLabel28"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_DrinkImage">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel29"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_DrinkName">
           <Properties>
@@ -623,7 +609,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jLabel30"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_DrinkPrice">
@@ -634,7 +619,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jLabel31"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_DessertName">
@@ -645,7 +629,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jLabel33"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_DessertPrice">
@@ -656,18 +639,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jLabel34"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_DessertImage">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel32"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_VariousImage">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel9"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_VariousName">
           <Properties>
@@ -677,7 +653,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jLabel10"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_VariousPrice">
@@ -688,7 +663,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jLabel18"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_PreviousDrink">
@@ -701,7 +675,7 @@
         <Component class="javax.swing.JButton" name="btn_nextDrink">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Melvin\Desktop\A ProyectoAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Next.png"/>
+              <Image iconType="2" name="C:\Users\Melvin\Desktop\aREPOSITORIO FINAL ALGORITMOS\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Next.png"/>
             </Property>
           </Properties>
           <Events>
@@ -728,6 +702,9 @@
               <Image iconType="3" name="/cr/ac/ucr/Img/Previous.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_previousDessertActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_nextDessert">
           <Properties>

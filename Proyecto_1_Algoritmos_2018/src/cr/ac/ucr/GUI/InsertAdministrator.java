@@ -7,8 +7,12 @@ package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Administrator;
 import cr.ac.ucr.Domain.Agent;
+import cr.ac.ucr.Files.ReadFilesCSV;
 import cr.ac.ucr.Files.readFiles;
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,7 +21,12 @@ import java.util.LinkedList;
 public class InsertAdministrator extends javax.swing.JFrame {
 
     int countIDAdmin = 1;
-    public static LinkedList<Administrator> linkedAdministrator = new LinkedList<>();
+    
+   // ReadFilesCSV readCsv = new ReadFilesCSV();
+    
+    
+    
+    public static LinkedList<Administrator> linkedAdministrator;
 
     /**
      * Creates new form insert_Administrator
@@ -25,16 +34,22 @@ public class InsertAdministrator extends javax.swing.JFrame {
     public InsertAdministrator() {
         initComponents();
         
+        //LinkedList<Administrator> admList = readCsv.readCSVAdministrator();
+        
+         
+        
+        
+        
         readFiles read= new readFiles();
         LinkedList<Administrator> adminList = read.readAdministrator();
-        if(adminList.isEmpty()){
-            lbl_ID2.setText("1");
-        
-        }else{
-            int id = Integer.parseInt(adminList.getLast().getID());
-            id++;
-            lbl_ID2.setText(id+"");
-        }
+//        if(admList.isEmpty()){
+//            lbl_ID2.setText("1");
+//        
+//        }else{
+//            int id = Integer.parseInt(admList.getLast().getID());
+//            id++;
+//            lbl_ID2.setText(id+"");
+//        }
         
         //lbl_ID2.setText(countIDAdministrator() + "");
         this.setLocationRelativeTo(null);
@@ -242,7 +257,9 @@ public class InsertAdministrator extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InsertAdministrator().setVisible(true);
+               
+                    new InsertAdministrator().setVisible(true);
+               
             }
         });
     }

@@ -6,8 +6,12 @@
 package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Agent;
+import cr.ac.ucr.Files.ReadFilesCSV;
 import cr.ac.ucr.Files.readFiles;
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,29 +19,38 @@ import java.util.LinkedList;
  */
 public class InsertAgent extends javax.swing.JFrame {
 
-    public static LinkedList<Agent> linkedAgent = new LinkedList();
-    
+   // ReadFilesCSV readCsv = new ReadFilesCSV();
+    public static LinkedList<Agent> linkedAgent;
+
+
 
     int IDAgent = 0;
 
     /**
      * Creates new form Insert_Agent
      */
-    public InsertAgent() {
+    public InsertAgent(){
         initComponents();
-        readFiles read= new readFiles();
-        LinkedList<Agent> agentList = read.readAgent();
-        if(agentList.isEmpty()){
+        
+       // linkedAgent 
+       // this.linkedAgent = ReadFilesCSV.readCSVAgent();
+        
+       // public static LinkedList<Agent> linkedAgent =  readCsv.readCSVAgent() ;
+       
+
+         readFiles read= new readFiles();
+       
+        if(linkedAgent.isEmpty()){
             lbl_ID2.setText("1");
         
         }else{
-            int id = Integer.parseInt(agentList.getLast().getID());
+            int id = Integer.parseInt(linkedAgent.getLast().getID());
             id++;
             lbl_ID2.setText(id+"");
         }
          this.setLocationRelativeTo(null);
             
-       
+ 
     }
 
     /**
@@ -63,8 +76,8 @@ public class InsertAgent extends javax.swing.JFrame {
         lbl_ID2 = new javax.swing.JLabel();
         lbl_LastName1 = new javax.swing.JLabel();
         lbl_LastName2 = new javax.swing.JLabel();
-        tft_LastName2 = new javax.swing.JTextField();
         tft_LastName1 = new javax.swing.JTextField();
+        tft_LastName2 = new javax.swing.JTextField();
         lbl_Phone = new javax.swing.JLabel();
         tft_Phone = new javax.swing.JTextField();
         lbl_Province = new javax.swing.JLabel();
@@ -141,8 +154,8 @@ public class InsertAgent extends javax.swing.JFrame {
         lbl_LastName2.setMinimumSize(new java.awt.Dimension(51, 24));
         lbl_LastName2.setPreferredSize(new java.awt.Dimension(51, 24));
         getContentPane().add(lbl_LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 110, -1));
-        getContentPane().add(tft_LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 215, 251, 30));
-        getContentPane().add(tft_LastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 275, 251, 33));
+        getContentPane().add(tft_LastName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 215, 251, 30));
+        getContentPane().add(tft_LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 275, 251, 33));
 
         lbl_Phone.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_Phone.setForeground(new java.awt.Color(0, 153, 153));
@@ -246,7 +259,9 @@ public class InsertAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InsertAgent().setVisible(true);
+               
+                    new InsertAgent().setVisible(true);
+               
             }
         });
     }

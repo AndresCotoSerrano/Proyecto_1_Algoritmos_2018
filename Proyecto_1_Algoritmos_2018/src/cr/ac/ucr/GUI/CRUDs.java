@@ -5,18 +5,46 @@
  */
 package cr.ac.ucr.GUI;
 
+import cr.ac.ucr.Domain.Administrator;
 import cr.ac.ucr.Domain.Agent;
+import cr.ac.ucr.Domain.Client;
+import cr.ac.ucr.Domain.Driver;
+import cr.ac.ucr.Domain.Order;
+import cr.ac.ucr.Domain.Product;
+import cr.ac.ucr.Domain.Restaurant;
+import cr.ac.ucr.Logic.CircularLinkedList;
+import cr.ac.ucr.Logic.ListException.ListException;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author deltadragon
- */
 public class CRUDs extends javax.swing.JFrame {
 
     public CRUDs() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(this);
+        this.ScrollAdministrator.setVisible(false);
+        this.ScrollAgent.setVisible(false);
+        this.ScrollClient.setVisible(false);
+        this.ScrollDriver.setVisible(false);
+        this.ScrollProduct.setVisible(false);
+        this.ScrollRestaurant.setVisible(false);
+        this.JB_DeleteAdministrator.setVisible(false);
+        this.JB_DeleteAgent.setVisible(false);
+        this.JB_DeleteClient.setVisible(false);
+        this.JB_DeleteProduct.setVisible(false);
+        this.JB_DeleteRestaurant.setVisible(false);
+        this.JB_DeleteDriver.setVisible(false);
+        this.JB_UpdateAdministrator.setVisible(false);
+        this.JB_UpdateAgent.setVisible(false);
+        this.JB_UpdateClient.setVisible(false);
+        this.JB_UpdateDriver.setVisible(false);
+        this.JB_UpdateProduct.setVisible(false);
+        this.JB_UpdateRestaurant.setVisible(false);
     }
 
     /**
@@ -29,20 +57,49 @@ public class CRUDs extends javax.swing.JFrame {
     private void initComponents() {
 
         JB_Cancel = new javax.swing.JButton();
+        ScrollDriver = new javax.swing.JScrollPane();
+        JT_Driver = new javax.swing.JTable();
+        ScrollRestaurant = new javax.swing.JScrollPane();
+        JT_Restaurant = new javax.swing.JTable();
+        ScrollAgent = new javax.swing.JScrollPane();
+        JT_Agent = new javax.swing.JTable();
+        ScrollProduct = new javax.swing.JScrollPane();
+        JT_Product = new javax.swing.JTable();
+        ScrollAdministrator = new javax.swing.JScrollPane();
+        JT_Administrator = new javax.swing.JTable();
+        ScrollClient = new javax.swing.JScrollPane();
+        JT_client = new javax.swing.JTable();
+        JB_UpdateDriver = new javax.swing.JButton();
+        JB_UpdateRestaurant = new javax.swing.JButton();
+        JB_UpdateAgent = new javax.swing.JButton();
+        JB_UpdateProduct = new javax.swing.JButton();
+        JB_UpdateAdministrator = new javax.swing.JButton();
+        JB_UpdateClient = new javax.swing.JButton();
+        JB_DeleteDriver = new javax.swing.JButton();
+        JB_DeleteRestaurant = new javax.swing.JButton();
+        JB_DeleteAgent = new javax.swing.JButton();
+        JB_DeleteProduct = new javax.swing.JButton();
+        JB_DeleteAdministrator = new javax.swing.JButton();
+        JB_DeleteClient = new javax.swing.JButton();
         JL_fondo = new javax.swing.JLabel();
         JM_Cruds = new javax.swing.JMenuBar();
         JM_Driver = new javax.swing.JMenu();
         JMI_InsertDriver = new javax.swing.JMenuItem();
+        JM_VerDriver = new javax.swing.JMenuItem();
         JM_Restaurant = new javax.swing.JMenu();
         JMI_InsertRestaurant = new javax.swing.JMenuItem();
+        JM_VerRestaurant = new javax.swing.JMenuItem();
         JM_Agent = new javax.swing.JMenu();
         JMI_InsertAgent = new javax.swing.JMenuItem();
+        JM_VerAgent = new javax.swing.JMenuItem();
         JM_Product = new javax.swing.JMenu();
         JMI_InsertProduct = new javax.swing.JMenuItem();
+        JM_VerProduct = new javax.swing.JMenuItem();
         JM_Administrator = new javax.swing.JMenu();
         JMI_InsertAdministrator = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        JM_VerAdministrator = new javax.swing.JMenuItem();
+        JM_Client = new javax.swing.JMenu();
+        JM_VerCliente = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -56,12 +113,291 @@ public class CRUDs extends javax.swing.JFrame {
                 JB_CancelActionPerformed(evt);
             }
         });
-        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, -1, -1));
+        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, -1, -1));
+
+        JT_Driver.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "First Last Name", "Second Last Name", "Name", "Phone", "Province", "Address", "Type of vehicule", "Age"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ScrollDriver.setViewportView(JT_Driver);
+        if (JT_Driver.getColumnModel().getColumnCount() > 0) {
+            JT_Driver.getColumnModel().getColumn(0).setResizable(false);
+            JT_Driver.getColumnModel().getColumn(1).setResizable(false);
+            JT_Driver.getColumnModel().getColumn(2).setResizable(false);
+            JT_Driver.getColumnModel().getColumn(3).setResizable(false);
+            JT_Driver.getColumnModel().getColumn(4).setResizable(false);
+            JT_Driver.getColumnModel().getColumn(5).setResizable(false);
+            JT_Driver.getColumnModel().getColumn(6).setResizable(false);
+            JT_Driver.getColumnModel().getColumn(7).setResizable(false);
+            JT_Driver.getColumnModel().getColumn(8).setResizable(false);
+            JT_Driver.getColumnModel().getColumn(9).setResizable(false);
+        }
+
+        getContentPane().add(ScrollDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 330));
+
+        JT_Restaurant.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "Province", "Location"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ScrollRestaurant.setViewportView(JT_Restaurant);
+        if (JT_Restaurant.getColumnModel().getColumnCount() > 0) {
+            JT_Restaurant.getColumnModel().getColumn(0).setResizable(false);
+            JT_Restaurant.getColumnModel().getColumn(1).setResizable(false);
+            JT_Restaurant.getColumnModel().getColumn(2).setResizable(false);
+            JT_Restaurant.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        getContentPane().add(ScrollRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 330));
+
+        JT_Agent.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "First Last Name", "Second Last Name", "Email", "Phone", "Province", "Address", "User", "Code"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ScrollAgent.setViewportView(JT_Agent);
+        if (JT_Agent.getColumnModel().getColumnCount() > 0) {
+            JT_Agent.getColumnModel().getColumn(0).setResizable(false);
+            JT_Agent.getColumnModel().getColumn(1).setResizable(false);
+            JT_Agent.getColumnModel().getColumn(2).setResizable(false);
+            JT_Agent.getColumnModel().getColumn(3).setResizable(false);
+            JT_Agent.getColumnModel().getColumn(4).setResizable(false);
+            JT_Agent.getColumnModel().getColumn(5).setResizable(false);
+            JT_Agent.getColumnModel().getColumn(6).setResizable(false);
+            JT_Agent.getColumnModel().getColumn(7).setResizable(false);
+            JT_Agent.getColumnModel().getColumn(8).setResizable(false);
+            JT_Agent.getColumnModel().getColumn(9).setResizable(false);
+        }
+
+        getContentPane().add(ScrollAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 330));
+
+        JT_Product.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Name", "Cost", "Type"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ScrollProduct.setViewportView(JT_Product);
+        if (JT_Product.getColumnModel().getColumnCount() > 0) {
+            JT_Product.getColumnModel().getColumn(0).setResizable(false);
+            JT_Product.getColumnModel().getColumn(1).setResizable(false);
+            JT_Product.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        getContentPane().add(ScrollProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 30, 740, 330));
+
+        JT_Administrator.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "First Last Name", "Second Last Name", "Email", "Phone", "Province", "Address"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ScrollAdministrator.setViewportView(JT_Administrator);
+        if (JT_Administrator.getColumnModel().getColumnCount() > 0) {
+            JT_Administrator.getColumnModel().getColumn(0).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(1).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(2).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(3).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(5).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(6).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(7).setResizable(false);
+        }
+
+        getContentPane().add(ScrollAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 30, 740, 330));
+
+        JT_client.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "First Last Name", "Second Last Name", "Email", "Phone", "Province", "Address"
+            }
+        ));
+        ScrollClient.setViewportView(JT_client);
+
+        getContentPane().add(ScrollClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 330));
+
+        JB_UpdateDriver.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_UpdateDriver.setForeground(new java.awt.Color(204, 204, 5));
+        JB_UpdateDriver.setText("Editar");
+        getContentPane().add(JB_UpdateDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 30));
+
+        JB_UpdateRestaurant.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_UpdateRestaurant.setForeground(new java.awt.Color(204, 204, 5));
+        JB_UpdateRestaurant.setText("Editar");
+        JB_UpdateRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_UpdateRestaurantActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_UpdateRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 30));
+
+        JB_UpdateAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_UpdateAgent.setForeground(new java.awt.Color(204, 204, 5));
+        JB_UpdateAgent.setText("Editar");
+        getContentPane().add(JB_UpdateAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 30));
+
+        JB_UpdateProduct.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_UpdateProduct.setForeground(new java.awt.Color(204, 204, 5));
+        JB_UpdateProduct.setText("Editar");
+        getContentPane().add(JB_UpdateProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 30));
+
+        JB_UpdateAdministrator.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_UpdateAdministrator.setForeground(new java.awt.Color(204, 204, 5));
+        JB_UpdateAdministrator.setText("Editar");
+        JB_UpdateAdministrator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_UpdateAdministratorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_UpdateAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 30));
+
+        JB_UpdateClient.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_UpdateClient.setForeground(new java.awt.Color(204, 204, 5));
+        JB_UpdateClient.setText("Editar");
+        getContentPane().add(JB_UpdateClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 30));
+
+        JB_DeleteDriver.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteDriver.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteDriver.setText("Delete");
+        JB_DeleteDriver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteDriverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
+
+        JB_DeleteRestaurant.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteRestaurant.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteRestaurant.setText("Delete");
+        JB_DeleteRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteRestaurantActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
+
+        JB_DeleteAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteAgent.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteAgent.setText("Delete");
+        JB_DeleteAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteAgentActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
+
+        JB_DeleteProduct.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteProduct.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteProduct.setText("Delete");
+        JB_DeleteProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteProductActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
+
+        JB_DeleteAdministrator.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteAdministrator.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteAdministrator.setText("Delete");
+        JB_DeleteAdministrator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteAdministratorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
+
+        JB_DeleteClient.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteClient.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteClient.setText("Borrar");
+        JB_DeleteClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteClientActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
 
         JL_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
-        getContentPane().add(JL_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 380));
+        getContentPane().add(JL_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 460));
 
         JM_Driver.setText("Driver");
+        JM_Driver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_DriverActionPerformed(evt);
+            }
+        });
 
         JMI_InsertDriver.setText("Insert");
         JMI_InsertDriver.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +406,14 @@ public class CRUDs extends javax.swing.JFrame {
             }
         });
         JM_Driver.add(JMI_InsertDriver);
+
+        JM_VerDriver.setText("Reporte");
+        JM_VerDriver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_VerDriverActionPerformed(evt);
+            }
+        });
+        JM_Driver.add(JM_VerDriver);
 
         JM_Cruds.add(JM_Driver);
 
@@ -88,6 +432,14 @@ public class CRUDs extends javax.swing.JFrame {
         });
         JM_Restaurant.add(JMI_InsertRestaurant);
 
+        JM_VerRestaurant.setText("Reporte");
+        JM_VerRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_VerRestaurantActionPerformed(evt);
+            }
+        });
+        JM_Restaurant.add(JM_VerRestaurant);
+
         JM_Cruds.add(JM_Restaurant);
 
         JM_Agent.setText("Agent");
@@ -104,6 +456,14 @@ public class CRUDs extends javax.swing.JFrame {
             }
         });
         JM_Agent.add(JMI_InsertAgent);
+
+        JM_VerAgent.setText("Reporte");
+        JM_VerAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_VerAgentActionPerformed(evt);
+            }
+        });
+        JM_Agent.add(JM_VerAgent);
 
         JM_Cruds.add(JM_Agent);
 
@@ -122,6 +482,14 @@ public class CRUDs extends javax.swing.JFrame {
         });
         JM_Product.add(JMI_InsertProduct);
 
+        JM_VerProduct.setText("Reporte");
+        JM_VerProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_VerProductActionPerformed(evt);
+            }
+        });
+        JM_Product.add(JM_VerProduct);
+
         JM_Cruds.add(JM_Product);
 
         JM_Administrator.setText("Administrator");
@@ -139,19 +507,32 @@ public class CRUDs extends javax.swing.JFrame {
         });
         JM_Administrator.add(JMI_InsertAdministrator);
 
-        JM_Cruds.add(JM_Administrator);
-
-        jMenu1.setText("Clients");
-
-        jMenuItem1.setText("Update/Delete Client");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        JM_VerAdministrator.setText("Reporte");
+        JM_VerAdministrator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                JM_VerAdministratorActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        JM_Administrator.add(JM_VerAdministrator);
 
-        JM_Cruds.add(jMenu1);
+        JM_Cruds.add(JM_Administrator);
+
+        JM_Client.setText("Clients");
+        JM_Client.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_ClientActionPerformed(evt);
+            }
+        });
+
+        JM_VerCliente.setText("Update/Delete Client");
+        JM_VerCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_VerClienteActionPerformed(evt);
+            }
+        });
+        JM_Client.add(JM_VerCliente);
+
+        JM_Cruds.add(JM_Client);
 
         setJMenuBar(JM_Cruds);
 
@@ -159,10 +540,126 @@ public class CRUDs extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JMI_InsertDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertDriverActionPerformed
-        InsertDriver id = new InsertDriver();
-        id.setVisible(true);
-    }//GEN-LAST:event_JMI_InsertDriverActionPerformed
+        InsertDriver id;
 
+        id = new InsertDriver();
+        id.setVisible(true);
+
+    }//GEN-LAST:event_JMI_InsertDriverActionPerformed
+    public void chargeTableDriver(Queue list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_client.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        ArrayList<Driver> list1 = null;
+        list1.add((Driver) list.poll());
+        for (int i = 0; i < list1.size(); i++) {
+            model.addRow(O);
+            Driver getP = (Driver) list1.get(i);
+            model.setValueAt(getP.getID(), i, 0);
+            model.setValueAt(getP.getName(), i, 1);
+            model.setValueAt(getP.getLastName1(), i, 2);
+            model.setValueAt(getP.getLastName2(), i, 3);
+            model.setValueAt(getP.getEmail(), i, 4);
+            model.setValueAt(getP.getPhone(), i, 5);
+            model.setValueAt(getP.getProvince(), i, 6);
+            model.setValueAt(getP.getAddress(), i, 7);
+            model.setValueAt(getP.getTypeVehicule(), i, 8);
+            model.setValueAt(getP.getAge(), i, 9);
+        }
+        for (Driver d : list1) {
+            InsertDriver.driversQueue.add(d);
+        }
+    }
+
+    public void chargeTableAdministrator(LinkedList list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Administrator.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+            model.addRow(O);
+            Administrator getP = (Administrator) list.get(i);
+            model.setValueAt(getP.getID(), i, 0);
+            model.setValueAt(getP.getName(), i, 1);
+            model.setValueAt(getP.getLastName1(), i, 2);
+            model.setValueAt(getP.getLastName2(), i, 3);
+            model.setValueAt(getP.getEmail(), i, 4);
+            model.setValueAt(getP.getPhone(), i, 5);
+            model.setValueAt(getP.getProvince(), i, 6);
+            model.setValueAt(getP.getAddress(), i, 7);
+
+        }
+    }
+
+    public void chargeTableProduct(CircularLinkedList list) throws ListException {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Product.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        ArrayList<Product> list1 = null;
+        for (int i = 0; i < list.getSize(); i++) {
+            list1.add((Product) list.getNode(i));
+        }
+        for (int i = 0; i < list1.size(); i++) {
+            model.addRow(O);
+            Product getP = (Product) list1.get(i);
+            model.setValueAt(getP.getName(), i, 0);
+            model.setValueAt(getP.getCost(), i, 1);
+            model.setValueAt(getP.getType(), i, 2);
+
+        }
+    }
+
+    public void chargeTableAgent(LinkedList list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Agent.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+            model.addRow(O);
+            Agent getP = (Agent) list.get(i);
+            model.setValueAt(getP.getID(), i, 0);
+            model.setValueAt(getP.getName(), i, 1);
+            model.setValueAt(getP.getLastName1(), i, 2);
+            model.setValueAt(getP.getLastName2(), i, 3);
+            model.setValueAt(getP.getEmail(), i, 4);
+            model.setValueAt(getP.getPhone(), i, 5);
+            model.setValueAt(getP.getProvince(), i, 6);
+            model.setValueAt(getP.getAddress(), i, 7);
+            model.setValueAt(getP.getUser(), i, 8);
+            model.setValueAt(getP.getCode(), i, 9);
+        }
+    }
+
+    public void chargeTableClient(LinkedList list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Driver.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+            model.addRow(O);
+            Client getP = (Client) list.get(i);
+            model.setValueAt(getP.getID(), i, 0);
+            model.setValueAt(getP.getName(), i, 1);
+            model.setValueAt(getP.getLastName1(), i, 2);
+            model.setValueAt(getP.getLastName2(), i, 3);
+            model.setValueAt(getP.getEmail(), i, 4);
+            model.setValueAt(getP.getPhone(), i, 5);
+            model.setValueAt(getP.getProvince(), i, 6);
+            model.setValueAt(getP.getAddress(), i, 6);
+        }
+    }
+
+    public void chargeTableRestaurant(LinkedList list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Restaurant.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+            model.addRow(O);
+            Restaurant getP = (Restaurant) list.get(i);
+            model.setValueAt(getP.getID(), i, 0);
+            model.setValueAt(getP.getName(), i, 1);
+            model.setValueAt(getP.getProvince(), i, 2);
+            model.setValueAt(getP.getLocation(), i, 3);
+
+        }
+    }
     private void JM_RestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_RestaurantActionPerformed
 
     }//GEN-LAST:event_JM_RestaurantActionPerformed
@@ -180,36 +677,263 @@ public class CRUDs extends javax.swing.JFrame {
     }//GEN-LAST:event_JM_AdministratorActionPerformed
 
     private void JMI_InsertRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertRestaurantActionPerformed
-        InsertRestaurant ir = new InsertRestaurant();
-        this.dispose();
+        InsertRestaurant ir;
+        ir = new InsertRestaurant();
         ir.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_JMI_InsertRestaurantActionPerformed
 
     private void JMI_InsertAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAgentActionPerformed
-        InsertAgent as = new InsertAgent();
-        this.dispose();
+        InsertAgent as;
+        as = new InsertAgent();
         as.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_JMI_InsertAgentActionPerformed
 
     private void JMI_InsertProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertProductActionPerformed
-        InsertProduct ip = new InsertProduct();
-        this.dispose();
+        InsertProduct ip;
+        ip = new InsertProduct();
         ip.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_JMI_InsertProductActionPerformed
 
     private void JMI_InsertAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAdministratorActionPerformed
-        InsertAdministrator ia = new InsertAdministrator();
-        this.dispose();
+        InsertAdministrator ia;
+        ia = new InsertAdministrator();
         ia.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_JMI_InsertAdministratorActionPerformed
 
     private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_JB_CancelActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void JM_VerClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_VerClienteActionPerformed
+        this.ScrollAdministrator.setVisible(false);
+        this.ScrollAgent.setVisible(false);
+        this.ScrollClient.setVisible(true);
+        this.ScrollDriver.setVisible(false);
+        this.ScrollProduct.setVisible(false);
+        this.ScrollRestaurant.setVisible(false);
+        this.JB_DeleteAdministrator.setVisible(false);
+        this.JB_DeleteAgent.setVisible(false);
+        this.JB_DeleteClient.setVisible(true);
+        this.JB_DeleteProduct.setVisible(false);
+        this.JB_DeleteRestaurant.setVisible(false);
+        this.JB_DeleteDriver.setVisible(false);
+        this.JB_UpdateAdministrator.setVisible(false);
+        this.JB_UpdateAgent.setVisible(false);
+        this.JB_UpdateClient.setVisible(true);
+        this.JB_UpdateDriver.setVisible(false);
+        this.JB_UpdateProduct.setVisible(false);
+        this.JB_UpdateRestaurant.setVisible(false);
+        chargeTableClient(InsertClient.linkedListClient);
+    }//GEN-LAST:event_JM_VerClienteActionPerformed
+
+    private void JB_UpdateAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_UpdateAdministratorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_JB_UpdateAdministratorActionPerformed
+
+    private void JM_DriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_DriverActionPerformed
+
+    }//GEN-LAST:event_JM_DriverActionPerformed
+
+    private void JM_ClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_ClientActionPerformed
+
+
+    }//GEN-LAST:event_JM_ClientActionPerformed
+
+    private void JM_VerDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_VerDriverActionPerformed
+        this.ScrollAdministrator.setVisible(false);
+        this.ScrollAgent.setVisible(false);
+        this.ScrollClient.setVisible(false);
+        this.ScrollDriver.setVisible(true);
+        this.ScrollProduct.setVisible(false);
+        this.ScrollRestaurant.setVisible(false);
+        this.JB_DeleteAdministrator.setVisible(false);
+        this.JB_DeleteAgent.setVisible(false);
+        this.JB_DeleteClient.setVisible(false);
+        this.JB_DeleteProduct.setVisible(false);
+        this.JB_DeleteRestaurant.setVisible(false);
+        this.JB_DeleteDriver.setVisible(true);
+        this.JB_UpdateAdministrator.setVisible(false);
+        this.JB_UpdateAgent.setVisible(false);
+        this.JB_UpdateClient.setVisible(false);
+        this.JB_UpdateDriver.setVisible(true);
+        this.JB_UpdateProduct.setVisible(false);
+        this.JB_UpdateRestaurant.setVisible(false);
+        chargeTableDriver(InsertDriver.driversQueue);
+    }//GEN-LAST:event_JM_VerDriverActionPerformed
+
+    private void JM_VerRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_VerRestaurantActionPerformed
+        this.ScrollAdministrator.setVisible(false);
+        this.ScrollAgent.setVisible(false);
+        this.ScrollClient.setVisible(false);
+        this.ScrollDriver.setVisible(false);
+        this.ScrollProduct.setVisible(false);
+        this.ScrollRestaurant.setVisible(true);
+        this.JB_DeleteAdministrator.setVisible(false);
+        this.JB_DeleteAgent.setVisible(false);
+        this.JB_DeleteClient.setVisible(false);
+        this.JB_DeleteProduct.setVisible(false);
+        this.JB_DeleteRestaurant.setVisible(true);
+        this.JB_DeleteDriver.setVisible(false);
+        this.JB_UpdateAdministrator.setVisible(false);
+        this.JB_UpdateAgent.setVisible(false);
+        this.JB_UpdateClient.setVisible(false);
+        this.JB_UpdateDriver.setVisible(false);
+        this.JB_UpdateProduct.setVisible(false);
+        this.JB_UpdateRestaurant.setVisible(true);
+        chargeTableRestaurant(InsertRestaurant.linkedListRestaurant);
+    }//GEN-LAST:event_JM_VerRestaurantActionPerformed
+
+    private void JM_VerAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_VerAgentActionPerformed
+        this.ScrollAdministrator.setVisible(false);
+        this.ScrollAgent.setVisible(true);
+        this.ScrollClient.setVisible(false);
+        this.ScrollDriver.setVisible(false);
+        this.ScrollProduct.setVisible(false);
+        this.ScrollRestaurant.setVisible(false);
+        this.JB_DeleteAdministrator.setVisible(false);
+        this.JB_DeleteAgent.setVisible(true);
+        this.JB_DeleteClient.setVisible(false);
+        this.JB_DeleteProduct.setVisible(false);
+        this.JB_DeleteRestaurant.setVisible(false);
+        this.JB_DeleteDriver.setVisible(false);
+        this.JB_UpdateAdministrator.setVisible(false);
+        this.JB_UpdateAgent.setVisible(true);
+        this.JB_UpdateClient.setVisible(false);
+        this.JB_UpdateDriver.setVisible(false);
+        this.JB_UpdateProduct.setVisible(false);
+        this.JB_UpdateRestaurant.setVisible(false);
+        chargeTableAgent(InsertAgent.linkedAgent);
+    }//GEN-LAST:event_JM_VerAgentActionPerformed
+
+    private void JM_VerProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_VerProductActionPerformed
+        try {
+            this.ScrollAdministrator.setVisible(false);
+            this.ScrollAgent.setVisible(false);
+            this.ScrollClient.setVisible(false);
+            this.ScrollDriver.setVisible(false);
+            this.ScrollProduct.setVisible(true);
+            this.ScrollRestaurant.setVisible(false);
+            this.JB_DeleteAdministrator.setVisible(false);
+            this.JB_DeleteAgent.setVisible(false);
+            this.JB_DeleteClient.setVisible(false);
+            this.JB_DeleteProduct.setVisible(true);
+            this.JB_DeleteRestaurant.setVisible(false);
+            this.JB_DeleteDriver.setVisible(false);
+            this.JB_UpdateAdministrator.setVisible(false);
+            this.JB_UpdateAgent.setVisible(false);
+            this.JB_UpdateClient.setVisible(false);
+            this.JB_UpdateDriver.setVisible(false);
+            this.JB_UpdateProduct.setVisible(true);
+            this.JB_UpdateRestaurant.setVisible(false);
+            chargeTableProduct(InsertProduct.circularListProduct);
+        } catch (ListException ex) {
+            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JM_VerProductActionPerformed
+
+    private void JM_VerAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_VerAdministratorActionPerformed
+        this.ScrollAdministrator.setVisible(true);
+        this.ScrollAgent.setVisible(false);
+        this.ScrollClient.setVisible(false);
+        this.ScrollDriver.setVisible(false);
+        this.ScrollProduct.setVisible(false);
+        this.ScrollRestaurant.setVisible(false);
+        this.JB_DeleteAdministrator.setVisible(true);
+        this.JB_DeleteAgent.setVisible(false);
+        this.JB_DeleteClient.setVisible(false);
+        this.JB_DeleteProduct.setVisible(false);
+        this.JB_DeleteRestaurant.setVisible(false);
+        this.JB_DeleteDriver.setVisible(false);
+        this.JB_UpdateAdministrator.setVisible(true);
+        this.JB_UpdateAgent.setVisible(false);
+        this.JB_UpdateClient.setVisible(false);
+        this.JB_UpdateDriver.setVisible(false);
+        this.JB_UpdateProduct.setVisible(false);
+        this.JB_UpdateRestaurant.setVisible(false);
+        chargeTableAdministrator(InsertAdministrator.linkedAdministrator);
+    }//GEN-LAST:event_JM_VerAdministratorActionPerformed
+
+    private void JB_DeleteDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteDriverActionPerformed
+        int row = this.JT_Driver.getSelectedRow();
+        String id = this.JT_Driver.getValueAt(row, 0).toString();
+        for (Driver d : InsertDriver.driversQueue) {
+            if (d.getID().equals(id)) {
+                InsertDriver.driversQueue.remove(d);
+            }
+        }
+        chargeTableDriver(InsertDriver.driversQueue);
+    }//GEN-LAST:event_JB_DeleteDriverActionPerformed
+
+    private void JB_UpdateRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_UpdateRestaurantActionPerformed
+
+    }//GEN-LAST:event_JB_UpdateRestaurantActionPerformed
+
+    private void JB_DeleteRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteRestaurantActionPerformed
+        int row = this.JT_Restaurant.getSelectedRow();
+        String id = this.JT_Restaurant.getValueAt(row, 0).toString();
+        for (Restaurant r : InsertRestaurant.linkedListRestaurant) {
+            if (id.equals(r.getID())) {
+                InsertRestaurant.linkedListRestaurant.remove(r);
+            }
+        }
+        chargeTableRestaurant(InsertRestaurant.linkedListRestaurant);
+    }//GEN-LAST:event_JB_DeleteRestaurantActionPerformed
+
+    private void JB_DeleteAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteAgentActionPerformed
+        int row = this.JT_Agent.getSelectedRow();
+        String id = this.JT_Agent.getValueAt(row, 0).toString();
+        for (Agent a : InsertAgent.linkedAgent) {
+            if (id.equals(a.getID())) {
+                InsertAgent.linkedAgent.remove(a);
+            }
+        }
+        chargeTableAgent(InsertAgent.linkedAgent);
+    }//GEN-LAST:event_JB_DeleteAgentActionPerformed
+
+    private void JB_DeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteProductActionPerformed
+        try {
+            int row = this.JT_Product.getSelectedRow();
+            String id = this.JT_Product.getValueAt(row, 0).toString();
+            for (int i = 0; i < InsertProduct.circularListProduct.getSize(); i++) {
+                Product product = (Product) InsertProduct.circularListProduct.getNode(i);
+                if (product.getName().equals(id)) {
+                    InsertProduct.circularListProduct.delete(product);
+                }
+            }
+            chargeTableProduct(InsertProduct.circularListProduct);
+        } catch (ListException ex) {
+            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JB_DeleteProductActionPerformed
+
+    private void JB_DeleteAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteAdministratorActionPerformed
+        int row = this.JT_Administrator.getSelectedRow();
+        String id = this.JT_Administrator.getValueAt(row, 0).toString();
+        for (Administrator a : InsertAdministrator.linkedAdministrator) {
+            if (a.getID().equals(id)) {
+                InsertAdministrator.linkedAdministrator.remove(a);
+            }
+        }
+        chargeTableAdministrator(InsertAdministrator.linkedAdministrator);
+    }//GEN-LAST:event_JB_DeleteAdministratorActionPerformed
+
+    private void JB_DeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteClientActionPerformed
+        int row = this.JT_client.getSelectedRow();
+        String id = this.JT_client.getValueAt(row, 0).toString();
+        for (Client c : InsertClient.linkedListClient) {
+            if (c.getID().equals(id)) {
+                InsertClient.linkedListClient.remove(c);
+            }
+        }
+    }//GEN-LAST:event_JB_DeleteClientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,6 +972,18 @@ public class CRUDs extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JB_Cancel;
+    private javax.swing.JButton JB_DeleteAdministrator;
+    private javax.swing.JButton JB_DeleteAgent;
+    private javax.swing.JButton JB_DeleteClient;
+    private javax.swing.JButton JB_DeleteDriver;
+    private javax.swing.JButton JB_DeleteProduct;
+    private javax.swing.JButton JB_DeleteRestaurant;
+    private javax.swing.JButton JB_UpdateAdministrator;
+    private javax.swing.JButton JB_UpdateAgent;
+    private javax.swing.JButton JB_UpdateClient;
+    private javax.swing.JButton JB_UpdateDriver;
+    private javax.swing.JButton JB_UpdateProduct;
+    private javax.swing.JButton JB_UpdateRestaurant;
     private javax.swing.JLabel JL_fondo;
     private javax.swing.JMenuItem JMI_InsertAdministrator;
     private javax.swing.JMenuItem JMI_InsertAgent;
@@ -256,11 +992,28 @@ public class CRUDs extends javax.swing.JFrame {
     private javax.swing.JMenuItem JMI_InsertRestaurant;
     private javax.swing.JMenu JM_Administrator;
     private javax.swing.JMenu JM_Agent;
+    private javax.swing.JMenu JM_Client;
     private javax.swing.JMenuBar JM_Cruds;
     private javax.swing.JMenu JM_Driver;
     private javax.swing.JMenu JM_Product;
     private javax.swing.JMenu JM_Restaurant;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem JM_VerAdministrator;
+    private javax.swing.JMenuItem JM_VerAgent;
+    private javax.swing.JMenuItem JM_VerCliente;
+    private javax.swing.JMenuItem JM_VerDriver;
+    private javax.swing.JMenuItem JM_VerProduct;
+    private javax.swing.JMenuItem JM_VerRestaurant;
+    private javax.swing.JTable JT_Administrator;
+    private javax.swing.JTable JT_Agent;
+    private javax.swing.JTable JT_Driver;
+    private javax.swing.JTable JT_Product;
+    private javax.swing.JTable JT_Restaurant;
+    private javax.swing.JTable JT_client;
+    private javax.swing.JScrollPane ScrollAdministrator;
+    private javax.swing.JScrollPane ScrollAgent;
+    private javax.swing.JScrollPane ScrollClient;
+    private javax.swing.JScrollPane ScrollDriver;
+    private javax.swing.JScrollPane ScrollProduct;
+    private javax.swing.JScrollPane ScrollRestaurant;
     // End of variables declaration//GEN-END:variables
 }

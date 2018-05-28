@@ -29,7 +29,7 @@ public class readFiles {
             //Repetir mientras no se llegue al final del fichero
             while (text != null) {
                 //Hacer lo que sea con la línea leída
-                String[] agentA = text.split(";");
+                String[] agentA = text.split("-");
                 agent  = new Agent(agentA[0], agentA[1], agentA[2], agentA[3], agentA[4], agentA[5], agentA[6], agentA[7], agentA[8], agentA[9]);
                // Agent a1 = new Agent(text, text, text, text, text, text, text, text, text, text)
                

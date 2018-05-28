@@ -7,11 +7,14 @@ package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.FileChooser;
 import cr.ac.ucr.Domain.Product;
+import cr.ac.ucr.Files.ReadFilesCSV;
 import cr.ac.ucr.Logic.CircularLinkedList;
 import cr.ac.ucr.Logic.ListException.ListException;
 import cr.ac.ucr.Logic.Node;
 import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -26,22 +29,18 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class InsertProduct extends javax.swing.JFrame {
 
     FileChooser filechooser = new FileChooser();
-//    CircularLinkedList circularDrink = new CircularLinkedList();
-//    CircularLinkedList circularFood = new CircularLinkedList();
-//    CircularLinkedList circularDessert = new CircularLinkedList();
-//    CircularLinkedList circularVarious = new CircularLinkedList();
-    
 
-    
-
-    public static CircularLinkedList circularListProduct = new CircularLinkedList();
+//ReadFilesCSV readCsv = new ReadFilesCSV();
+    public static CircularLinkedList circularListProduct;
 
     /**
      * Creates new form Insert_Product
      */
     public InsertProduct() {
-
-        initComponents();
+         initComponents();
+         
+        // LinkedList<Product> productList = readCsv.readCSVProduct();
+        
 
         tft_Path.setEditable(false);
          this.setLocationRelativeTo(null);
@@ -287,7 +286,11 @@ public class InsertProduct extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InsertProduct().setVisible(true);
+               
+               
+                    new InsertProduct().setVisible(true);
+               
+               
             }
         });
     }

@@ -1,2 +1,0 @@
-jLabel8   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\Kfc.jpg   kfc   cartago   cartagoCentro
-jLabel8   C:\Users\Melvin\Desktop\CallCenterAlgoritmos\Proyecto_1_Algoritmos_2018\src\cr\ac\ucr\Img\McDonald.png   mcdonal   sanJose   sanJoseCentro

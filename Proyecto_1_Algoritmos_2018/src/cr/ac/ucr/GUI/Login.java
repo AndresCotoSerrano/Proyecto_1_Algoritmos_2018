@@ -9,6 +9,7 @@ import cr.ac.ucr.Domain.Account;
 import cr.ac.ucr.Files.Write_Read_Files;
 import cr.ac.ucr.Logic.ListException.ListException;
 import cr.ac.ucr.Logic.StackException.PilaException;
+import cr.ac.ucr.Security.EncriptMD5;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
@@ -128,18 +129,19 @@ public class Login extends javax.swing.JFrame {
         int count = 0;
         if (this.JT_User.getText().equals("admin") && this.JT_Password.getText().equals("admin")) {
             try {
-                Administrator admin = new Administrator();
+                PanelAdministrator admin = new PanelAdministrator("", "");
                 admin.setVisible(true);
                 this.dispose();
+                count = 1;
             } catch (PilaException ex) {
                 System.out.println("Algo fallo en el login");
             }
         } else {
             for (Account a : list) {
-                if (a.getUser().equals(this.JT_User.getText()) && a.getPass().equals(this.JT_Password.getText()) && a.getIsAdmin() == true) {
+                if (a.getUser().equals(this.JT_User.getText()) && a.getPass().equals(EncriptMD5.getMD5(this.JT_Password.getText())) && a.getIsAdmin() == true
+                        || a.getEmail().equals(this.JT_User.getText()) && a.getPass().equals(EncriptMD5.getMD5(this.JT_Password.getText())) && a.getIsAdmin() == true) {
                     try {
-                        System.out.println(this.JT_User.getText() + this.JT_Password.getText() + a.getIsAdmin());
-                        Administrator admin = new Administrator();
+                        PanelAdministrator admin = new PanelAdministrator(a.getUser(), a.getEmail());
                         admin.setVisible(true);
                         this.dispose();
                         count = 1;
@@ -170,33 +172,24 @@ public class Login extends javax.swing.JFrame {
         int count = 0;
         if (this.JT_User.getText().equals("admin") && this.JT_Password.getText().equals("admin")) {
             try {
-                Administrator admin = new Administrator();
+                PanelAdministrator admin = new PanelAdministrator("","");
                 admin.setVisible(true);
                 this.dispose();
+                count = 1;
             } catch (PilaException ex) {
                 System.out.println("Algo fallo en el login");
             }
         } else {
             for (Account a : list) {
-                if (a.getUser().equals(this.JT_User.getText()) && a.getPass().equals(this.JT_Password.getText())) {
+                if (a.getUser().equals(this.JT_User.getText()) && a.getPass().equals(EncriptMD5.getMD5(this.JT_Password.getText())) && a.getIsAdmin() == true
+                        || a.getEmail().equals(this.JT_User.getText()) && a.getPass().equals(EncriptMD5.getMD5(this.JT_Password.getText())) && a.getIsAdmin() == true) {
                     try {
-                        if (a.getIsAdmin() == true) {
-                            Administrator admin = new Administrator();
-                            admin.setVisible(true);
-                            this.dispose();
-                            count = 1;
-                            break;
-                        } else if (a.getIsAdmin() == false) {
-                            ControlPanel panel = new ControlPanel();
-                            panel.setVisible(true);
-                            this.dispose();
-                            count = 1;
-                            break;
-                        }
-
+                        PanelAdministrator admin = new PanelAdministrator(a.getUser(),a.getEmail());
+                        admin.setVisible(true);
+                        this.dispose();
+                        count = 1;
+                        break;
                     } catch (PilaException ex) {
-                        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (ListException ex) {
                         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
@@ -222,8 +215,8 @@ public class Login extends javax.swing.JFrame {
             //Repetir mientras no se llegue al final del fichero
             while (texto != null) {
                 //Hacer lo que sea con la línea leída
-                String[] account = texto.split("     ");
-                acc = new Account(account[0], account[1], Boolean.parseBoolean(account[2]));
+                String[] account = texto.split("-");
+                acc = new Account(account[0], account[1], account[2], Boolean.parseBoolean(account[3]));
                 list.add(acc);
                 //Leer la siguiente línea
                 texto = br.readLine();

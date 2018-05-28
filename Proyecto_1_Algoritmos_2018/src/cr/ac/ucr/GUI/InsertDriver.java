@@ -10,20 +10,26 @@ import cr.ac.ucr.Domain.Client;
 import cr.ac.ucr.Domain.Driver;
 import cr.ac.ucr.Files.ClientFile;
 import cr.ac.ucr.Files.DriverFile;
+import cr.ac.ucr.Files.ReadFilesCSV;
 import cr.ac.ucr.Files.readFiles;
 import cr.ac.ucr.Logic.CircularLinkedList;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Melvin
  */
 public class InsertDriver extends javax.swing.JFrame {
-
+    
+    
+//ReadFilesCSV readCsv = new ReadFilesCSV();
     DriverFile driverFile = new DriverFile();
-    LinkedList<Client> linkedListClient = new LinkedList<>();
-    public static Queue<Driver> driversQueue = new LinkedList<Driver>();
+    //LinkedList<Client> linkedListClient = new LinkedList<>();
+    public static Queue<Driver> driversQueue;
     String typeVehicule;
 
     /**
@@ -31,16 +37,21 @@ public class InsertDriver extends javax.swing.JFrame {
      */
     public InsertDriver() {
         initComponents();
-        readFiles read= new readFiles();
-        LinkedList<Driver> DriverList = read.readDriver();
-        if(DriverList.isEmpty()){
-            lbl_ID2.setText("1");
         
-        }else{
-            int id = Integer.parseInt(DriverList.getLast().getID());
-            id++;
-            lbl_ID2.setText(id+"");
-        }
+      //  LinkedList<Driver> driverList = readCsv.readCSVDriver();
+        
+         
+        
+        //readFiles read= new readFiles();
+        //LinkedList<Driver> DriverList = read.readDriver();
+//        if(driversQueue.isEmpty()){
+//            lbl_ID2.setText("1");
+//        
+//        }else{
+//            int id = Integer.parseInt(ReadFilesCSV.readCSVDriver().getLast().getID());
+//            id++;
+//            lbl_ID2.setText(id+"");
+//        }
         
          this.setLocationRelativeTo(null);
     }
@@ -273,7 +284,9 @@ public class InsertDriver extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InsertDriver().setVisible(true);
+               
+                    new InsertDriver().setVisible(true);
+               
             }
         });
     }
