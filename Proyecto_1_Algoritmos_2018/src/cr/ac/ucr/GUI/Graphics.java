@@ -10,7 +10,7 @@ package cr.ac.ucr.GUI;
 import cr.ac.ucr.Domain.Order;
 import cr.ac.ucr.Logic.LinkedStack;
 import cr.ac.ucr.Logic.StackException.PilaException;
-import cr.ac.ucr.Logic.creatorPdf;
+//import cr.ac.ucr.Logic.creatorPdf;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
@@ -340,8 +340,8 @@ public class Graphics extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    creatorPdf creatorpdf=new creatorPdf();
-     creatorpdf.pdfCreator(jPanel_graphics);
+   // creatorPdf creatorpdf=new creatorPdf();
+    // creatorpdf.pdfCreator(jPanel_graphics);
     }//GEN-LAST:event_jButton3ActionPerformed
     
     /**
