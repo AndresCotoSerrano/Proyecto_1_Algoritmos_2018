@@ -5,6 +5,7 @@ import cr.ac.ucr.Domain.Administrator;
 import cr.ac.ucr.Domain.Agent;
 import cr.ac.ucr.Domain.Client;
 import cr.ac.ucr.Domain.Driver;
+import cr.ac.ucr.Domain.Order;
 import cr.ac.ucr.Domain.Product;
 import cr.ac.ucr.Domain.Restaurant;
 import cr.ac.ucr.Files.ClientFile;
@@ -400,43 +401,61 @@ public class ThreadWriteFile extends Thread {
     }
   
   
-  public void writeOrder() {
-
-      
-            try {
-
-            CsvWriter csvOutput = new CsvWriter("Order.csv",';', Charset.forName("UTF-8"));
-               
-                    csvOutput.write("Name");
-                   
-                    csvOutput.write("Cost");
-
-                    csvOutput.write("Type");
-
-                    csvOutput.write("Image");
-
-                    csvOutput.endRecord();
-
-                    for (Product p : this.listProduct) {
-                        
-                        csvOutput.write(p.getName());
-                        csvOutput.write(p.getCost());
-                        csvOutput.write(p.getType());
-                        csvOutput.write(p.getPathImage());
-                     
-                     csvOutput.endRecord();
-                    }
-                    
-                     csvOutput.close();
+//  public void writeOrder() {
+//
+//      
+//            try {
+//
+//            CsvWriter csvOutput = new CsvWriter("Order.csv",';', Charset.forName("UTF-8"));
+//               
+//                    csvOutput.write("NumOrder");
 //                   
-
-            } catch (IOException e) {
-
-                e.printStackTrace();
-
-            }
-
-    }
+//                    csvOutput.write("Client");
+//
+//                    csvOutput.write("Agent");
+//
+//                    csvOutput.write("Date");
+//                    
+//                    csvOutput.write("Province");
+//                    
+//                    csvOutput.write("Driver");
+//                    
+//                    csvOutput.write("Restaurant");
+//                    
+//                    csvOutput.write("Product");
+//                    
+//                    csvOutput.write("Quantity");
+//                    
+//                    csvOutput.write("Amount");
+//
+//                    csvOutput.endRecord();
+//
+//                    for (Order o : this.fileLinkedListOrders) {
+//                        
+//                        csvOutput.write(o.getCliente());
+//                        csvOutput.write(o.getNumOrder()+"");
+//                        csvOutput.write(o.getAgente());
+//                        csvOutput.write(o.getDate());
+//                        csvOutput.write(o.getProvincia());
+//                        csvOutput.write(o.getDriver());
+//                        csvOutput.write(o.getRestaurant());
+//                        csvOutput.write(o.getProduct());
+//                        csvOutput.write(o.getQuantity()+"");
+//                        csvOutput.write(o.getAmount()+"");
+//                     
+//                     csvOutput.endRecord();
+//                    }
+//                    
+//                     csvOutput.close();
+//                  
+//
+//            } catch (IOException e) {
+//
+//                e.printStackTrace();
+//
+//            }
+//
+//    }
   
   
   
