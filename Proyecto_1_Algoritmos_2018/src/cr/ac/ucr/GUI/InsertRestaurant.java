@@ -9,10 +9,14 @@ import cr.ac.ucr.Domain.Clase_Prueba;
 import cr.ac.ucr.Domain.Image_Panel;
 import cr.ac.ucr.Domain.Restaurant;
 import cr.ac.ucr.Files.LoanLogo;
+import cr.ac.ucr.Files.ReadFilesCSV;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -25,14 +29,28 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class InsertRestaurant extends javax.swing.JFrame {
 
+    ReadFilesCSV readCsv = new ReadFilesCSV();
+    
+    
     Image_Panel imagePanel;
-    public static LinkedList<Restaurant> linkedListRestaurant = new LinkedList<>();
+    public static LinkedList<Restaurant> linkedListRestaurant;
 
     /**
      * Creates new form Insert_Restaurant
      */
-    public InsertRestaurant() {
+    public InsertRestaurant() throws IOException {
         initComponents();
+        
+         LinkedList<Restaurant> restaurantList = readCsv.readCSVRestaurant();
+        if(restaurantList.isEmpty()){
+             linkedListRestaurant = new LinkedList();
+        }else{
+            for (int i = 0; i < restaurantList.size(); i++) {
+                Restaurant restaurant = restaurantList.get(i);
+                linkedListRestaurant.add(restaurant);
+        }
+        }
+        
          this.setLocationRelativeTo(null);
     }
 
@@ -239,7 +257,11 @@ public class InsertRestaurant extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InsertRestaurant().setVisible(true);
+                try {
+                    new InsertRestaurant().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(InsertRestaurant.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

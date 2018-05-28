@@ -6,8 +6,12 @@
 package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Agent;
+import cr.ac.ucr.Files.ReadFilesCSV;
 import cr.ac.ucr.Files.readFiles;
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,7 +19,10 @@ import java.util.LinkedList;
  */
 public class InsertAgent extends javax.swing.JFrame {
 
-    public static LinkedList<Agent> linkedAgent = new LinkedList();
+    ReadFilesCSV readCsv = new ReadFilesCSV();
+    
+    
+    public static LinkedList<Agent> linkedAgent;
     
 
     int IDAgent = 0;
@@ -23,10 +30,20 @@ public class InsertAgent extends javax.swing.JFrame {
     /**
      * Creates new form Insert_Agent
      */
-    public InsertAgent() {
+    public InsertAgent() throws IOException {
         initComponents();
-        readFiles read= new readFiles();
-        LinkedList<Agent> agentList = read.readAgent();
+        LinkedList<Agent> agentList = readCsv.readCSVAgent();
+        
+        if(agentList.isEmpty()){
+            linkedAgent = new LinkedList();
+        }else{
+            for (int i = 0; i < agentList.size(); i++) {
+                Agent agent = agentList.get(i);
+                linkedAgent.add(agent);
+            }
+        }
+         readFiles read= new readFiles();
+       
         if(agentList.isEmpty()){
             lbl_ID2.setText("1");
         
@@ -246,7 +263,11 @@ public class InsertAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InsertAgent().setVisible(true);
+                try {
+                    new InsertAgent().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(InsertAgent.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

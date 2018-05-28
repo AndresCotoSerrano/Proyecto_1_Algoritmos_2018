@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 public class ReadFilesCSV {
 
-    private LinkedList<Agent> readCSVAgent() throws FileNotFoundException, IOException {
+    public LinkedList<Agent> readCSVAgent() throws FileNotFoundException, IOException {
 
         String outputFile = "Agent.csv";
 
@@ -83,7 +83,7 @@ public class ReadFilesCSV {
 
     }
     
-     private LinkedList<Administrator> readCSVAdministrator() throws FileNotFoundException, IOException {
+     public LinkedList<Administrator> readCSVAdministrator() throws FileNotFoundException, IOException {
 
         String outputFile = "Administrator.csv";
 
@@ -146,7 +146,7 @@ public class ReadFilesCSV {
 
     }
      
-      private LinkedList<Client> readCSVClient() throws FileNotFoundException, IOException {
+      public LinkedList<Client> readCSVClient() throws FileNotFoundException, IOException {
 
         String outputFile = "Client.csv";
 
@@ -209,7 +209,7 @@ public class ReadFilesCSV {
 
     }
       
-       private LinkedList<Driver> readCSVDriver() throws FileNotFoundException, IOException {
+       public LinkedList<Driver> readCSVDriver() throws FileNotFoundException, IOException {
 
         String outputFile = "Driver.csv";
 
@@ -275,7 +275,7 @@ public class ReadFilesCSV {
 
     }
        
-        private LinkedList<Restaurant> readCSVRestaurant() throws FileNotFoundException, IOException {
+        public LinkedList<Restaurant> readCSVRestaurant() throws FileNotFoundException, IOException {
 
         String outputFile = "Restaurant.csv";
 
@@ -334,7 +334,7 @@ public class ReadFilesCSV {
 
     }
         
-         private LinkedList<Product> readCSVProduct() throws FileNotFoundException, IOException {
+         public LinkedList<Product> readCSVProduct() throws FileNotFoundException, IOException {
 
         String outputFile = "Product.csv";
 
@@ -390,7 +390,7 @@ public class ReadFilesCSV {
 
     }
          
-          private LinkedList<Order> readCSVOrder() throws FileNotFoundException, IOException {
+          public LinkedList<Order> readCSVOrder() throws FileNotFoundException, IOException {
 
         String outputFile = "Order.csv";
 

@@ -6,7 +6,11 @@
 package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Agent;
+import cr.ac.ucr.Logic.ListException.ListException;
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -159,8 +163,15 @@ public class CRUDs extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JMI_InsertDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertDriverActionPerformed
-        InsertDriver id = new InsertDriver();
-        id.setVisible(true);
+        InsertDriver id;
+        
+        try {
+            id = new InsertDriver();
+            id.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_JMI_InsertDriverActionPerformed
 
     private void JM_RestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_RestaurantActionPerformed
@@ -180,27 +191,53 @@ public class CRUDs extends javax.swing.JFrame {
     }//GEN-LAST:event_JM_AdministratorActionPerformed
 
     private void JMI_InsertRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertRestaurantActionPerformed
-        InsertRestaurant ir = new InsertRestaurant();
+        InsertRestaurant ir;
+        try {
+            ir = new InsertRestaurant();
+               ir.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
-        ir.setVisible(true);
+     
     }//GEN-LAST:event_JMI_InsertRestaurantActionPerformed
 
     private void JMI_InsertAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAgentActionPerformed
-        InsertAgent as = new InsertAgent();
+        InsertAgent as;
+        try {
+            as = new InsertAgent();
+             as.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
-        as.setVisible(true);
+       
     }//GEN-LAST:event_JMI_InsertAgentActionPerformed
 
     private void JMI_InsertProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertProductActionPerformed
-        InsertProduct ip = new InsertProduct();
+        InsertProduct ip;
+        try {
+            ip = new InsertProduct();
+            ip.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListException ex) {
+            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
-        ip.setVisible(true);
+        
     }//GEN-LAST:event_JMI_InsertProductActionPerformed
 
     private void JMI_InsertAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAdministratorActionPerformed
-        InsertAdministrator ia = new InsertAdministrator();
+        InsertAdministrator ia;
+        try {
+            ia = new InsertAdministrator();
+             ia.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
-        ia.setVisible(true);
+       
     }//GEN-LAST:event_JMI_InsertAdministratorActionPerformed
 
     private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
