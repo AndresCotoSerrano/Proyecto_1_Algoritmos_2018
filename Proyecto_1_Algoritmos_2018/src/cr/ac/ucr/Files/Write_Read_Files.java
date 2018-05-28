@@ -36,7 +36,7 @@ public class Write_Read_Files {
         File archivo = new File(nombre);
         PrintStream ps = null;
         try {
-            FileOutputStream fos = new FileOutputStream(archivo, false);
+            FileOutputStream fos = new FileOutputStream(archivo, true);
             ps = new PrintStream(fos);
         } catch (FileNotFoundException fnfe) {
             JOptionPane.showMessageDialog(null, "El dato no se a podido ingresar");

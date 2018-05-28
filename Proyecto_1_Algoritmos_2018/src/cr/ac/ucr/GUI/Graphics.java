@@ -388,7 +388,7 @@ public class Graphics extends javax.swing.JFrame {
      * @return arrayList
      */
    public ArrayList grafic() throws PilaException{
-       Administrator administrador=new Administrator();
+       PanelAdministrator administrador=new PanelAdministrator();
         LinkedStack stack = administrador.saveOrders();
         ArrayList<Order> list = new ArrayList<>();
        

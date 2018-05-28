@@ -6,9 +6,14 @@
 package cr.ac.ucr.GUI;
 
 import cr.ac.ucr.Domain.Account;
+import cr.ac.ucr.Domain.Administrator;
+import cr.ac.ucr.Domain.Agent;
+import cr.ac.ucr.Domain.Client;
+import cr.ac.ucr.Files.ReadFilesCSV;
 import cr.ac.ucr.Files.Write_Read_Files;
 import cr.ac.ucr.Security.EncriptMD5;
 import java.io.PrintStream;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,12 +22,11 @@ import javax.swing.JOptionPane;
  */
 public class CreateAccount extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CreateAccount
-     */
     public CreateAccount() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.JT_Email.enable(false);
+
     }
 
     /**
@@ -35,7 +39,6 @@ public class CreateAccount extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        JT_UserName = new javax.swing.JTextField();
         JC_isAdmin = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -43,6 +46,9 @@ public class CreateAccount extends javax.swing.JFrame {
         JB_Accept = new javax.swing.JButton();
         JB_Cancel = new javax.swing.JButton();
         JT_Password = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        JT_Email = new javax.swing.JTextField();
+        JCB_Users = new javax.swing.JComboBox<>();
         JL_Foto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,36 +61,35 @@ public class CreateAccount extends javax.swing.JFrame {
         jLabel1.setName(""); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 150, 20));
 
-        JT_UserName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JT_UserNameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(JT_UserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 210, 30));
-
+        JC_isAdmin.setEditable(true);
         JC_isAdmin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Admin", "Agent" }));
         JC_isAdmin.setToolTipText("");
+        JC_isAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JC_isAdminMouseClicked(evt);
+            }
+        });
         JC_isAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JC_isAdminActionPerformed(evt);
             }
         });
-        getContentPane().add(JC_isAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 210, 30));
+        getContentPane().add(JC_isAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 5));
         jLabel2.setText("User Name");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 5));
         jLabel3.setText("Password");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 5));
         jLabel4.setText("Type Account");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, 20));
 
         JB_Accept.setText("Accept");
         JB_Accept.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +97,7 @@ public class CreateAccount extends javax.swing.JFrame {
                 JB_AcceptActionPerformed(evt);
             }
         });
-        getContentPane().add(JB_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
+        getContentPane().add(JB_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
 
         JB_Cancel.setText("Cancel");
         JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -100,21 +105,44 @@ public class CreateAccount extends javax.swing.JFrame {
                 JB_CancelActionPerformed(evt);
             }
         });
-        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
-        getContentPane().add(JT_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 210, 30));
+        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
+        getContentPane().add(JT_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 210, 30));
+
+        jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 204, 5));
+        jLabel5.setText("Email");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
+        getContentPane().add(JT_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 210, 30));
+
+        JCB_Users.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JCB_UsersMouseClicked(evt);
+            }
+        });
+        JCB_Users.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB_UsersActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JCB_Users, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 210, -1));
 
         JL_Foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
-        getContentPane().add(JL_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 427, 308));
+        getContentPane().add(JL_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JT_UserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_UserNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JT_UserNameActionPerformed
-
     private void JC_isAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_isAdminActionPerformed
-        // TODO add your handling code here:
+        this.JCB_Users.removeAllItems();
+        if (this.JC_isAdmin.getSelectedItem().equals("Admin")) {
+            for (Administrator a : InsertAdministrator.linkedAdministrator) {
+                this.JCB_Users.addItem(a.getName());
+            }
+        } else {
+            for (Agent ag : InsertAgent.linkedAgent) {
+                this.JCB_Users.addItem(ag.getName());
+            }
+        }
     }//GEN-LAST:event_JC_isAdminActionPerformed
 
     private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
@@ -127,17 +155,43 @@ public class CreateAccount extends javax.swing.JFrame {
         Write_Read_Files wr = new Write_Read_Files();
         PrintStream ps = wr.getPrintStream("Account.txt");
         if (this.JC_isAdmin.getSelectedItem().equals("Admin")) {
-            Account a = new Account(this.JT_UserName.getText(), EncriptMD5.getMD5(this.JT_Password.getText()), true);
-            ps.println(a.getUser() + "     " + a.getPass() + "     " + a.getIsAdmin());
+            Account a = new Account(this.JCB_Users.getSelectedItem().toString(), EncriptMD5.getMD5(this.JT_Password.getText()), this.JT_Email.getText(), true);
+            ps.println(a.getUser() + "-" + a.getPass() + "-" + a.getEmail() + "-" + a.getIsAdmin());
         } else {
-            Account a = new Account(this.JT_UserName.getText(), EncriptMD5.getMD5(this.JT_Password.getText()), false);
-            ps.println(a.getUser() + "     " + a.getPass() + "     " + a.getIsAdmin());
+            Account a = new Account(this.JCB_Users.getSelectedItem().toString(), EncriptMD5.getMD5(this.JT_Password.getText()), this.JT_Email.getText(), false);
+            ps.println(a.getUser() + "-" + a.getPass() + "-" + a.getEmail() + "-" + a.getIsAdmin());
         }
         JOptionPane.showMessageDialog(null, "Datos ingresados con exito");
         dispose();
 //        Login l = new Login();
 //        l.setVisible(true);
     }//GEN-LAST:event_JB_AcceptActionPerformed
+
+    private void JCB_UsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_UsersActionPerformed
+        this.JT_Email.setText(" ");
+        if (this.JC_isAdmin.getSelectedItem().equals("Admin")) {
+            for (Administrator a : InsertAdministrator.linkedAdministrator) {
+                System.out.println(a.toString());
+                if (a.getName().equals(this.JCB_Users.getSelectedItem())) {
+                    this.JT_Email.setText(a.getEmail());
+                }
+            }
+        } else {
+            for (Agent ag : InsertAgent.linkedAgent) {
+                if (ag.getName().equals(this.JCB_Users.getSelectedItem())) {
+                    this.JT_Email.setText(ag.getEmail());
+                }
+            }
+        }
+    }//GEN-LAST:event_JCB_UsersActionPerformed
+
+    private void JC_isAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JC_isAdminMouseClicked
+
+    }//GEN-LAST:event_JC_isAdminMouseClicked
+
+    private void JCB_UsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JCB_UsersMouseClicked
+
+    }//GEN-LAST:event_JCB_UsersMouseClicked
 
     /**
      * @param args the command line arguments
@@ -153,16 +207,24 @@ public class CreateAccount extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccount.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccount.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccount.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccount.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -177,13 +239,15 @@ public class CreateAccount extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JB_Accept;
     private javax.swing.JButton JB_Cancel;
+    private javax.swing.JComboBox<String> JCB_Users;
     private javax.swing.JComboBox<String> JC_isAdmin;
     private javax.swing.JLabel JL_Foto;
+    private javax.swing.JTextField JT_Email;
     private javax.swing.JPasswordField JT_Password;
-    private javax.swing.JTextField JT_UserName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

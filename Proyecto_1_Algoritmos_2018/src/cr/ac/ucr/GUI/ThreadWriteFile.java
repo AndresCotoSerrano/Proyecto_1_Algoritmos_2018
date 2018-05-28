@@ -53,12 +53,12 @@ public class ThreadWriteFile extends Thread {
 
             LinkedList<Client> fileLinkedListClient = insertClient.getClientList();
 
-            InsertRestaurant.linkedListRestaurant=ReadFilesCSV.readCSVRestaurant();
+            InsertRestaurant.linkedListRestaurant = ReadFilesCSV.readCSVRestaurant();
             InsertAgent.linkedAgent = ReadFilesCSV.readCSVAgent();
             InsertAdministrator.linkedAdministrator = ReadFilesCSV.readCSVAdministrator();
             InsertProduct.circularListProduct = ReadFilesCSV.readCSVProduct();
             InsertDriver.driversQueue = ReadFilesCSV.readCSVDriver();
-            
+
             fileLinkedRestaurant = InsertRestaurant.linkedListRestaurant;
             fileLinkedListAgent = InsertAgent.linkedAgent;
             fileLinkedAdministrator = InsertAdministrator.linkedAdministrator;
@@ -72,7 +72,7 @@ public class ThreadWriteFile extends Thread {
                 System.out.println("PRUEBA DE HILO, pasaron 20 segundos MEEEEELVIIIN");
 
                 if (!fileLinkedListAgent.isEmpty()) {
-                    writeAgent();   
+                    writeAgent();
                 }
 
                 if (!fileLinkedListClient.isEmpty()) {
@@ -307,7 +307,7 @@ public class ThreadWriteFile extends Thread {
     public void writeProduct() throws ListException {
 
         try {
-            
+
             int i = 0;
             while (i <= fileCircularProduct.getSize()) {
                 Product product = (Product) fileCircularProduct.getNode(i);

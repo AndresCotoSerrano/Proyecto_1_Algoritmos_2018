@@ -22,51 +22,48 @@ public class ReadFilesCSV {
 
     public static LinkedList<Agent> readCSVAgent() {
 
-       // String outputFile = "Agent.csv";
-
+        // String outputFile = "Agent.csv";
         try {
 
             LinkedList<Agent> agentList = new LinkedList<>();
 
             //File alreadyExists = new File("Agent.csv");
-System.out.println("ENTRE AL TRY AGENTE");
-            
+            System.out.println("ENTRE AL TRY AGENTE");
 
-                CsvReader readFile = new CsvReader("Agent.csv", ';', Charset.forName("UTF-8"));
+            CsvReader readFile = new CsvReader("Agent.csv", ';', Charset.forName("UTF-8"));
 
-                readFile.setDelimiter(';');
+            readFile.setDelimiter(';');
 
-                readFile.readHeaders();
+            readFile.readHeaders();
 
-                while (readFile.readRecord()) {
-System.out.println("ENTRE AL WHILE DEL AGENTE");
-                   
+            while (readFile.readRecord()) {
+                System.out.println("ENTRE AL WHILE DEL AGENTE");
 
-                        String ID = readFile.get(0);
+                String ID = readFile.get(0);
 
-                        String name = readFile.get(1);
+                String name = readFile.get(1);
 
-                        String lastName1 = readFile.get(2);
+                String lastName1 = readFile.get(2);
 
-                        String lastName2 = readFile.get(3);
+                String lastName2 = readFile.get(3);
 
-                        String email = readFile.get(4);
+                String email = readFile.get(4);
 
-                        String phone = readFile.get(5);
+                String phone = readFile.get(5);
 
-                        String province = readFile.get(6);
+                String province = readFile.get(6);
 
-                        String address = readFile.get(7);
+                String address = readFile.get(7);
 
-                        String user = readFile.get(8);
+                String user = readFile.get(8);
 
-                        String code = readFile.get(9);
+                String code = readFile.get(9);
 
-                        Agent agent = new Agent(ID, name, lastName1, lastName2, email, phone, province, address, user, code);
-                        
-                        agentList.add(agent);
+                Agent agent = new Agent(ID, name, lastName1, lastName2, email, phone, province, address, user, code);
 
-                  }
+                agentList.add(agent);
+
+            }
             readFile.close();
             System.out.println("ESTOY LEYENDO AGENTES");
             return agentList;
@@ -79,13 +76,13 @@ System.out.println("ENTRE AL WHILE DEL AGENTE");
             //   Logger.getLogger(DataCSV.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-       // return null;
-       System.out.println(" NOO ESTOY LEYENDO AGENTES");
-       LinkedList<Agent> agentList = new LinkedList<>();
-return agentList;
+        // return null;
+        System.out.println(" NOO ESTOY LEYENDO AGENTES");
+        LinkedList<Agent> agentList = new LinkedList<>();
+        return agentList;
     }
-    
-     public static LinkedList<Administrator> readCSVAdministrator(){
+
+    public static LinkedList<Administrator> readCSVAdministrator() {
 
         String outputFile = "Administrator.csv";
 
@@ -95,42 +92,37 @@ return agentList;
 
             File alreadyExists = new File("Administrator.csv");
 
-            
+            CsvReader readFile = new CsvReader("Administrator.csv", ';', Charset.forName("UTF-8"));
 
-                CsvReader readFile = new CsvReader("Administrator.csv", ';', Charset.forName("UTF-8"));
+            readFile.setDelimiter(';');
 
-                readFile.setDelimiter(';');
+            readFile.readHeaders();
 
-                readFile.readHeaders();
+            while (readFile.readRecord()) {
 
-                while (readFile.readRecord()) {
+                String ID = readFile.get(0);
 
-                    
+                String name = readFile.get(1);
 
-                        String ID = readFile.get(0);
+                String lastName1 = readFile.get(2);
 
-                        String name = readFile.get(1);
+                String lastName2 = readFile.get(3);
 
-                        String lastName1 = readFile.get(2);
+                String email = readFile.get(4);
 
-                        String lastName2 = readFile.get(3);
+                String phone = readFile.get(5);
 
-                        String email = readFile.get(4);
+                String province = readFile.get(6);
 
-                        String phone = readFile.get(5);
+                String address = readFile.get(7);
 
-                        String province = readFile.get(6);
+                adminList.add(new Administrator(ID, name, lastName1, lastName2, email, phone, province, address));
 
-                        String address = readFile.get(7);
+            }
 
+            readFile.close();
 
-                        adminList.add(new Administrator(ID, name, lastName1, lastName2, email, phone, province, address));
-        
-}
-                
-                readFile.close();
-            
-System.out.println("ESTOY LEYENDO ADMINISTRADORES");
+            System.out.println("ESTOY LEYENDO ADMINISTRADORES");
             return adminList;
 
         } catch (FileNotFoundException ex) {
@@ -140,13 +132,13 @@ System.out.println("ESTOY LEYENDO ADMINISTRADORES");
 
             //   Logger.getLogger(DataCSV.class.getName()).log(Level.SEVERE, null, ex);
         }
-LinkedList<Administrator> adminList = new LinkedList<>();
-System.out.println("NOO ESTOY LEYENDO ADMINISTRADORES");
+        LinkedList<Administrator> adminList = new LinkedList<>();
+        System.out.println("NOO ESTOY LEYENDO ADMINISTRADORES");
         return adminList;
 
     }
-     
-      public static LinkedList<Client> readCSVClient()  {
+
+    public static LinkedList<Client> readCSVClient() {
 
         String outputFile = "Client.csv";
 
@@ -156,42 +148,38 @@ System.out.println("NOO ESTOY LEYENDO ADMINISTRADORES");
 
             File alreadyExists = new File("Client.csv");
 
-           
+            CsvReader readFile = new CsvReader("Client.csv", ';', Charset.forName("UTF-8"));
 
-                CsvReader readFile = new CsvReader("Client.csv", ';', Charset.forName("UTF-8"));
+            readFile.setDelimiter(';');
 
-                readFile.setDelimiter(';');
+            readFile.readHeaders();
 
-                readFile.readHeaders();
+            while (readFile.readRecord()) {
 
-                while (readFile.readRecord()) {
+                String ID = readFile.get(0);
 
-                    
+                String name = readFile.get(1);
 
-                        String ID = readFile.get(0);
+                String lastName1 = readFile.get(2);
 
-                        String name = readFile.get(1);
+                String lastName2 = readFile.get(3);
 
-                        String lastName1 = readFile.get(2);
+                String email = readFile.get(4);
 
-                        String lastName2 = readFile.get(3);
+                String phone = readFile.get(5);
 
-                        String email = readFile.get(4);
+                String province = readFile.get(6);
 
-                        String phone = readFile.get(5);
+                String address = readFile.get(7);
+                ;
 
-                        String province = readFile.get(6);
+                clientList.add(new Client(ID, name, lastName1, lastName2, email, phone, province, address));
 
-                        String address = readFile.get(7);
-;
+            }
 
-                        clientList.add(new Client(ID, name, lastName1, lastName2, email, phone, province, address));
-        
-}
-                
-                 readFile.close();
-            
-System.out.println("ESTOY LEYENDO CLIENTES");
+            readFile.close();
+
+            System.out.println("ESTOY LEYENDO CLIENTES");
             return clientList;
 
         } catch (FileNotFoundException ex) {
@@ -201,13 +189,13 @@ System.out.println("ESTOY LEYENDO CLIENTES");
 
             //   Logger.getLogger(DataCSV.class.getName()).log(Level.SEVERE, null, ex);
         }
-LinkedList<Client> clientList = new LinkedList<>();
-System.out.println("NO ESTOY LEYENDO CLIENTES");
+        LinkedList<Client> clientList = new LinkedList<>();
+        System.out.println("NO ESTOY LEYENDO CLIENTES");
         return clientList;
 
     }
-      
-       public static LinkedList<Driver> readCSVDriver() {
+
+    public static LinkedList<Driver> readCSVDriver() {
 
         String outputFile = "Driver.csv";
 
@@ -217,45 +205,41 @@ System.out.println("NO ESTOY LEYENDO CLIENTES");
 
             File alreadyExists = new File("Driver.csv");
 
-            
+            CsvReader readFile = new CsvReader("Driver.csv", ';', Charset.forName("UTF-8"));
 
-                CsvReader readFile = new CsvReader("Driver.csv", ';', Charset.forName("UTF-8"));
+            readFile.setDelimiter(';');
 
-                readFile.setDelimiter(';');
+            readFile.readHeaders();
 
-                readFile.readHeaders();
+            while (readFile.readRecord()) {
 
-                while (readFile.readRecord()) {
+                String ID = readFile.get(0);
 
-                    
+                String name = readFile.get(1);
 
-                        String ID = readFile.get(0);
+                String lastName1 = readFile.get(2);
 
-                        String name = readFile.get(1);
+                String lastName2 = readFile.get(3);
 
-                        String lastName1 = readFile.get(2);
+                String email = readFile.get(4);
 
-                        String lastName2 = readFile.get(3);
+                String phone = readFile.get(5);
 
-                        String email = readFile.get(4);
+                String province = readFile.get(6);
 
-                        String phone = readFile.get(5);
+                String address = readFile.get(7);
 
-                        String province = readFile.get(6);
+                String vehicle = readFile.get(8);
 
-                        String address = readFile.get(7);
+                String age = readFile.get(9);
 
-                        String vehicle = readFile.get(8);
+                driverList.add(new Driver(ID, name, lastName1, lastName2, email, phone, province, address, vehicle, age));
 
-                        String age = readFile.get(9);
+            }
 
-                        driverList.add(new Driver(ID, name, lastName1, lastName2, email, phone, province, address, vehicle, age));
-        
-                     }
-                
-                readFile.close();
-            
-System.out.println("ESTOY LEYENDO CONDUCTORES");
+            readFile.close();
+
+            System.out.println("ESTOY LEYENDO CONDUCTORES");
             return driverList;
 
         } catch (FileNotFoundException ex) {
@@ -265,13 +249,13 @@ System.out.println("ESTOY LEYENDO CONDUCTORES");
 
             //   Logger.getLogger(DataCSV.class.getName()).log(Level.SEVERE, null, ex);
         }
-LinkedList<Driver> driverList = new LinkedList<>();
-System.out.println("NO ESTOY LEYENDO CONDUCTORES");
+        LinkedList<Driver> driverList = new LinkedList<>();
+        System.out.println("NO ESTOY LEYENDO CONDUCTORES");
         return driverList;
 
     }
-       
-        public static LinkedList<Restaurant> readCSVRestaurant() {
+
+    public static LinkedList<Restaurant> readCSVRestaurant() {
 
         String outputFile = "Restaurant.csv";
 
@@ -281,40 +265,32 @@ System.out.println("NO ESTOY LEYENDO CONDUCTORES");
 
             File alreadyExists = new File("Restaurant.csv");
 
-            
+            CsvReader readFile = new CsvReader("Restaurant.csv", ';', Charset.forName("UTF-8"));
 
-                CsvReader readFile = new CsvReader("Restaurant.csv", ';', Charset.forName("UTF-8"));
+            readFile.setDelimiter(';');
 
-                readFile.setDelimiter(';');
+            readFile.readHeaders();
 
-                readFile.readHeaders();
+            while (readFile.readRecord()) {
 
-                while (readFile.readRecord()) {
+                String ID = readFile.get(0);
 
-                    
+                String logo = readFile.get(1);
 
-                        String ID = readFile.get(0);
+                String name = readFile.get(2);
 
-                        String logo = readFile.get(1);
+                String province = readFile.get(3);
 
-                        String name = readFile.get(2);
+                String location = readFile.get(4);
 
-                        String province = readFile.get(3);
+                restaurantList.add(new Restaurant(ID, logo, name, province, location));
+            }
 
-                        String location = readFile.get(4);
+            readFile.close();
 
-                      
-
-
-                        restaurantList.add(new Restaurant(ID, logo, name, province, location));
-                         }
-                
-                readFile.close();
-            
-System.out.println("ESTOY LEYENDO RESTAURANTES");
+            System.out.println("ESTOY LEYENDO RESTAURANTES");
             return restaurantList;
 
-            
         } catch (FileNotFoundException ex) {
 
             // Logger.getLogger(DataCSV.class.getName()).log(Level.SEVERE, null, ex);
@@ -323,13 +299,13 @@ System.out.println("ESTOY LEYENDO RESTAURANTES");
             //   Logger.getLogger(DataCSV.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-                    LinkedList<Restaurant> restaurantList = new LinkedList<>();
-System.out.println("NOO ESTOY LEYENDO RESTAURANTES");
+        LinkedList<Restaurant> restaurantList = new LinkedList<>();
+        System.out.println("NOO ESTOY LEYENDO RESTAURANTES");
         return restaurantList;
 
     }
-        
-         public static CircularLinkedList readCSVProduct() {
+
+    public static CircularLinkedList readCSVProduct() {
 
         String outputFile = "Product.csv";
 
@@ -339,36 +315,29 @@ System.out.println("NOO ESTOY LEYENDO RESTAURANTES");
 
             File alreadyExists = new File("Product.csv");
 
-            
+            CsvReader readFile = new CsvReader("Product.csv", ';', Charset.forName("UTF-8"));
 
-                CsvReader readFile = new CsvReader("Product.csv", ';', Charset.forName("UTF-8"));
+            readFile.setDelimiter(';');
 
-                readFile.setDelimiter(';');
+            readFile.readHeaders();
 
-                readFile.readHeaders();
+            while (readFile.readRecord()) {
 
-                while (readFile.readRecord()) {
+                String name = readFile.get(0);
 
-                    
+                String cost = readFile.get(1);
 
-                        String name = readFile.get(0);
+                String type = readFile.get(2);
 
-                        String cost = readFile.get(1);
+                String image = readFile.get(3);
 
-                        String type = readFile.get(2);
+                productList.insert(new Product(name, cost, type, image));
 
-                        String image = readFile.get(3);
+            }
 
-                        
+            readFile.close();
 
-                        productList.insert(new Product(name, cost, type, image));
-       
-
-                    }
-                
-                readFile.close();
-            
-System.out.println("ESTOY LEYENDO PRODUCTOS");
+            System.out.println("ESTOY LEYENDO PRODUCTOS");
             return productList;
 
         } catch (FileNotFoundException ex) {
@@ -386,8 +355,8 @@ System.out.println("ESTOY LEYENDO PRODUCTOS");
         return productList;
 
     }
-         
-          public static LinkedList<Order> readCSVOrder() {
+
+    public static LinkedList<Order> readCSVOrder() {
 
         String outputFile = "Order.csv";
 
@@ -397,46 +366,41 @@ System.out.println("ESTOY LEYENDO PRODUCTOS");
 
             File alreadyExists = new File("Order.csv");
 
-            
+            CsvReader readFile = new CsvReader("Order.csv", ';', Charset.forName("UTF-8"));
 
-                CsvReader readFile = new CsvReader("Order.csv", ';', Charset.forName("UTF-8"));
+            readFile.setDelimiter(';');
 
-                readFile.setDelimiter(';');
+            readFile.readHeaders();
 
-                readFile.readHeaders();
+            while (readFile.readRecord()) {
 
-                while (readFile.readRecord()) {
+                String client = readFile.get(0);
 
-                   
+                String numOrder = readFile.get(1);
 
-                        String client = readFile.get(0);
+                String agent = readFile.get(2);
 
-                        String numOrder = readFile.get(1);
+                String date = readFile.get(3);
 
-                        String agent = readFile.get(2);
+                String province = readFile.get(4);
 
-                        String date = readFile.get(3);
+                String driver = readFile.get(5);
 
-                        String province = readFile.get(4);
+                String restaurant = readFile.get(6);
 
-                        String driver = readFile.get(5);
+                String product = readFile.get(7);
 
-                        String restaurant = readFile.get(6);
+                String quantity = readFile.get(8);
 
-                        String product = readFile.get(7);
+                String amount = readFile.get(9);
 
-                        String quantity = readFile.get(8);
+                orderList.add(new Order(client, Integer.parseInt(numOrder), agent, date, province, product, restaurant, product, Integer.parseInt(quantity), Integer.parseInt(amount)));
 
-                        String amount = readFile.get(9);
+            }
 
-                        orderList.add(new Order(client, Integer.parseInt(numOrder), agent, date, province, product, restaurant, product, Integer.parseInt(quantity), Integer.parseInt(amount)));
-      
+            readFile.close();
 
-                      }
-                
-                readFile.close();
-            
-System.out.println("ESTOY LEYENDO ORDENES");
+            System.out.println("ESTOY LEYENDO ORDENES");
             return orderList;
 
         } catch (FileNotFoundException ex) {
@@ -447,8 +411,8 @@ System.out.println("ESTOY LEYENDO ORDENES");
             //   Logger.getLogger(DataCSV.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-            LinkedList<Order> orderList = new LinkedList<>();
-            System.out.println("NOO ESTOY LEYENDO PRODUCTOS");
+        LinkedList<Order> orderList = new LinkedList<>();
+        System.out.println("NOO ESTOY LEYENDO PRODUCTOS");
         return orderList;
 
     }

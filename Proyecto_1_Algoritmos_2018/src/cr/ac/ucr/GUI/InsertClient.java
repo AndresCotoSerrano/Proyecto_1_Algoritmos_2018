@@ -16,7 +16,7 @@ import java.util.LinkedList;
 public class InsertClient extends javax.swing.JFrame {
 
     ClientFile clietfile;
-    LinkedList<Client> linkedListClient = new LinkedList<>();
+    public static LinkedList<Client> linkedListClient = new LinkedList<>();
 
     /**
      * Creates new form Insert_Client

@@ -5,17 +5,23 @@
  */
 package cr.ac.ucr.GUI;
 
+import cr.ac.ucr.Domain.Administrator;
 import cr.ac.ucr.Domain.Agent;
+import cr.ac.ucr.Domain.Client;
+import cr.ac.ucr.Domain.Driver;
+import cr.ac.ucr.Domain.Order;
+import cr.ac.ucr.Domain.Product;
+import cr.ac.ucr.Domain.Restaurant;
+import cr.ac.ucr.Logic.CircularLinkedList;
 import cr.ac.ucr.Logic.ListException.ListException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author deltadragon
- */
 public class CRUDs extends javax.swing.JFrame {
 
     public CRUDs() {
@@ -60,20 +66,20 @@ public class CRUDs extends javax.swing.JFrame {
         ScrollProduct = new javax.swing.JScrollPane();
         JT_Product = new javax.swing.JTable();
         ScrollAdministrator = new javax.swing.JScrollPane();
-        JTAdministrator = new javax.swing.JTable();
+        JT_Administrator = new javax.swing.JTable();
         ScrollClient = new javax.swing.JScrollPane();
         JT_client = new javax.swing.JTable();
-        JB_DeleteDriver = new javax.swing.JButton();
         JB_UpdateDriver = new javax.swing.JButton();
         JB_UpdateRestaurant = new javax.swing.JButton();
         JB_UpdateAgent = new javax.swing.JButton();
         JB_UpdateProduct = new javax.swing.JButton();
         JB_UpdateAdministrator = new javax.swing.JButton();
+        JB_UpdateClient = new javax.swing.JButton();
+        JB_DeleteDriver = new javax.swing.JButton();
         JB_DeleteRestaurant = new javax.swing.JButton();
         JB_DeleteAgent = new javax.swing.JButton();
         JB_DeleteProduct = new javax.swing.JButton();
         JB_DeleteAdministrator = new javax.swing.JButton();
-        JB_UpdateClient = new javax.swing.JButton();
         JB_DeleteClient = new javax.swing.JButton();
         JL_fondo = new javax.swing.JLabel();
         JM_Cruds = new javax.swing.JMenuBar();
@@ -236,7 +242,7 @@ public class CRUDs extends javax.swing.JFrame {
 
         getContentPane().add(ScrollProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 30, 740, 330));
 
-        JTAdministrator.setModel(new javax.swing.table.DefaultTableModel(
+        JT_Administrator.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -255,15 +261,15 @@ public class CRUDs extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        ScrollAdministrator.setViewportView(JTAdministrator);
-        if (JTAdministrator.getColumnModel().getColumnCount() > 0) {
-            JTAdministrator.getColumnModel().getColumn(0).setResizable(false);
-            JTAdministrator.getColumnModel().getColumn(1).setResizable(false);
-            JTAdministrator.getColumnModel().getColumn(2).setResizable(false);
-            JTAdministrator.getColumnModel().getColumn(3).setResizable(false);
-            JTAdministrator.getColumnModel().getColumn(5).setResizable(false);
-            JTAdministrator.getColumnModel().getColumn(6).setResizable(false);
-            JTAdministrator.getColumnModel().getColumn(7).setResizable(false);
+        ScrollAdministrator.setViewportView(JT_Administrator);
+        if (JT_Administrator.getColumnModel().getColumnCount() > 0) {
+            JT_Administrator.getColumnModel().getColumn(0).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(1).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(2).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(3).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(5).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(6).setResizable(false);
+            JT_Administrator.getColumnModel().getColumn(7).setResizable(false);
         }
 
         getContentPane().add(ScrollAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 30, 740, 330));
@@ -283,11 +289,6 @@ public class CRUDs extends javax.swing.JFrame {
 
         getContentPane().add(ScrollClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 330));
 
-        JB_DeleteDriver.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        JB_DeleteDriver.setForeground(new java.awt.Color(204, 204, 5));
-        JB_DeleteDriver.setText("Delete");
-        getContentPane().add(JB_DeleteDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
-
         JB_UpdateDriver.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         JB_UpdateDriver.setForeground(new java.awt.Color(204, 204, 5));
         JB_UpdateDriver.setText("Editar");
@@ -296,6 +297,11 @@ public class CRUDs extends javax.swing.JFrame {
         JB_UpdateRestaurant.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         JB_UpdateRestaurant.setForeground(new java.awt.Color(204, 204, 5));
         JB_UpdateRestaurant.setText("Editar");
+        JB_UpdateRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_UpdateRestaurantActionPerformed(evt);
+            }
+        });
         getContentPane().add(JB_UpdateRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 30));
 
         JB_UpdateAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
@@ -318,34 +324,69 @@ public class CRUDs extends javax.swing.JFrame {
         });
         getContentPane().add(JB_UpdateAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 30));
 
-        JB_DeleteRestaurant.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        JB_DeleteRestaurant.setForeground(new java.awt.Color(204, 204, 5));
-        JB_DeleteRestaurant.setText("Delete");
-        getContentPane().add(JB_DeleteRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
-
-        JB_DeleteAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        JB_DeleteAgent.setForeground(new java.awt.Color(204, 204, 5));
-        JB_DeleteAgent.setText("Delete");
-        getContentPane().add(JB_DeleteAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
-
-        JB_DeleteProduct.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        JB_DeleteProduct.setForeground(new java.awt.Color(204, 204, 5));
-        JB_DeleteProduct.setText("Delete");
-        getContentPane().add(JB_DeleteProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
-
-        JB_DeleteAdministrator.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        JB_DeleteAdministrator.setForeground(new java.awt.Color(204, 204, 5));
-        JB_DeleteAdministrator.setText("Delete");
-        getContentPane().add(JB_DeleteAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
-
         JB_UpdateClient.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         JB_UpdateClient.setForeground(new java.awt.Color(204, 204, 5));
         JB_UpdateClient.setText("Editar");
         getContentPane().add(JB_UpdateClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 30));
 
+        JB_DeleteDriver.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteDriver.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteDriver.setText("Delete");
+        JB_DeleteDriver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteDriverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
+
+        JB_DeleteRestaurant.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteRestaurant.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteRestaurant.setText("Delete");
+        JB_DeleteRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteRestaurantActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
+
+        JB_DeleteAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteAgent.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteAgent.setText("Delete");
+        JB_DeleteAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteAgentActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
+
+        JB_DeleteProduct.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteProduct.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteProduct.setText("Delete");
+        JB_DeleteProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteProductActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
+
+        JB_DeleteAdministrator.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JB_DeleteAdministrator.setForeground(new java.awt.Color(204, 204, 5));
+        JB_DeleteAdministrator.setText("Delete");
+        JB_DeleteAdministrator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteAdministratorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_DeleteAdministrator, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
+
         JB_DeleteClient.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         JB_DeleteClient.setForeground(new java.awt.Color(204, 204, 5));
         JB_DeleteClient.setText("Borrar");
+        JB_DeleteClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_DeleteClientActionPerformed(evt);
+            }
+        });
         getContentPane().add(JB_DeleteClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, 30));
 
         JL_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
@@ -501,11 +542,124 @@ public class CRUDs extends javax.swing.JFrame {
     private void JMI_InsertDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertDriverActionPerformed
         InsertDriver id;
 
-            id = new InsertDriver();
-            id.setVisible(true);
+        id = new InsertDriver();
+        id.setVisible(true);
 
     }//GEN-LAST:event_JMI_InsertDriverActionPerformed
+    public void chargeTableDriver(Queue list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_client.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        ArrayList<Driver> list1 = null;
+        list1.add((Driver) list.poll());
+        for (int i = 0; i < list1.size(); i++) {
+            model.addRow(O);
+            Driver getP = (Driver) list1.get(i);
+            model.setValueAt(getP.getID(), i, 0);
+            model.setValueAt(getP.getName(), i, 1);
+            model.setValueAt(getP.getLastName1(), i, 2);
+            model.setValueAt(getP.getLastName2(), i, 3);
+            model.setValueAt(getP.getEmail(), i, 4);
+            model.setValueAt(getP.getPhone(), i, 5);
+            model.setValueAt(getP.getProvince(), i, 6);
+            model.setValueAt(getP.getAddress(), i, 7);
+            model.setValueAt(getP.getTypeVehicule(), i, 8);
+            model.setValueAt(getP.getAge(), i, 9);
+        }
+        for (Driver d : list1) {
+            InsertDriver.driversQueue.add(d);
+        }
+    }
 
+    public void chargeTableAdministrator(LinkedList list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Administrator.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+            model.addRow(O);
+            Administrator getP = (Administrator) list.get(i);
+            model.setValueAt(getP.getID(), i, 0);
+            model.setValueAt(getP.getName(), i, 1);
+            model.setValueAt(getP.getLastName1(), i, 2);
+            model.setValueAt(getP.getLastName2(), i, 3);
+            model.setValueAt(getP.getEmail(), i, 4);
+            model.setValueAt(getP.getPhone(), i, 5);
+            model.setValueAt(getP.getProvince(), i, 6);
+            model.setValueAt(getP.getAddress(), i, 7);
+
+        }
+    }
+
+    public void chargeTableProduct(CircularLinkedList list) throws ListException {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Product.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        ArrayList<Product> list1 = null;
+        for (int i = 0; i < list.getSize(); i++) {
+            list1.add((Product) list.getNode(i));
+        }
+        for (int i = 0; i < list1.size(); i++) {
+            model.addRow(O);
+            Product getP = (Product) list1.get(i);
+            model.setValueAt(getP.getName(), i, 0);
+            model.setValueAt(getP.getCost(), i, 1);
+            model.setValueAt(getP.getType(), i, 2);
+
+        }
+    }
+
+    public void chargeTableAgent(LinkedList list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Agent.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+            model.addRow(O);
+            Agent getP = (Agent) list.get(i);
+            model.setValueAt(getP.getID(), i, 0);
+            model.setValueAt(getP.getName(), i, 1);
+            model.setValueAt(getP.getLastName1(), i, 2);
+            model.setValueAt(getP.getLastName2(), i, 3);
+            model.setValueAt(getP.getEmail(), i, 4);
+            model.setValueAt(getP.getPhone(), i, 5);
+            model.setValueAt(getP.getProvince(), i, 6);
+            model.setValueAt(getP.getAddress(), i, 7);
+            model.setValueAt(getP.getUser(), i, 8);
+            model.setValueAt(getP.getCode(), i, 9);
+        }
+    }
+
+    public void chargeTableClient(LinkedList list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Driver.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+            model.addRow(O);
+            Client getP = (Client) list.get(i);
+            model.setValueAt(getP.getID(), i, 0);
+            model.setValueAt(getP.getName(), i, 1);
+            model.setValueAt(getP.getLastName1(), i, 2);
+            model.setValueAt(getP.getLastName2(), i, 3);
+            model.setValueAt(getP.getEmail(), i, 4);
+            model.setValueAt(getP.getPhone(), i, 5);
+            model.setValueAt(getP.getProvince(), i, 6);
+            model.setValueAt(getP.getAddress(), i, 6);
+        }
+    }
+
+    public void chargeTableRestaurant(LinkedList list) {
+        DefaultTableModel model = (DefaultTableModel) this.JT_Restaurant.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+            model.addRow(O);
+            Restaurant getP = (Restaurant) list.get(i);
+            model.setValueAt(getP.getID(), i, 0);
+            model.setValueAt(getP.getName(), i, 1);
+            model.setValueAt(getP.getProvince(), i, 2);
+            model.setValueAt(getP.getLocation(), i, 3);
+
+        }
+    }
     private void JM_RestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_RestaurantActionPerformed
 
     }//GEN-LAST:event_JM_RestaurantActionPerformed
@@ -524,32 +678,32 @@ public class CRUDs extends javax.swing.JFrame {
 
     private void JMI_InsertRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertRestaurantActionPerformed
         InsertRestaurant ir;
-            ir = new InsertRestaurant();
-            ir.setVisible(true);
+        ir = new InsertRestaurant();
+        ir.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_JMI_InsertRestaurantActionPerformed
 
     private void JMI_InsertAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAgentActionPerformed
         InsertAgent as;
-            as = new InsertAgent();
-            as.setVisible(true);
+        as = new InsertAgent();
+        as.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_JMI_InsertAgentActionPerformed
 
     private void JMI_InsertProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertProductActionPerformed
         InsertProduct ip;
-            ip = new InsertProduct();
-            ip.setVisible(true);
+        ip = new InsertProduct();
+        ip.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_JMI_InsertProductActionPerformed
 
     private void JMI_InsertAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMI_InsertAdministratorActionPerformed
         InsertAdministrator ia;
-            ia = new InsertAdministrator();
-            ia.setVisible(true);
+        ia = new InsertAdministrator();
+        ia.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_JMI_InsertAdministratorActionPerformed
@@ -576,7 +730,8 @@ public class CRUDs extends javax.swing.JFrame {
         this.JB_UpdateClient.setVisible(true);
         this.JB_UpdateDriver.setVisible(false);
         this.JB_UpdateProduct.setVisible(false);
-        this.JB_UpdateRestaurant.setVisible(false);// TODO add your handling code here:
+        this.JB_UpdateRestaurant.setVisible(false);
+        chargeTableClient(InsertClient.linkedListClient);
     }//GEN-LAST:event_JM_VerClienteActionPerformed
 
     private void JB_UpdateAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_UpdateAdministratorActionPerformed
@@ -611,6 +766,7 @@ public class CRUDs extends javax.swing.JFrame {
         this.JB_UpdateDriver.setVisible(true);
         this.JB_UpdateProduct.setVisible(false);
         this.JB_UpdateRestaurant.setVisible(false);
+        chargeTableDriver(InsertDriver.driversQueue);
     }//GEN-LAST:event_JM_VerDriverActionPerformed
 
     private void JM_VerRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_VerRestaurantActionPerformed
@@ -632,6 +788,7 @@ public class CRUDs extends javax.swing.JFrame {
         this.JB_UpdateDriver.setVisible(false);
         this.JB_UpdateProduct.setVisible(false);
         this.JB_UpdateRestaurant.setVisible(true);
+        chargeTableRestaurant(InsertRestaurant.linkedListRestaurant);
     }//GEN-LAST:event_JM_VerRestaurantActionPerformed
 
     private void JM_VerAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_VerAgentActionPerformed
@@ -653,27 +810,33 @@ public class CRUDs extends javax.swing.JFrame {
         this.JB_UpdateDriver.setVisible(false);
         this.JB_UpdateProduct.setVisible(false);
         this.JB_UpdateRestaurant.setVisible(false);
+        chargeTableAgent(InsertAgent.linkedAgent);
     }//GEN-LAST:event_JM_VerAgentActionPerformed
 
     private void JM_VerProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_VerProductActionPerformed
-        this.ScrollAdministrator.setVisible(false);
-        this.ScrollAgent.setVisible(false);
-        this.ScrollClient.setVisible(false);
-        this.ScrollDriver.setVisible(false);
-        this.ScrollProduct.setVisible(true);
-        this.ScrollRestaurant.setVisible(false);
-        this.JB_DeleteAdministrator.setVisible(false);
-        this.JB_DeleteAgent.setVisible(false);
-        this.JB_DeleteClient.setVisible(false);
-        this.JB_DeleteProduct.setVisible(true);
-        this.JB_DeleteRestaurant.setVisible(false);
-        this.JB_DeleteDriver.setVisible(false);
-        this.JB_UpdateAdministrator.setVisible(false);
-        this.JB_UpdateAgent.setVisible(false);
-        this.JB_UpdateClient.setVisible(false);
-        this.JB_UpdateDriver.setVisible(false);
-        this.JB_UpdateProduct.setVisible(true);
-        this.JB_UpdateRestaurant.setVisible(false);
+        try {
+            this.ScrollAdministrator.setVisible(false);
+            this.ScrollAgent.setVisible(false);
+            this.ScrollClient.setVisible(false);
+            this.ScrollDriver.setVisible(false);
+            this.ScrollProduct.setVisible(true);
+            this.ScrollRestaurant.setVisible(false);
+            this.JB_DeleteAdministrator.setVisible(false);
+            this.JB_DeleteAgent.setVisible(false);
+            this.JB_DeleteClient.setVisible(false);
+            this.JB_DeleteProduct.setVisible(true);
+            this.JB_DeleteRestaurant.setVisible(false);
+            this.JB_DeleteDriver.setVisible(false);
+            this.JB_UpdateAdministrator.setVisible(false);
+            this.JB_UpdateAgent.setVisible(false);
+            this.JB_UpdateClient.setVisible(false);
+            this.JB_UpdateDriver.setVisible(false);
+            this.JB_UpdateProduct.setVisible(true);
+            this.JB_UpdateRestaurant.setVisible(false);
+            chargeTableProduct(InsertProduct.circularListProduct);
+        } catch (ListException ex) {
+            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_JM_VerProductActionPerformed
 
     private void JM_VerAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_VerAdministratorActionPerformed
@@ -695,7 +858,82 @@ public class CRUDs extends javax.swing.JFrame {
         this.JB_UpdateDriver.setVisible(false);
         this.JB_UpdateProduct.setVisible(false);
         this.JB_UpdateRestaurant.setVisible(false);
+        chargeTableAdministrator(InsertAdministrator.linkedAdministrator);
     }//GEN-LAST:event_JM_VerAdministratorActionPerformed
+
+    private void JB_DeleteDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteDriverActionPerformed
+        int row = this.JT_Driver.getSelectedRow();
+        String id = this.JT_Driver.getValueAt(row, 0).toString();
+        for (Driver d : InsertDriver.driversQueue) {
+            if (d.getID().equals(id)) {
+                InsertDriver.driversQueue.remove(d);
+            }
+        }
+        chargeTableDriver(InsertDriver.driversQueue);
+    }//GEN-LAST:event_JB_DeleteDriverActionPerformed
+
+    private void JB_UpdateRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_UpdateRestaurantActionPerformed
+
+    }//GEN-LAST:event_JB_UpdateRestaurantActionPerformed
+
+    private void JB_DeleteRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteRestaurantActionPerformed
+        int row = this.JT_Restaurant.getSelectedRow();
+        String id = this.JT_Restaurant.getValueAt(row, 0).toString();
+        for (Restaurant r : InsertRestaurant.linkedListRestaurant) {
+            if (id.equals(r.getID())) {
+                InsertRestaurant.linkedListRestaurant.remove(r);
+            }
+        }
+        chargeTableRestaurant(InsertRestaurant.linkedListRestaurant);
+    }//GEN-LAST:event_JB_DeleteRestaurantActionPerformed
+
+    private void JB_DeleteAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteAgentActionPerformed
+        int row = this.JT_Agent.getSelectedRow();
+        String id = this.JT_Agent.getValueAt(row, 0).toString();
+        for (Agent a : InsertAgent.linkedAgent) {
+            if (id.equals(a.getID())) {
+                InsertAgent.linkedAgent.remove(a);
+            }
+        }
+        chargeTableAgent(InsertAgent.linkedAgent);
+    }//GEN-LAST:event_JB_DeleteAgentActionPerformed
+
+    private void JB_DeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteProductActionPerformed
+        try {
+            int row = this.JT_Product.getSelectedRow();
+            String id = this.JT_Product.getValueAt(row, 0).toString();
+            for (int i = 0; i < InsertProduct.circularListProduct.getSize(); i++) {
+                Product product = (Product) InsertProduct.circularListProduct.getNode(i);
+                if (product.getName().equals(id)) {
+                    InsertProduct.circularListProduct.delete(product);
+                }
+            }
+            chargeTableProduct(InsertProduct.circularListProduct);
+        } catch (ListException ex) {
+            Logger.getLogger(CRUDs.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JB_DeleteProductActionPerformed
+
+    private void JB_DeleteAdministratorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteAdministratorActionPerformed
+        int row = this.JT_Administrator.getSelectedRow();
+        String id = this.JT_Administrator.getValueAt(row, 0).toString();
+        for (Administrator a : InsertAdministrator.linkedAdministrator) {
+            if (a.getID().equals(id)) {
+                InsertAdministrator.linkedAdministrator.remove(a);
+            }
+        }
+        chargeTableAdministrator(InsertAdministrator.linkedAdministrator);
+    }//GEN-LAST:event_JB_DeleteAdministratorActionPerformed
+
+    private void JB_DeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_DeleteClientActionPerformed
+        int row = this.JT_client.getSelectedRow();
+        String id = this.JT_client.getValueAt(row, 0).toString();
+        for (Client c : InsertClient.linkedListClient) {
+            if (c.getID().equals(id)) {
+                InsertClient.linkedListClient.remove(c);
+            }
+        }
+    }//GEN-LAST:event_JB_DeleteClientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -765,7 +1003,7 @@ public class CRUDs extends javax.swing.JFrame {
     private javax.swing.JMenuItem JM_VerDriver;
     private javax.swing.JMenuItem JM_VerProduct;
     private javax.swing.JMenuItem JM_VerRestaurant;
-    private javax.swing.JTable JTAdministrator;
+    private javax.swing.JTable JT_Administrator;
     private javax.swing.JTable JT_Agent;
     private javax.swing.JTable JT_Driver;
     private javax.swing.JTable JT_Product;

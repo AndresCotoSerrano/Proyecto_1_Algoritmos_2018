@@ -25,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author deltadragon
  */
-public class Administrator extends javax.swing.JFrame {
+public class PanelAdministrator extends javax.swing.JFrame {
 
     int count = 0;
     Dimension dimension;
@@ -35,12 +35,16 @@ public class Administrator extends javax.swing.JFrame {
 
     public ArrayList<Order> finalList = fillTable();
 
-    ;
-
-    public Administrator() throws PilaException {
+    public PanelAdministrator(String name, String code) throws PilaException {
         initComponents();
         this.setLocationRelativeTo(null);
         this.chargeTable(fillTable());
+        this.JL_NameAgent.setText(name);
+        this.JL_EmailAgent.setText(code);
+    }
+
+    public PanelAdministrator() throws PilaException {
+        initComponents();
     }
 
     /**
@@ -54,10 +58,8 @@ public class Administrator extends javax.swing.JFrame {
 
         JL_Tittle = new javax.swing.JLabel();
         JL_Name = new javax.swing.JLabel();
-        JL_Code = new javax.swing.JLabel();
         JL_Email = new javax.swing.JLabel();
         JL_NameAgent = new javax.swing.JLabel();
-        JL_CodeAgent = new javax.swing.JLabel();
         JL_EmailAgent = new javax.swing.JLabel();
         JT_Table = new javax.swing.JScrollPane();
         JT_Reporte = new javax.swing.JTable();
@@ -92,18 +94,16 @@ public class Administrator extends javax.swing.JFrame {
         JL_Name.setText("Name:");
         getContentPane().add(JL_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 60, 40));
 
-        JL_Code.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        JL_Code.setForeground(new java.awt.Color(204, 204, 5));
-        JL_Code.setText("Code:");
-        getContentPane().add(JL_Code, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 60, 40));
-
         JL_Email.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         JL_Email.setForeground(new java.awt.Color(204, 204, 5));
         JL_Email.setText("Email:");
         getContentPane().add(JL_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 70, 60, 40));
-        getContentPane().add(JL_NameAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 250, 30));
-        getContentPane().add(JL_CodeAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 180, 30));
-        getContentPane().add(JL_EmailAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 220, 30));
+
+        JL_NameAgent.setForeground(new java.awt.Color(204, 204, 5));
+        getContentPane().add(JL_NameAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 250, 30));
+
+        JL_EmailAgent.setForeground(new java.awt.Color(204, 204, 5));
+        getContentPane().add(JL_EmailAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 80, 220, 30));
 
         JT_Reporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -282,12 +282,7 @@ public class Administrator extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 110, 30));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/pdfIco.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 10, 40, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 10, 40, 40));
 
         JL_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr/ac/ucr/Img/admin.jpg"))); // NOI18N
         getContentPane().add(JL_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 660));
@@ -386,32 +381,22 @@ public class Administrator extends javax.swing.JFrame {
         try {
             chargeTable(fillTable());
         } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelAdministrator.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_JB_SearchActionPerformed
 
     private void JT_ReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_ReporteMouseClicked
         getOrderData();
     }//GEN-LAST:event_JT_ReporteMouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        MessageFormat header = new MessageFormat("Ordenes");
-        MessageFormat footer = new MessageFormat("Page{0,number,integer}");
-        try{
-            this.JT_Reporte.print(JTable.PrintMode.NORMAL,header,footer);
-        } catch (PrinterException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
     private void getOrderData() {
         int row = this.JT_Reporte.getSelectedRow();
         String numOrder = JT_Reporte.getValueAt(row, 1).toString();
         for (Order o : finalList) {
             if (o.getNumOrder() == Integer.parseInt(numOrder)) {
-                OrderCompleteInformation order = new OrderCompleteInformation(o.getCliente(),o.getNumOrder()+"",o.getAgente()
-                ,o.getDate(),o.getProvincia(),o.getDriver(),o.getRestaurant(),o.getProduct(),o.getQuantity()+"",o.getAmount()+"");
+                OrderCompleteInformation order = new OrderCompleteInformation(o.getCliente(), o.getNumOrder() + "", o.getAgente(),
+                         o.getDate(), o.getProvincia(), o.getDriver(), o.getRestaurant(), o.getProduct(), o.getQuantity() + "", o.getAmount() + "");
                 order.setVisible(true);
-            }else{
+            } else {
                 System.out.println("no entro al if");
             }
         }
@@ -429,13 +414,10 @@ public class Administrator extends javax.swing.JFrame {
         Order order1 = null;
 
         for (int i = 0; i < 10; i++) {
-            order1 = new Order("cliente" + i, i, "agente" + i, "1" + i + "/05/2028", "province" + i, "driver" + i, "restaurant"+1, "product" + i,
-            
+            order1 = new Order("cliente" + i, i, "agente" + i, "1" + i + "/05/2028", "province" + i, "driver" + i, "restaurant" + 1, "product" + i,
                     +i, i);
             stack.push(order1);
         }
-        
-        
 
         return stack;
     }
@@ -493,7 +475,7 @@ public class Administrator extends javax.swing.JFrame {
                 }
             }
         } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelAdministrator.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
@@ -515,7 +497,7 @@ public class Administrator extends javax.swing.JFrame {
                 }
             }
         } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelAdministrator.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
@@ -542,7 +524,7 @@ public class Administrator extends javax.swing.JFrame {
                 }
             }
         } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelAdministrator.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
@@ -569,7 +551,7 @@ public class Administrator extends javax.swing.JFrame {
                 }
             }
         } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelAdministrator.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
@@ -596,7 +578,7 @@ public class Administrator extends javax.swing.JFrame {
                 }
             }
         } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelAdministrator.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
@@ -623,7 +605,7 @@ public class Administrator extends javax.swing.JFrame {
                 }
             }
         } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelAdministrator.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
@@ -651,7 +633,7 @@ public class Administrator extends javax.swing.JFrame {
                 }
             }
         } catch (PilaException ex) {
-            Logger.getLogger(Administrator.class
+            Logger.getLogger(PanelAdministrator.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
         return list;
@@ -697,21 +679,25 @@ public class Administrator extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Administrator.class
+            java.util.logging.Logger.getLogger(PanelAdministrator.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Administrator.class
+            java.util.logging.Logger.getLogger(PanelAdministrator.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Administrator.class
+            java.util.logging.Logger.getLogger(PanelAdministrator.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Administrator.class
+            java.util.logging.Logger.getLogger(PanelAdministrator.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -721,7 +707,7 @@ public class Administrator extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new Administrator().setVisible(true);
+                    new PanelAdministrator().setVisible(true);
                 } catch (PilaException ex) {
                     System.out.println("algo fallo");
                 }
@@ -736,8 +722,6 @@ public class Administrator extends javax.swing.JFrame {
     private javax.swing.JButton JB_Previous;
     private javax.swing.JButton JB_Search;
     private javax.swing.JButton JB_next;
-    private javax.swing.JLabel JL_Code;
-    private javax.swing.JLabel JL_CodeAgent;
     private javax.swing.JLabel JL_Email;
     private javax.swing.JLabel JL_EmailAgent;
     private javax.swing.JLabel JL_Name;

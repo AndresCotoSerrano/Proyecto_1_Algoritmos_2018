@@ -40,14 +40,14 @@ public class InsertAgent extends javax.swing.JFrame {
 
          readFiles read= new readFiles();
        
-//        if(agentList.isEmpty()){
-//            lbl_ID2.setText("1");
-//        
-//        }else{
-//            int id = Integer.parseInt(agentList.getLast().getID());
-//            id++;
-//            lbl_ID2.setText(id+"");
-//        }
+        if(linkedAgent.isEmpty()){
+            lbl_ID2.setText("1");
+        
+        }else{
+            int id = Integer.parseInt(linkedAgent.getLast().getID());
+            id++;
+            lbl_ID2.setText(id+"");
+        }
          this.setLocationRelativeTo(null);
             
  
