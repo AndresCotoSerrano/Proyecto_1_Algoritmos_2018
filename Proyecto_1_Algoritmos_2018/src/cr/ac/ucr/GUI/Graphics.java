@@ -7,16 +7,10 @@ package cr.ac.ucr.GUI;
 
 
 
-
-//import com.itextpdf.text.Document;
-//import com.itextpdf.text.DocumentException;
-//import com.itextpdf.text.pdf.PdfContentByte;
-//import com.itextpdf.text.pdf.PdfTemplate;
-//import com.itextpdf.text.pdf.PdfWriter;
-//import cr.ac.ucr.Logic.creatorPdf;
 import cr.ac.ucr.Domain.Order;
 import cr.ac.ucr.Logic.LinkedStack;
 import cr.ac.ucr.Logic.StackException.PilaException;
+import cr.ac.ucr.Logic.creatorPdf;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
@@ -53,10 +47,11 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+ /**
 
-/**
- *
- * @author UsuarioPC
+ * Clase que se encarga de crear Gráficos estadisticos de las Ordenes segun restaurante.
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class Graphics extends javax.swing.JFrame {
     
@@ -120,7 +115,7 @@ public class Graphics extends javax.swing.JFrame {
         });
 
         jButton2.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
-        jButton2.setText("Line Chart");
+        jButton2.setText("Pie Chart");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -245,7 +240,12 @@ public class Graphics extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+         jPanel_graphics.removeAll();
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+ 
+ 
+
+ 
          try {
              ArrayList<Order> list = grafic();
              int suma=0;
@@ -290,23 +290,17 @@ public class Graphics extends javax.swing.JFrame {
        
        
        
-        //ChartFrame frame = new ChartFrame("Ejemplo Grafica de Barras", chart);
-         //BufferedImage image = chart.createBufferedImage(500,300);
-        
-        //Se crea la imagen y se agrega a la etiqueta
-        //chart.setBorderPaint((Paint) new ImageIcon(image));
-        
-        //pack();
-        //repaint();       
-
-      //  frame.pack();
-       // frame.setVisible(true);
+   
       
     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
+ jPanel_graphics.removeAll();
+ DefaultPieDataset dataset = new DefaultPieDataset();
+
+
+
        try {
              ArrayList<Order> list = grafic();
              int suma=0;
@@ -316,9 +310,11 @@ public class Graphics extends javax.swing.JFrame {
                      igual=list.get(i).getRestaurant();
                  System.out.println("llego "+list.get(i).getAmount());
                  suma=suma+list.get(i).getAmount();
-                 line_chart_dataset.addValue(suma, list.get(i).getDate(),list.get(i).getRestaurant());
+                 dataset.setValue(list.get(i).getRestaurant(), suma
+                 );
+                 
               }else{
-                       line_chart_dataset.addValue(list.get(i).getAmount(), list.get(i).getDate(),list.get(i).getRestaurant());
+                      dataset.setValue(list.get(i).getRestaurant(), list.get(i).getAmount());
                         suma=0;
                         igual=list.get(i).getRestaurant();
                   }
@@ -330,12 +326,12 @@ public class Graphics extends javax.swing.JFrame {
       
       
 
-      JFreeChart lineChartObject = ChartFactory.createLineChart(
-         "Ventas por Restaurante","Meses",
-         "ventas",
-         line_chart_dataset,PlotOrientation.VERTICAL,
-         true,true,false);
-       ChartPanel panel = new ChartPanel(lineChartObject);        
+     JFreeChart barChart = ChartFactory.createPieChart(
+                "ventas por restaurante",
+                dataset,
+                false, true, false);
+
+       ChartPanel panel = new ChartPanel(barChart);        
         jPanel_graphics.setLayout(new java.awt.BorderLayout());
         jPanel_graphics.add(panel);   
         jPanel_graphics.validate();
@@ -344,8 +340,8 @@ public class Graphics extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-//    creatorPdf creatorpdf=new creatorPdf();
-//     creatorpdf.pdfCreator(jPanel_graphics);
+    creatorPdf creatorpdf=new creatorPdf();
+     creatorpdf.pdfCreator(jPanel_graphics);
     }//GEN-LAST:event_jButton3ActionPerformed
     
     /**
@@ -373,6 +369,7 @@ public class Graphics extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Graphics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
